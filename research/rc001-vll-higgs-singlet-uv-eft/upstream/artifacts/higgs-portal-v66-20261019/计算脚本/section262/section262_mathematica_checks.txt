@@ -1,0 +1,35 @@
+ENGINE 14.2.0 for Microsoft Windows (64-bit) (December 26, 2024)
+SYSTEM Windows-x86-64
+PASS 1 explicit massive Dirac trace
+PASS 2 PV numerator reduction
+PASS 3 massive UV pole
+PASS 4 C5 radial vertices
+PASS 5 no diagonal contact vertices
+PASS 6 bubble plus contact is minus CW Hessian
+PASS 7 CW tadpole sign
+PASS 8 dimension8 UV potential
+PASS 9 dimension8 invariant monomial
+PASS 10 product derivative radial action
+PASS 11 kinetic rank one
+PASS 12 radial orthogonal null direction
+PASS 13 phase current product direct
+PASS 14 phase current product conjugate
+PASS 15 complete EOM counterterm
+PASS 16 C hard-log counterterm control
+PASS 17 CD hard-log counterterm control
+PASS 18 CJ hard-log counterterm control
+PASS 19 low momentum difference moments
+PASS 20 finite subtracted momentum kernel
+PASS 21 massless finite scalar kernel
+PASS 22 beta cubed absorptive factor
+PASS 23 below threshold B0 derivative
+PASS 24 above threshold B0 derivative
+PASS 25 optical width normalization
+INTEGRAL z=InputForm[-2] real=-0.2810379889028390425932827646412174726`18. imag=0 error=0``35.5512306280766
+INTEGRAL z=InputForm[1] real=0.18620063576578214940592174235784426771`18. imag=0 error=0``35.730014497568526
+INTEGRAL z=InputForm[39/10] real=1.54779293363704399476444203568137188973`18. imag=0 error=0``34.81028279749611
+INTEGRAL z=InputForm[4] real=2.`18. imag=0 error=0``34.69896566141291
+INTEGRAL z=InputForm[5] real=1.56959105903599596111056676704939457458`18. imag=1.40496294620814527863127492864097895989`18. error=0``34.67642467143902
+INTEGRAL z=InputForm[10] real=0.40166851924408953991936695691408459235`18. imag=2.43346720558416713817177646217876342997`18. error=0``34.60793398344957
+RESULT: 25 Mathematica symbolic checks passed; 6 high-precision B0 integrals passed
+No FeynArts/FeynCalc or other loop package was loaded or run.

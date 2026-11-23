@@ -1,0 +1,76 @@
+{
+  "created_on_client_date": "2026-10-20",
+  "baseline_version": 62,
+  "output_version": 63,
+  "baseline_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(62).md",
+  "output_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(63).md",
+  "baseline_sha256_before": "9db426b40015fdcf96e00777ff90b45ad3ecc3759a08ce79fae3ea5937bea499",
+  "baseline_sha256_after": "9db426b40015fdcf96e00777ff90b45ad3ecc3759a08ce79fae3ea5937bea499",
+  "v62_is_exact_byte_prefix_of_v63": true,
+  "baseline_bytes": 1456178,
+  "appendix_bytes": 34528,
+  "output_bytes": 1490706,
+  "output_sha256": "5058cc421c577b01982bea96b248f63fcf566084b9aaca81151ff3ecf38364d5",
+  "section259_subsections": [
+    "259.1",
+    "259.2",
+    "259.3",
+    "259.4",
+    "259.5",
+    "259.6",
+    "259.7",
+    "259.8",
+    "259.9",
+    "259.10",
+    "259.11",
+    "259.12",
+    "259.13"
+  ],
+  "appendix_math_delimiters_balanced": true,
+  "math_expression_braces_balanced": 208,
+  "appendix_code_fences_balanced": true,
+  "appendix_has_no_unexpected_control_characters": true,
+  "embedded_checker_equals_delivered_checker": true,
+  "python_version": "3.14.7",
+  "exact_determinant_Fierz_symbolic_checks_passed": 53,
+  "spinor_Fierz_matrix_components_checked": 512,
+  "Nambu_scalar_kernel_dimension": 6,
+  "unequal_mass_radial_integrals_passed": 3,
+  "regulated_radial_integrals_passed": 6,
+  "IR_hard_limit_values_passed": 6,
+  "numerical_integration": "Simpson 8192 segments; logarithmic endpoint transforms for regulated integrals",
+  "IR_limits": "Decimal precision=50; two-C5 and single-C6 soft subtractions kept distinct",
+  "four_fermion_scheme": "raw scalar/current pole subtraction before 4D Fierz; no epsilon-times-physical admixture in evanescent definitions",
+  "reference_agreement_subcontrols": 23,
+  "reference_printed_sign_discrepancies": [
+    {
+      "source": "arXiv:2112.10787v1 Eq6.31",
+      "printed": "-8/135",
+      "own_hypercharge_current": "+8/135"
+    },
+    {
+      "source": "arXiv:2112.10787v1 Eq6.40",
+      "printed": "25/432+L/72",
+      "own_hypercharge_current": "-25/432+L/72"
+    }
+  ],
+  "reference_discrepancies_not_counted_as_agreement": true,
+  "checker_sha256": "1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847",
+  "check_log_sha256": "47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c",
+  "feynarts_run": false,
+  "feyncalc_run": false,
+  "matchete_run": false,
+  "matchmakereft_run": false,
+  "desktop_v53_original_sha256_verified_unchanged": "6f14ea4a0f31df1c7809325719b952dcb914261938288e3bb84dd89fc01846c5",
+  "library_updated": false,
+  "planned_main_document_versions": [
+    63,
+    62
+  ],
+  "older_main_document_removed": "higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(61).md",
+  "older_content_verified_in_latest_before_removal": true,
+  "remaining_main_document_versions": [
+    63,
+    62
+  ]
+}
