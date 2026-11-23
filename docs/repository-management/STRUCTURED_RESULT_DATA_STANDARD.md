@@ -39,10 +39,10 @@ Use the `extensions` object in the common record schema. Keep these fields proje
 
 Under `extensions.supernova_transport`, record as applicable:
 
-- (m_{A'}), (g_X), vector/axial-vector coupling components, and their normalization;
+- `m_A'`, `g_X`, vector/axial-vector coupling components, and their normalization;
 - background model (for example, SFHo), snapshot time, profile source/version/SHA-256, radial coverage, (R_\nu), and (R_{\rm far});
-- (T(r)), chemical potentials, species densities, and their definitions;
-- production/absorption channels, neutrino flavor, (mu^-)/(mu^+), and L/T+/T− polarization modes;
+- `T(r)`, chemical potentials, species densities, and their definitions;
+- production/absorption channels, neutrino flavor, `mu-`/`mu+`, and L/T+/T− polarization modes;
 - opacity/reduced-opacity definitions, detailed-balance convention, gravitational redshift, escape path, and boundary conditions;
 - radial/energy/angular integration nodes, local-kernel quadrature order, integrator, and tolerances;
 - per-channel/per-polarization local rates, optically thin luminosities, optical depths, escape probabilities, and total luminosity.
