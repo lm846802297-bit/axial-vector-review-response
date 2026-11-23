@@ -28,14 +28,14 @@ The source and opacity grids reproduce their archived fingerprints exactly. The 
 
 | Grid | Nodes | SHA-256 |
 |---|---:|---|
-| Source radial grid | 200 | \`1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5\` |
-| Opacity radial grid | 642 | \`6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378\` |
-| Energy grid | 842 | \`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3\` |
+| Source radial grid | 200 | `1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5` |
+| Opacity radial grid | 642 | `6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378` |
+| Energy grid | 842 | `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3` |
 
 Profile SHA-256:
-\`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 
-The historical failed-run energy hash \`db6f613c...\` was not reproduced from the current main inputs. The independent grid diagnostic and the production phase-space run both reproduce the archived \`036e6d77...\` fingerprint. No baseline hash was changed.
+The byte-level runtime hash \`db6f613c...\` also appears in a cross-runner production run. Its 842 nodes nevertheless match the immutable archived reference within a maximum absolute difference of \(5.684341886080802\times10^{-14}\) MeV, maximum relative difference \(1.1675488289093305\times10^{-16}\), and one ULP. The original baseline hash \`036e6d77...\` and immutable node reference remain unchanged; physical grid equivalence is established by the node-wise comparison, not by requiring identical floating-point bytes.
 
 ## Global luminosity and baseline closure
 
@@ -81,10 +81,11 @@ Regression tests cover this behavior. No phase-space cell or physical contributi
 
 ## Validation record
 
-- [Energy-grid identity diagnostic #45171900209](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45171900209) — passed.
-- [Strict phase-space reproduction #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856) — calculation, validator, regression tests, and result archive passed.
+- [Energy-grid identity diagnostic #45182871981](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45182871981) — six tests and the immutable 842-node reference comparison passed.
+- [Strict phase-space reproduction #45182871998](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45182871998) — calculation, sparse-table validator, regression tests, production-output immutability check, and result archive passed.
+- [Final validator run #45184003058](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45184003058) — 24/24 tests and strict validation of the committed result passed on the integrated PR head.
 - Cross-runner diagnostic #45171843071 also passed the node-wise comparison with a one-ULP difference.
-- The production result JSON is archived beside this report as \`outputs/b16_escape_phase_space_10mev_2026-11-17.json\`.
+- The production result JSON is archived beside this report as `outputs/b16_escape_phase_space_10mev_2026-11-17.json`.
 - The axial-vector production files and constraint outputs were verified unchanged.
 
 ## Scope and remaining work

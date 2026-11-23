@@ -9,8 +9,8 @@ This integration combines the B.16 phase-space and energy-grid evidence from PR 
 - Original archived energy-grid SHA-256 is retained: 036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3.
 - Immutable 842-node reference file is retained, with file SHA-256 3a99a994d9cab96fd194cf540d75ef698f871354839c8f55f05eeaa11f02d957.
 - Cross-runner node comparison accepts the observed one-ULP difference: maximum absolute difference 5.684341886080802e-14 MeV and maximum relative difference 1.1675488289093305e-16.
-- Strict phase-space run #45172485856 passed calculation, sparse joint-table validation, regression tests, and archive write-back.
-- Energy-grid diagnostic #45171900209 passed.
+- Strict phase-space run #45182871998 passed calculation, sparse joint-table validation, regression tests, production-output immutability check, and archive write-back.
+- Energy-grid diagnostic #45182871981 passed six tests and the immutable 842-node reference comparison. The final 24-test output-validator run #45184003058 also passed on the integrated PR head.
 
 The B.16 luminosity closure residual is -2.220446049250313e-16; the optically thin luminosity residual is zero; the escape-probability residual is -5.421010862427522e-20. The Fig. 7 10 MeV luminosity discrepancy remains +92.4284%. No opacity rescaling or axial-vector constraint update is authorized.
 
@@ -38,4 +38,4 @@ This is targeted high-order acceptance, not exhaustive high-order convergence ov
 
 1. The +92.4284% Fig. 7 10 MeV strong-absorption discrepancy remains open.
 2. B.13 full 1687-radius high-order convergence and global polarization-resolved B.2 transport are not accepted by this targeted run.
-3. Repository-wide document inventory and workflow register reconciliation are tracked separately from the numerical acceptance above.
+3. The 26 new Markdown/TXT documents introduced by this integration have individual review records in the supplemental register. The current branch contains 877 Markdown/TXT files; 462 baseline plus 173 supplemental records cover 635 files. The remaining 242 pre-existing unregistered files are a separate repository-cleanup batch and do not change the B.13/B.16 numerical acceptance above.

@@ -22,26 +22,26 @@ The previous version of the post-processing script expected CSV columns that are
 
 The archive's per-charge, per-polarization spectral source is
 
-[
+\[
 \mathcal S_{h,Q}(r,\omega)
 =\frac{\omega^2\sqrt{\omega^2-m_{A'}^2}}{2\pi^2}
-\,\Gamma_{\mathrm{prod},h,Q}^{\mathrm{B.13}}(r,\omega),
-]
+\,\Gamma_{\mathrm{prod},h,Q}^{\mathrm{B.13}}(r,\omega).
+\]
 
 with (h\in\{L,+,-\}), (Q\in\{\mu^-,\mu^+\}). The source rates are normalized per (g_X^2).
 
 Four measures were recomputed from the 468 archived direct cell-midpoint evaluations:
 
 1. **Historical flat local-source proxy**
-   [
-   4\pi r^2\,\Delta r\,\Delta\omega\;\mathcal S.
-   ]
+   \[
+   4\pi r^2\,\Delta r\,\Delta\omega\,\mathcal S_{h,Q}(r,\omega).
+   \]
    This reproduces the earlier local-source fractions, but omits the lapse-squared factor and escape-energy lower bound.
 
 2. **B.1 geometric/lapse midpoint measure, no threshold**
-   [
-   4\pi r^2 N(r)^2\,\Delta r\,\Delta\omega\;\mathcal S.
-   ]
+   \[
+   4\pi r^2 N(r)^2\,\Delta r\,\Delta\omega\,\mathcal S_{h,Q}(r,\omega).
+   \]
 
 3. **B.1 midpoint threshold**
    Use the same measure, retaining a cell only if its midpoint obeys
@@ -49,11 +49,11 @@ Four measures were recomputed from the 468 archived direct cell-midpoint evaluat
 
 4. **B.1 fractional-cell threshold (primary diagnostic)**
    Clip the energy-cell width at the local escape threshold:
-   [
+   \[
    \Delta\omega_{\rm allowed}
    =\max\!\left[0,\omega_{i+1}-
    \max\!\left(\omega_i,\frac{m_{A'}}{N(r)}\right)\right].
-   ]
+   \]
    The direct midpoint source is treated as constant over the retained part of that cell.
 
 The local threshold is the condition (E_\infty=N\omega_{\rm loc}\ge m_{A'}). The fractional-cell method is a controlled post-processing diagnostic, not the production B.1 implementation: it does not replace the radial Gauss rule or the piecewise-linear energy weights in `blinov_reproduction/reference.py`. The totals below retain (4\pi), but omit the common km-to-MeV(^{-1}) and MeV(^{2}\)-to-erg/s conversions; use the fractions for comparisons, not as luminosities.

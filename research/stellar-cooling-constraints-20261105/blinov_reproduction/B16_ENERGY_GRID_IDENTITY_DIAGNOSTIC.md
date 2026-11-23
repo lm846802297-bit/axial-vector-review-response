@@ -24,12 +24,12 @@ From the repository root:
 
 ```bash
 python -m pip install numpy==2.5.4 scipy==1.18.1
-python -m unittest discover \\
-  -s research/stellar-cooling-constraints-20261105/blinov_reproduction \\
+python -m unittest discover \
+  -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
   -p 'test_b16_energy_grid_identity.py' -v
-python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py \\
-  --mass 10 --nr 200 --opacity-order 640 --ne 200 \\
-  --energy-offset 1000 --strict-baseline \\
+python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py \
+  --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+  --energy-offset 1000 --strict-baseline \
   --output b16_energy_grid_identity_diagnostic.json
 ```
 
@@ -59,3 +59,5 @@ The diagnostic workflow passed on the branch based on current `main`:
 - Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`, equal to the archived baseline.
 
 The exact runtime SHA-256 can differ by last-bit floating-point rounding. Run #45171843071 produced `db6f613c...` while its 842 nodes matched the archived reference with maximum absolute difference 5.684341886080802e-14 MeV, maximum relative difference 1.1675488289093305e-16, and maximum ULP difference 1. Run #45171900209 reproduced the original `036e6d77...` byte hash. Both passed the node-wise identity test. The original baseline and node-reference fingerprints remain unchanged.
+
+The latest integrated-branch diagnostic [#45182871981](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45182871981) again passed all six regression tests and the immutable 842-node comparison. The one-ULP node difference remains within the declared relative and absolute tolerances; the original byte-level baseline SHA-256 was not replaced.
