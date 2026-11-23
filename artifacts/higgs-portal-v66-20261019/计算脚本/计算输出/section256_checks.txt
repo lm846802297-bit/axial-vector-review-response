@@ -1,0 +1,92 @@
+Python: 3.14.7
+Arithmetic: Fraction polynomials; exact Gaussian-rational spinor contractions
+PASS 01 all four-Yukawa open walks enumerated
+PASS 02 all allowed conjugate scalar pairings enumerated
+PASS 03 no proper direct four-Yukawa vertex
+PASS 04 both heavy kinetic insertions retained before p=0
+YUKAWA_GRAPH (('L', 'E', 'L', 'E', 'R'), (1, 2), 'external-L two-point')
+YUKAWA_GRAPH (('L', 'E', 'L', 'E', 'R'), (2, 3), 'heavy kinetic insertion at p=0')
+YUKAWA_GRAPH (('L', 'E', 'R', 'E', 'R'), (2, 3), 'heavy kinetic insertion at p=0')
+YUKAWA_GRAPH (('L', 'E', 'R', 'E', 'R'), (3, 4), 'external-R two-point')
+PASS 05 only portal quartic connects both Yukawa scalar legs
+PASS 06 portal hard/soft pole cancellation
+PASS 07 portal full IR reconstruction
+PASS 08 portal finite Wilson threshold
+PASS 09 regulated triangle from derivative of B0
+PASS 10 gauge hard UV pole
+PASS 11 gauge hard IR pole
+PASS 12 gauge common pole
+PASS 13 gauge finite sum including epsilon times poles
+PASS 14 gauge parameter cancels from finite matching
+PASS 15 gauge parameter cancels from common pole
+PASS 16 universal vector charge limit
+PASS 17 neutral H scalar limit
+PASS 18 neutral S scalar limit
+GAUGE_KERNEL EE -2*L*eps*h^2 + 3*L*h^2 + 1*L*h^2*xi + 2*UV*eps*h^2 + -3*UV*h^2 + -1*UV*h^2*xi + 2*eps*h^2 + -3*h^2 + -1*h^2*xi
+GAUGE_KERNEL LE 2*L*eps*h*l + -3*L*h*l + -1*L*h*l*xi + -2*UV*eps*h*l + 3*UV*h*l + 1*UV*h*l*xi + -2*eps*h*l + 3*h*l + 1*h*l*xi
+GAUGE_KERNEL RE 2*L*eps*h*r + -3*L*h*r + -1*L*h*r*xi + -2*UV*eps*h*r + 3*UV*h*r + 1*UV*h*r*xi + -2*eps*h*r + 3*h*r + 1*h*r*xi
+GAUGE_KERNEL LR 2*IR*eps*l*r + -3*IR*l*r + -1*IR*l*r*xi + -2*L*eps*l*r + 3*L*l*r + 1*L*l*r*xi + 2*eps*l*r + -3*l*r + -1*l*r*xi
+GAUGE_KERNEL HE 1*L*h*l*xi + -1*L*h^2*xi + -1*UV*h*l*xi + 1*UV*h^2*xi + -1*h*l*xi + 1*h^2*xi
+GAUGE_KERNEL SE 1*L*h*r*xi + -1*L*h^2*xi + -1*UV*h*r*xi + 1*UV*h^2*xi + -1*h*r*xi + 1*h^2*xi
+GAUGE_KERNEL HR -1*IR*h*r*xi + 1*IR*l*r*xi + 1*L*h*r*xi + -1*L*l*r*xi + -1*h*r*xi + 1*l*r*xi
+GAUGE_KERNEL SL -1*IR*h*l*xi + 1*IR*l*r*xi + 1*L*h*l*xi + -1*L*l*r*xi + -1*h*l*xi + 1*l*r*xi
+GAUGE_KERNEL HS 1*IR*h*l*xi + 1*IR*h*r*xi + -1*IR*h^2*xi + -1*IR*l*r*xi + -1*L*h*l*xi + -1*L*h*r*xi + 1*L*h^2*xi + 1*L*l*r*xi + 1*h*l*xi + 1*h*r*xi + -1*h^2*xi + -1*l*r*xi
+GAUGE_KERNEL LH 0
+GAUGE_KERNEL RS 0
+GAUGE_FINITE -3*L*h*l + -3*L*h*r + 3*L*h^2 + 3*L*l*r + 1*h*l + 1*h*r + -1*h^2 + -1*l*r
+PASS 19 flavor s=1 hypercharge gauge matching
+PASS 20 flavor s=1 X gauge matching
+PASS 21 flavor s=1 tree kinetic mixing gauge numerator
+PASS 22 flavor s=-1 hypercharge gauge matching
+PASS 23 flavor s=-1 X gauge matching
+PASS 24 flavor s=-1 tree kinetic mixing gauge numerator
+PASS 25 weak gauge hard block
+PASS 26 UV pure-Yukawa parameter counterterm
+PASS 27 pure-Yukawa tree-amplitude counterterms cancel
+PASS 28 pure-Yukawa matching logarithm obeys RG
+PASS 29 EFT gauge coefficient counterterm derived from six contact exchanges
+PASS 30 UV gauge parameter counterterm derived from full proper amplitude
+PASS 31 gauge UV/EFT counterterm difference
+PASS 32 gauge matching logarithm obeys RG
+PASS 33 portal matching logarithm obeys RG
+PASS 34 single-flavor degenerate-scale finite wave correction
+PASS 35 total zero-mixing C5 correction
+PASS 36 open-line (-i)^2*i^2 exact Gaussian phase
+PASS 37 left projector idempotence
+PASS 38 right projector idempotence
+PASS 39 left-external heavy mass numerator vanishes
+PASS 40 right-external heavy mass numerator vanishes
+PASS 41 left-external slash numerator component 0
+PASS 42 right-external slash numerator component 0
+PASS 43 left-external slash numerator component 1
+PASS 44 right-external slash numerator component 1
+PASS 45 left-external slash numerator component 2
+PASS 46 right-external slash numerator component 2
+PASS 47 left-external slash numerator component 3
+PASS 48 right-external slash numerator component 3
+PASS 49 portal (-i)^3*i^3 relative phase
+PASS 50 EE fermion numerator metric
+PASS 51 EE fermion numerator longitudinal
+PASS 52 LE fermion numerator metric
+PASS 53 LE fermion numerator longitudinal
+PASS 54 RE fermion numerator metric
+PASS 55 RE fermion numerator longitudinal
+PASS 56 LR fermion numerator metric
+PASS 57 LR fermion numerator longitudinal
+PASS 58 HE scalar-contracted numerator
+PASS 59 SE scalar-contracted numerator
+PASS 60 HR scalar-contracted numerator
+PASS 61 SL scalar-contracted numerator
+PASS 62 HS scalar-contracted numerator
+NUMERICAL regulated portal integral, Simpson n=16384:
+INTEGRAL r=0.05, direct=-2.266739361279, exact=-2.266739361279
+INTEGRAL r=0.10, direct=-1.731586534561, exact=-1.731586534561
+INTEGRAL r=0.20, direct=-1.264746738178, exact=-1.264746738178
+NUMERICAL portal hard remainder, Decimal precision=50:
+HARD_LIMIT r=0.01, full-minus-soft=0.916597401590488, target=1
+HARD_LIMIT r=0.001, full-minus-soft=0.987164739511598, target=1
+HARD_LIMIT r=0.0001, full-minus-soft=0.998257665579548, target=1
+RESULT: 62 exact graph/symbolic/matrix checks passed; 3 integrals and 3 high-precision hard limits passed
+C5 direct/C5 tree = q0*[lambdaP*(1-L)+deltaH.Kinv.deltaS*(1-3*L)]
+Pure-Yukawa direct zero; all four light-field factors included separately.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

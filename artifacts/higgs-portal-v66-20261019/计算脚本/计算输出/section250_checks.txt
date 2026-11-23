@@ -1,0 +1,63 @@
+Python: 3.14.7
+Arithmetic: fractions.Fraction sparse multivariate polynomials
+PASS 01 B0 parameter moment n=1
+PASS 02 B0 parameter moment n=2
+PASS 03 B0 parameter moment n=3
+PASS 04 B0 parameter moment n=4
+PASS 05 B0 parameter moment n=5
+PASS 06 B0 parameter moment n=6
+PASS 07 PV constant / M2
+PASS 08 PV p2
+PASS 09 PV p4 / M2
+PASS 10 self-energy constant / (h M2)
+PASS 11 self-energy p2 / h
+PASS 12 self-energy p4 M2 / h
+PASS 13 counterterm removes pole
+PASS 14 all chiral trace components and mass terms
+PASS 15 closed-loop * two vertices * two propagators
+PASS 16 HD EOM scalar monomial X^1 Y^0
+PASS 17 HD EOM scalar monomial X^0 Y^1
+PASS 18 HD EOM scalar monomial X^2 Y^0
+PASS 19 HD EOM scalar monomial X^0 Y^2
+PASS 20 HD EOM scalar monomial X^1 Y^1
+PASS 21 HD EOM scalar monomial X^3 Y^0
+PASS 22 HD EOM scalar monomial X^0 Y^3
+PASS 23 HD EOM scalar monomial X^2 Y^1
+PASS 24 HD EOM scalar monomial X^1 Y^2
+PASS 25 HD EOM entire scalar polynomial
+PASS 26 H source constant
+PASS 27 H source X
+PASS 28 H source Y
+PASS 29 S source constant
+PASS 30 S source X
+PASS 31 S source Y
+PASS 32 H source square
+PASS 33 S source square
+PASS 34 field redefinition removes Q and retains KdagK
+PASS 35 canonical H mass parameter
+PASS 36 canonical S mass parameter
+PASS 37 canonical H quartic in L
+PASS 38 canonical S quartic in L
+PASS 39 canonical portal in L
+PASS 40 inherited cD EOM projection
+PASS 41 four-point polynomial reproduced for s+t+u=0
+PASS 42 off-shell null directions leave cDNR unchanged
+PASS 43 box EOM derivative row
+PASS 44 box EOM portal row
+PASS 45 unified scalar row X^1 Y^0
+PASS 46 unified scalar row X^0 Y^1
+PASS 47 unified scalar row X^2 Y^0
+PASS 48 unified scalar row X^0 Y^2
+PASS 49 unified scalar row X^1 Y^1
+PASS 50 unified scalar row X^3 Y^0
+PASS 51 unified scalar row X^0 Y^3
+PASS 52 unified scalar row X^2 Y^1
+PASS 53 unified scalar row X^1 Y^2
+PASS 54 unified H source Y
+PASS 55 unified S source X
+PASS 56 CW linear coefficient agrees with mass self-energy
+RESULT: 56 checks passed; no failures
+B0 through z^2 = Delta - L + 1 + z/2 + z^2/6
+PV / M2 through z^2 = 2(Delta-L+1) + (-Delta+L-1/2)z - z^2/3
+Pi / (h M2) through z^2 = -2(Delta-L+1) + (Delta-L+1/2)z + z^2/3
+Scope: algebra and fixed chiral traces only; not an automatic diagram census.

@@ -1,0 +1,85 @@
+Python: 3.14.7
+Arithmetic: Fraction polynomials, Clifford traces, rank-2/rank-4 d-dimensional angular averages
+PASS 01 IR master J21
+PASS 02 IR master J22
+PASS 03 IR master J31
+PASS 04 IR master J32
+PASS 05 UV master J02
+PASS 06 UV master Jminus13
+PASS 07 finite master J12
+PASS 08 finite master J03
+PASS 09 angle 0 heavy-heavy p2
+PASS 10 angle 0 heavy-light p2
+PASS 11 angle 0 light-light p2
+PASS 12 angle 0 scalar wavefunction seagull
+PASS 13 angle 0 field-strength diagonal charge polynomial
+PASS 14 angle 0 distinct-field normalization
+PASS 15 angle 1/3 heavy-heavy p2
+PASS 16 angle 1/3 heavy-light p2
+PASS 17 angle 1/3 light-light p2
+PASS 18 angle 1/3 scalar wavefunction seagull
+PASS 19 angle 1/3 field-strength diagonal charge polynomial
+PASS 20 angle 1/3 distinct-field normalization
+PASS 21 angle -1/2 heavy-heavy p2
+PASS 22 angle -1/2 heavy-light p2
+PASS 23 angle -1/2 light-light p2
+PASS 24 angle -1/2 scalar wavefunction seagull
+PASS 25 angle -1/2 field-strength diagonal charge polynomial
+PASS 26 angle -1/2 distinct-field normalization
+SIX CYCLES AT cos(theta)=0:
+CYCLE ('A', 'B', 'C', 'D') 0 -2/3 1/2 + -1*L + 1*UV
+CYCLE ('A', 'B', 'D', 'C') 0 -2/3 1/2 + -1*L + 1*UV
+CYCLE ('A', 'C', 'B', 'D') 1 -2/3 -1 + 2*L + -2*UV
+CYCLE ('A', 'C', 'D', 'B') 2 0 1/2 + -1*L + 1*UV
+CYCLE ('A', 'D', 'B', 'C') 1 -2/3 -1 + 2*L + -2*UV
+CYCLE ('A', 'D', 'C', 'B') 2 0 1/2 + -1*L + 1*UV
+PASS 27 one-orientation HL transverse derivative
+PASS 28 one-orientation HL longitudinal remainder
+PASS 29 one-orientation HL zero-momentum mass
+PASS 30 background longitudinal recovers scalar Q coefficient
+PASS 31 background resolves current coefficients
+PASS 32 background hard and EFT soft poles cancel
+PASS 33 universal neutral-scalar low-energy theorem
+PASS 34 H BB coefficient
+PASS 35 H XX coefficient
+PASS 36 H WW diagonal coefficient
+PASS 37 H BX explicit cross coefficient
+PASS 38 H WB T-generator coefficient
+PASS 39 H WX T-generator coefficient
+PASS 40 S BB coefficient
+PASS 41 S XX field-strength cancellation
+PASS 42 S BX explicit cross coefficient
+PASS 43 H current B
+PASS 44 H current X
+PASS 45 H current W generator
+PASS 46 S current B conjugation
+PASS 47 S current X conjugation
+PASS 48 electromagnetic H gamma-gamma LET
+PASS 49 electromagnetic H gamma-X LET
+PASS 50 electromagnetic S gamma-gamma LET
+PASS 51 optional EOM derivative row QX
+PASS 52 optional EOM derivative row QHD
+PASS 53 optional EOM derivative row QY
+PASS 54 optional EOM derivative row OJ
+PASS 55 optional EOM potential row X^2Y^0
+PASS 56 optional EOM potential row X^3Y^0
+PASS 57 optional EOM potential row X^2Y^1
+PASS 58 optional EOM potential row X^0Y^2
+PASS 59 optional EOM potential row X^0Y^3
+PASS 60 optional EOM potential row X^1Y^2
+PASS 61 optional EOM Higgs source
+PASS 62 optional EOM singlet source
+PASS 63 published SM HW Eq 6.10
+PASS 64 published SM HB Eq 6.11
+PASS 65 published SM HWB Pauli Eq 6.12
+PASS 66 published SM Hbox Eq 6.13 with Ye=0
+PASS 67 published SM HD Eq 6.14 with Ye=0
+PASS 68 published SM up-H gauge source Eq 6.25
+NUMERICAL neutral-scalar background checks, Simpson n=2048:
+A/M2=1.0e-02, p2/M2=-1.0e-02, C/(q0*gYuk2*c2/M2)=0.331019033419, target=1/3
+A/M2=1.0e-03, p2/M2=-1.0e-03, C/(q0*gYuk2*c2/M2)=0.333100191889, target=1/3
+A/M2=1.0e-04, p2/M2=-1.0e-04, C/(q0*gYuk2*c2/M2)=0.333310001920, target=1/3
+RESULT: 68 exact symbolic checks passed; 3 neutral-background numerical cases passed
+Field strength: C_diag = q0*gYuk2*l*(h+l)/(6*M2)
+Current: D_a = q0*gYuk2*[2*h_a/9+(5/18-L/3)*l_a]/M2
+Scope: CP-even two-scalar/two-gauge hard projection and current completion; no FeynArts/FeynCalc run.

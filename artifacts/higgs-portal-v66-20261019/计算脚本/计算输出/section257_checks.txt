@@ -1,0 +1,89 @@
+Python: 3.14.7
+Arithmetic: exact Fraction polynomials; open Clifford projection before integration
+PASS 01 all equal-chirality contractions enumerated
+PASS 02 box graph count
+PASS 03 heavy-self-soft graph count
+PASS 04 external-fermion-leg graph count
+GRAPH (('L', 'E', 'L', 'E', 'L'), (1, 2), ['H', 'Hc'], 'external-fermion-leg')
+GRAPH (('L', 'E', 'L', 'E', 'L'), (1, 4), ['Hc', 'H'], 'box')
+GRAPH (('L', 'E', 'L', 'E', 'L'), (2, 3), ['H', 'Hc'], 'heavy-self-soft')
+GRAPH (('L', 'E', 'L', 'E', 'L'), (3, 4), ['H', 'Hc'], 'external-fermion-leg')
+GRAPH (('L', 'E', 'R', 'E', 'L'), (1, 4), ['S', 'Sc'], 'box')
+GRAPH (('L', 'E', 'R', 'E', 'L'), (2, 3), ['H', 'Hc'], 'heavy-self-soft')
+GRAPH (('R', 'E', 'L', 'E', 'R'), (1, 4), ['Hc', 'H'], 'box')
+GRAPH (('R', 'E', 'L', 'E', 'R'), (2, 3), ['Sc', 'S'], 'heavy-self-soft')
+GRAPH (('R', 'E', 'R', 'E', 'R'), (1, 2), ['Sc', 'S'], 'external-fermion-leg')
+GRAPH (('R', 'E', 'R', 'E', 'R'), (1, 4), ['S', 'Sc'], 'box')
+GRAPH (('R', 'E', 'R', 'E', 'R'), (2, 3), ['Sc', 'S'], 'heavy-self-soft')
+GRAPH (('R', 'E', 'R', 'E', 'R'), (3, 4), ['Sc', 'S'], 'external-fermion-leg')
+PASS 05 pure box integrand expansion
+PASS 06 mixed box integrand expansion
+PASS 07 potential triangle integrand expansion
+PASS 08 mixed integral J22
+PASS 09 finite integral J12
+PASS 10 finite integral J03
+PASS 11 finite integral J13
+PURE_VECTOR -3/4*ta + 1*tb + -3/4*tc
+MIXED_VECTOR -1/2*IR*tb + 1/2*L*tb + -1/4*ta + -3/4*tb + -1/4*tc
+POTENTIAL_VECTOR 1/2*IR*ta + 1/2*IR*tc + -1/2*L*ta + -1/2*L*tc + 3/4*ta + 3/4*tc
+PASS 12 pure B coefficient
+PASS 13 pure current 2Q coefficient
+PASS 14 mixed L/S B coefficient
+PASS 15 mixed L/S current coefficient
+PASS 16 mixed R/H current coefficient
+PASS 17 potential has no scalar current
+PASS 18 potential finite wave coefficient
+PASS 19 Hessian H normal entry 00
+PASS 20 Hessian H normal entry 01
+PASS 21 Hessian H normal entry 10
+PASS 22 Hessian H normal entry 11
+PASS 23 Hessian S normal entry
+PASS 24 L/S box reconstructed pole
+PASS 25 L/S box current RG
+PASS 26 R/H box reconstructed pole
+PASS 27 R/H box current RG
+PASS 28 potential hard/soft poles cancel
+PASS 29 mass-basis mixed kinetic full function
+PASS 30 pure constant-background mass derivative
+PASS 31 potential agrees with light-mass hard threshold
+PASS 32 published VLL H-l singlet pure Yukawa
+PASS 33 published VLL H-l triplet pure Yukawa
+PASS 34 L/H exact-soft counterterm RG
+PASS 35 R/S exact-soft weak multiplicity RG
+PASS 36 published universal SM H-l singlet gauge EOM block
+PASS 37 published universal SM H-l triplet gauge EOM block
+PASS 38 published universal SM H-e gauge EOM block
+PASS 39 s=1 jP L/H singlet projection
+PASS 40 s=1 jP R/H projection
+PASS 41 s=1 jP L/S projection
+PASS 42 s=1 jP R/S projection
+PASS 43 s=1 Q2 L/H projection
+PASS 44 s=1 Q2 R/H projection
+PASS 45 s=1 Q2 L/S projection
+PASS 46 s=1 Q2 R/S projection
+PASS 47 s=-1 jP L/H singlet projection
+PASS 48 s=-1 jP R/H projection
+PASS 49 s=-1 jP L/S projection
+PASS 50 s=-1 jP R/S projection
+PASS 51 s=-1 Q2 L/H projection
+PASS 52 s=-1 Q2 R/H projection
+PASS 53 s=-1 Q2 L/S projection
+PASS 54 s=-1 Q2 R/S projection
+PASS 55 s=1 diagonal dimension-six dipole forbidden
+PASS 56 s=1 S restores dipole charge at dimension seven
+PASS 57 s=-1 diagonal dimension-six dipole forbidden
+PASS 58 s=-1 S restores dipole charge at dimension seven
+NUMERICAL pure constant-background mass derivative, Simpson n=8192:
+PURE_NUM z=-1.0e-02, direct=-0.496691468319, series=-0.496691468319, limit=-0.5
+PURE_NUM z=-1.0e-03, direct=-0.499666916467, series=-0.499666916467, limit=-0.5
+PURE_NUM z=-1.0e-04, direct=-0.499966669166, series=-0.499966669166, limit=-0.5
+NUMERICAL independent mixed mass-basis kinetic hard limit, Decimal precision=50:
+MIXED_NUM w=0.01, z=-0.01, hard=-1.261332276686935, target=-1.25
+MIXED_NUM w=0.001, z=-0.001, hard=-1.252285799075288, target=-1.25
+MIXED_NUM w=0.0001, z=-0.0001, hard=-1.250343824718360, target=-1.25
+RESULT: 58 exact graph/symbolic checks passed; 3 integrals and 3 mass-basis hard limits passed
+Pure kernel: P - 3*(p+pprime)/4
+Mixed kernel: P*(-IR/2+L/2-3/4) - (p+pprime)/4
+Potential kernel: (p+pprime)*(IR/2-L/2+3/4)
+Scope: Yukawa/scalar-potential two-fermion/two-scalar hard matching; gauge exchange still separate.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

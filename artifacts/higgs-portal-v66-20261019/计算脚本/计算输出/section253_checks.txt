@@ -1,0 +1,77 @@
+Python: 3.14.7
+Arithmetic: exact Fraction multivariate polynomials; numerical quadrature is separate
+PASS 01 Ward g tensor coefficient after radial identities
+PASS 02 Ward cancellation with p_mu p_nu coefficient
+PASS 03 closed-loop vertices and propagators
+PASS 04 Dirac transverse prefactor 4*2
+PASS 05 zero-momentum Feynman moment
+PASS 06 Taylor coefficient n=1
+PASS 07 explicit coefficient n=1
+PASS 08 Taylor coefficient n=2
+PASS 09 explicit coefficient n=2
+PASS 10 Taylor coefficient n=3
+PASS 11 explicit coefficient n=3
+PASS 12 Taylor coefficient n=4
+PASS 13 Taylor coefficient n=5
+PASS 14 Taylor coefficient n=6
+PASS 15 p_mu T^mu0=0
+PASS 16 p_mu T^mu1=0
+PASS 17 p_mu T^mu2=0
+PASS 18 p_mu T^mu3=0
+PASS 19 all tensor components T*g*T=p2*T
+PASS 20 BB pole counts two Dirac fermions
+PASS 21 XX pole counts two Dirac fermions
+PASS 22 BX pole cancels without mass degeneracy
+PASS 23 BB finite kinetic threshold
+PASS 24 XX finite kinetic threshold
+PASS 25 BX finite kinetic threshold
+PASS 26 BB dimension-six coefficient
+PASS 27 XX dimension-six coefficient
+PASS 28 BX dimension-six coefficient
+PASS 29 kinetic matrix is symmetric
+PASS 30 dimension-six matrix is symmetric
+PASS 31 degenerate kinetic mixing vanishes
+PASS 32 degenerate high-derivative mixing vanishes
+PASS 33 degenerate full-function Taylor cancellation n=1
+PASS 34 degenerate full-function Taylor cancellation n=2
+PASS 35 degenerate full-function Taylor cancellation n=3
+PASS 36 degenerate full-function Taylor cancellation n=4
+PASS 37 degenerate full-function Taylor cancellation n=5
+PASS 38 degenerate full-function Taylor cancellation n=6
+PASS 39 finite kinetic mixing explicit scale derivative
+PASS 40 positive Gram determinant identity
+PASS 41 Gram matrix quadratic form
+PASS 42 hypercharge coupling matching scale check
+PASS 43 X coupling matching scale check
+PASS 44 canonical gauge kinetic matrix row 00
+PASS 45 canonical gauge kinetic matrix row 11
+PASS 46 canonical gauge kinetic matrix row 01
+PASS 47 all current-current EOM terms
+PASS 48 current square row jH
+PASS 49 current square row jS
+PASS 50 current square row jY
+PASS 51 current square row jx
+PASS 52 current cross row jH jS
+PASS 53 current cross row jH jY
+PASS 54 current cross row jS jx
+PASS 55 current cross row jH jx
+PASS 56 current cross row jS jY
+PASS 57 current cross row jY jx
+PASS 58 j^2=4|phi^dag D phi|^2-(partial modulus)^2
+PASS 59 EOM scalar derivative row QX
+PASS 60 EOM scalar derivative row QHD
+PASS 61 EOM scalar derivative row QY
+PASS 62 EOM scalar derivative row OJ
+PASS 63 EOM scalar Y2 shift
+PASS 64 EOM scalar Y3 shift
+PASS 65 EOM scalar XY2 shift
+PASS 66 EOM scalar Y source shift
+PASS 67 general kinetic matrix inverse numerator diagonal
+PASS 68 general kinetic matrix inverse numerator offdiagonal
+NUMERICAL CHECKS: Simpson n=4096, finite Omega(z)-Omega(0) / (q0*c_a*c_b)
+z=-1.00e-01, integral=-2.638511434173e-02, R_after_z2=-4.161960774039e-06, R/z3=+4.1619607740e-03
+z=-1.00e-02, integral=-2.663813749412e-03, R_after_z2=-4.225602551026e-09, R/z3=+4.2256025510e-03
+z=+1.00e-02, integral=+2.669528049556e-03, R_after_z2=+4.240032630120e-09, R/z3=+4.2400326301e-03
+RESULT: 68 exact symbolic checks passed; 3 numerical parameter-integral cases passed
+Omega = (4/3)q0*c_a*c_b*(Delta-L) + (4/15)q0*c_a*c_b*p2/M2 + O(p4/M4)
+Scope: unbroken-phase heavy Dirac vector currents only; no FeynArts/FeynCalc run.

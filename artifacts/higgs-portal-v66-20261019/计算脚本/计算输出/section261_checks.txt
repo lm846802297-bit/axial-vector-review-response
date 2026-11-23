@@ -1,0 +1,69 @@
+PASS 01 h tadpole chain rule
+PASS 02 s tadpole chain rule
+PASS 03 H stationary mass parameter
+PASS 04 S stationary mass parameter
+PASS 05 radial Hessian 00
+PASS 06 radial Hessian 01
+PASS 07 radial Hessian 11
+PASS 08 nonstationary hh tadpole term
+PASS 09 nonstationary ss tadpole term
+PASS 10 neutral H Goldstone potential mass
+PASS 11 S Goldstone potential mass
+PASS 12 no CP even odd potential mixing
+PASS 13 no two Goldstone potential mixing
+PASS 14 radial Khh factor
+PASS 15 radial Kss factor
+PASS 16 radial Khs factor
+PASS 17 AH cancels radial kinetic row
+PASS 18 AS radial kinetic row
+PASS 19 canonical K 00
+PASS 20 canonical H 00
+PASS 21 canonical K 01
+PASS 22 canonical H 01
+PASS 23 canonical K 11
+PASS 24 canonical H 11
+PASS 25 canonical off diagonal explicit
+PASS 26 canonical trace invariant
+PASS 27 determinant quotient invariant
+PASS 28 generalized characteristic polynomial
+PASS 29 generalized polynomial explicit
+PASS 30 rotation lighter diagonal
+PASS 31 rotation off diagonal sign
+PASS 32 rotation upper diagonal
+PASS 33 nondegenerate angle derivative c=3/5 s=4/5
+PASS 34 nondegenerate angle derivative c=4/5 s=-3/5
+PASS 35 fixed UV invariant VEV shift X
+PASS 36 fixed UV invariant VEV shift Y
+PASS 37 gauge EOM shifted H tadpole
+PASS 38 gauge EOM shifted S tadpole
+PASS 39 gauge EOM radial spectrum invariant 00
+PASS 40 gauge EOM radial spectrum invariant 01
+PASS 41 gauge EOM radial spectrum invariant 11
+PASS 42 p4 field transformation kernel 00
+PASS 43 p4 field transformation kernel 01
+PASS 44 p4 field transformation kernel 11
+PASS 45 p4 scalar potential Hessian 00
+PASS 46 p4 scalar potential Hessian 01
+PASS 47 p4 scalar potential Hessian 11
+PASS 48 light fermion mass source
+PASS 49 light fermion H source vertex
+PASS 50 light fermion S source vertex
+PASS 51 source transfer H to state1
+PASS 52 source transfer S to state1
+PASS 53 C5 times kinetic correction heavy order
+PASS 54 zero UV portal mixed matrix assembly
+PASS 55 zero UV portal per flavor finite coefficient
+PASS 56 off shell mixed derivative combination
+PASS 57 pole shift sign
+PASS 58 off diagonal pole vector numerator
+PASS 59 one loop diagonal residue
+NUMERIC nondegenerate | roots=3.908754881125,9.286433636008 | theta=0.043869347012 | three methods agree
+NUMERIC near_degenerate | roots=3.995800983474,4.004308156653 | theta=-0.155299762559 | three methods agree
+NUMERIC diagonal | roots=3.883495145631,9.183673469388 | theta=0.000000000000 | three methods agree
+ORDER lambda=1e-02 | max_mass2_remainder=2.267201412209e-05 | remainder/lambda2=0.226720141
+ORDER lambda=1e-03 | max_mass2_remainder=2.267329151096e-07 | remainder/lambda2=0.226732915
+ORDER lambda=1e-04 | max_mass2_remainder=2.267343646167e-09 | remainder/lambda2=0.226734365
+RESULT: 59 exact broken-phase checks passed; 3 independent diagonalization cases and 3 truncation-scaling cases passed
+Numerical cases are dimensionless algebra controls, not model benchmarks or a phenomenological spectrum.
+Light-field pole self-energies have not been evaluated in this section.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

@@ -1,0 +1,80 @@
+PASS 01 Dirac single trace 0
+PASS 02 Dirac pair trace 00
+PASS 03 Dirac pair trace 01
+PASS 04 Dirac pair trace 02
+PASS 05 Dirac pair trace 03
+PASS 06 Dirac single trace 1
+PASS 07 Dirac pair trace 10
+PASS 08 Dirac pair trace 11
+PASS 09 Dirac pair trace 12
+PASS 10 Dirac pair trace 13
+PASS 11 Dirac single trace 2
+PASS 12 Dirac pair trace 20
+PASS 13 Dirac pair trace 21
+PASS 14 Dirac pair trace 22
+PASS 15 Dirac pair trace 23
+PASS 16 Dirac single trace 3
+PASS 17 Dirac pair trace 30
+PASS 18 Dirac pair trace 31
+PASS 19 Dirac pair trace 32
+PASS 20 Dirac pair trace 33
+PASS 21 massive scalar numerator PV reduction
+PASS 22 UV pole of bubble plus contact
+PASS 23 single scalar loop i-factor sign
+PASS 24 CW first mass derivative
+PASS 25 CW second mass derivative
+PASS 26 zero momentum bubble/contact equals minus CW Hessian
+PASS 27 C5 h Yukawa
+PASS 28 C5 s Yukawa
+PASS 29 C5 contact vertex
+PASS 30 no hh contact
+PASS 31 no ss contact
+PASS 32 dimension8 potential UV Hessian 00
+PASS 33 dimension8 potential UV Hessian 01
+PASS 34 dimension8 potential UV Hessian 11
+PASS 35 dimension8 invariant potential
+PASS 36 C5 mass relation in invariant background
+PASS 37 covariant product radial UV action
+PASS 38 UV momentum matrix 00
+PASS 39 UV momentum matrix 01
+PASS 40 UV momentum matrix 11
+PASS 41 UV kinetic rank one determinant
+PASS 42 orthogonal radial combination decouples
+PASS 43 covariant product phase/current sign s=1
+PASS 44 covariant product phase/current sign s=-1
+PASS 45 EOM of complete scalar derivative counterterm
+PASS 46 hard log vs two C5 EFT pole C
+PASS 47 hard log vs two C5 EFT pole CD_NR
+PASS 48 hard log vs two C5 EFT pole CJ
+PASS 49 finite momentum difference low z power 1
+PASS 50 finite momentum difference low z power 2
+PASS 51 finite momentum difference low z power 3
+PASS 52 finite momentum difference low z power 4
+PASS 53 seagull and A0 cancel momentum difference
+PASS 54 massless finite kernel
+PASS 55 seagull strict heavy order
+PASS 56 bubble kinetic strict heavy order
+PASS 57 bubble mass strict heavy order
+PASS 58 potential m fourth strict heavy order
+PASS 59 absorptive beta cubed
+PASS 60 cut symmetry
+PASS 61 symmetric pole mixing explicit scale-log cancellation
+PASS 62 symmetric hard soft explicit logarithms
+B0_INTEGRAL z=-2 | real=-0.281037988903 | imag=0.000000000000 | closed_error=1.110e-16
+B0_INTEGRAL z=-0.5 | real=-0.079441541680 | imag=0.000000000000 | closed_error=1.804e-16
+B0_INTEGRAL z=0 | real=0.000000000000 | imag=0.000000000000 | closed_error=0.000e+00
+B0_INTEGRAL z=1 | real=0.186200635766 | imag=0.000000000000 | closed_error=0.000e+00
+B0_INTEGRAL z=3.9 | real=1.547792933637 | imag=0.000000000000 | closed_error=6.661e-16
+B0_INTEGRAL z=4 | real=2.000000000000 | imag=0.000000000000 | closed_error=0.000e+00
+B0_INTEGRAL z=5 | real=1.569591059036 | imag=1.404962946208 | closed_error=0.000e+00
+B0_INTEGRAL z=10 | real=0.401668519244 | imag=2.433467205584 | closed_error=2.220e-16
+DERIVATIVE z=-1 | integral=0.139182118072 | closed=0.139182118072
+DERIVATIVE z=1 | integral=0.209199576156 | closed=0.209199576156
+DERIVATIVE z=3.5 | integral=0.759134334427 | closed=0.759134334427
+MASSLESS_LIMIT r=0.01 | bubble=-2.076354415077340 | bubble_plus_contact=-2.188457818797101 | target=-2
+MASSLESS_LIMIT r=0.001 | bubble=-2.007949580394807 | bubble_plus_contact=-2.023765090952772 | target=-2
+MASSLESS_LIMIT r=0.0001 | bubble=-2.000799357415747 | bubble_plus_contact=-2.002841425490142 | target=-2
+RESULT: 62 exact light-fermion checks passed; 8 B0 integrals, 3 derivative integrals and 3 massless-limit cases passed
+Numerics use dimensionless test points and are not a model spectrum.
+Exact-mass soft functions retain selected M^-4 terms; a complete dimension8 matching is not claimed.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.
