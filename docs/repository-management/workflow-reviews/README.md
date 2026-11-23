@@ -32,3 +32,5 @@
 | [WORKFLOW_REVIEW_BATCH_2_2026-11-14.md](WORKFLOW_REVIEW_BATCH_2_2026-11-14.md) | 第二批 15 个工作流详单 |
 
 原路径、新路径和逐文件 Git blob、SHA-256 见 [迁移清单](RELOCATION_MANIFEST_2026-11-14.json)。原工作流、数值输出及审查报告正文未修改。
+
+| [B13_B16_AND_STANDARDS_WORKFLOW_REVIEW_2026-11-23.md](B13_B16_AND_STANDARDS_WORKFLOW_REVIEW_2026-11-23.md) | B.13/B.16 strict validation, provenance recovery, structured-result validation, and central standards-adoption workflows |

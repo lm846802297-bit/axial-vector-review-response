@@ -97,3 +97,17 @@ The B.13 branch now has **119 workflow YAML files and 119 unique register entrie
 The B.13 workflow uses `contents: read` by default and for Calculate. Only the separate push archive job receives `contents: write`. PR events `opened`, `reopened` and `ready_for_review` run read-only validation; `synchronize` is excluded so an archive-bot commit does not request an approval-gated PR workflow. Push path filters exclude generated output files. Before write-back and before every retry rebase, the archive job compares the workflow, local run summary, source identity and independent validator Git blobs against the latest branch; it refuses stale output and retries at most five times.
 
 The final branch head before this metadata refresh was `27204a98aacac2eb2df9731fec30a894dfd2616a`. No production rate, opacity, transport result, Fig. 7 value or axial-vector constraint is changed.
+
+
+## Latest exact-head reproduction — 2026-11-23
+
+The exact-head push reproduction [run #45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) completed Calculate, independent Validate, and Archive successfully on the current B.13 provenance branch. It reproduced all 431/431 frozen target points (2,155 ordered quadrature evaluations) and archived the independent result package.
+
+- Maximum radial midpoint interpolation error: `8.311070322862653e-4`.
+- Maximum energy PCHIP interpolation error: `6.716564877619043e-4`.
+- Maximum final successive-order change: `3.29220848525901e-4`.
+- Maximum detailed-balance residual: `5.027846521385086e-15`.
+- Maximum mass-shell residual: `2.0432421890821873e-13`.
+- Runtime: 707.7 s; Ubuntu 24.04, Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0.
+
+The independent result was archived in commit `374d52ec7ed9e1f651c4614f12a6e72226525c82`. This remains a targeted 431-point acceptance; it does not claim complete 1687-radius high-order convergence.
