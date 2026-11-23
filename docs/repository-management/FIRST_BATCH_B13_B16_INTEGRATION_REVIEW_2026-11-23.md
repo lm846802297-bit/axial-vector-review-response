@@ -2,7 +2,7 @@
 
 ## Decision
 
-The B.13/B.16 first batch is ready for one integration PR. The three source PRs are integrated by path/blob overlay on the current mainline rather than by blindly merging their stale bases. The integration preserves the original calculation files and archives, retains the PR #134 strict validator, and incorporates the current-head B.13 result.
+The B.13/B.16 first batch is open as [PR #140](https://github.com/lm846802297-bit/axial-vector-review-response/pull/140). Its own pull-request checks and full diff review remain the merge gate. The three source PRs are integrated by path/blob overlay on the current mainline rather than by blindly merging their stale bases. The integration preserves the original calculation files and archives, retains the PR #134 strict validator, and incorporates the current-head B.13 result.
 
 Sources:
 - PR #121 — B.16 energy-grid identity, strict 10 MeV phase-space result, B.13 local-kernel recovery, and associated Fig. 7 diagnostics.
