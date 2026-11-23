@@ -1,0 +1,98 @@
+{
+  "scope": "single reducible right L(p4) W emission on the actual LD-W-06 ordered S\u2013S box",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "connected_ward_polynomial": 16,
+    "amputated_ward_polynomial": 16,
+    "routing": "exact",
+    "fundamental_weak_components_in_each_point": 48
+  },
+  "points": [
+    {
+      "p4_squared": "-11",
+      "q_squared": "-4",
+      "P_squared": "-1",
+      "lower_box_poles": [
+        "10",
+        "11",
+        "19",
+        "-398"
+      ],
+      "spurious_shifted_heavy_pole": "-408",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "original_right_propagator_restored": 768,
+        "right_on_shell_projected": 0,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "spurious_heavy_shift": 288,
+        "wrong_matrix_order": 288,
+        "wrong_chirality": 288,
+        "weak_transpose": 96,
+        "wrong_weak_slot": 192,
+        "lost_right_inverse_term": 288,
+        "wrong_phase": 288
+      }
+    },
+    {
+      "p4_squared": "11",
+      "q_squared": "0",
+      "P_squared": "7",
+      "lower_box_poles": [
+        "34",
+        "35",
+        "61",
+        "-386"
+      ],
+      "spurious_shifted_heavy_pole": "-396",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "original_right_propagator_restored": 768,
+        "right_on_shell_projected": 0,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "spurious_heavy_shift": 288,
+        "wrong_matrix_order": 288,
+        "wrong_chirality": 288,
+        "weak_transpose": 96,
+        "wrong_weak_slot": 192,
+        "lost_right_inverse_term": 288,
+        "wrong_phase": 288
+      }
+    },
+    {
+      "p4_squared": "0",
+      "q_squared": "-4",
+      "P_squared": "-6",
+      "lower_box_poles": [
+        "19",
+        "23",
+        "-1",
+        "-387"
+      ],
+      "spurious_shifted_heavy_pole": "-393",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "original_right_propagator_restored": 0,
+        "right_on_shell_projected": 768,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "spurious_heavy_shift": 288,
+        "wrong_matrix_order": 216,
+        "wrong_chirality": 288,
+        "weak_transpose": 96,
+        "wrong_weak_slot": 192,
+        "lost_right_inverse_term": 0,
+        "wrong_phase": 288
+      }
+    }
+  ]
+}
