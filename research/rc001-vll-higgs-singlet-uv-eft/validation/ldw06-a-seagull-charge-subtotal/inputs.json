@@ -1,0 +1,61 @@
+{
+  "base": "c849ba30c2629a12b8f65ac1576391200de7ff46",
+  "main_baseline": "276cb335d466d1c1864448bcd222fe60d7fdcdc8",
+  "inputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "git_blob": "4a23895de00243073d30f74e1229c5ec79ec0adb",
+      "sha256": "e08371ce9013fdfd1c1a3a68189c607ed15e535e51bd76f1e1d9e4e5f751343c"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "git_blob": "b0d8739a2f80d2886f7347b7a09070d75422fa00",
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "git_blob": "73400daad3f33bec2f7497b6f4c4073a14e9b809",
+      "sha256": "a908cc810572f1c5a22477f87b6475575afe54be096f7eb941facc82e5d971ff"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-1PI-vs-1PR-LSZ-boundary.md",
+      "git_blob": "79152fcbf2231b50efa3a9eb77892f2dada484d1",
+      "sha256": "4d2e151dc466714f242bffce4da7cc3735eae9fa0020cff618c5f35bf58cbe84"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "git_blob": "22fc3b0373f350ae7973390cc6fe0e5582418e89",
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-explicit-scalar-line-seagull-six-pair.md",
+      "git_blob": "66b9512f85659ad47728c2cc7a55df07b4ae1b1f",
+      "sha256": "263deae3dba5d088b0b0811e3498f44dc5cb289c13b12aca8666a01af4a5c732"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "git_blob": "7365c54ae9bbd3a4679feee06e4736fec5591856",
+      "sha256": "58495507f5fb8d7280ed2ef8182b6cb828f97ba73ea76edccc674383f3ca9049"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "git_blob": "e9144c0438aecaaa7c469314317c12cd4848c939",
+      "sha256": "962a10f30b07f802f50e3a4ea886e7d66b69ecc595a78f7373c6192c39e513a8"
+    }
+  ],
+  "prior_context_commits": {
+    "ordered_internal": "a8a43434ec7bf48371033f5e371baa0af41cd133",
+    "external_higgs": "60f2002e49028238d57453e765c63a1e3a0730bf",
+    "external_conjugate_higgs": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+    "external_barred_lepton": "24ef9792412fcd41177196556d1f55f8f735b9f6",
+    "external_lepton": "7176e184ad463413f35819cf1ad3797b7b2f0cb8",
+    "four_external_ward_source": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+    "negative_pole_fermion_source": "5e826d437640e79ec9900c90c0832cd4be1371f1",
+    "B_positive_scalar_source": "8ff9285e834d369bcfbdc1bc935b29fdedb2fee8",
+    "A_positive_scalar_source": "cc9b1572f04aff9d486cb789313b91f425196b78",
+    "B_seagull_charge_subtotal": "c849ba30c2629a12b8f65ac1576391200de7ff46"
+  },
+  "prior_checkers_imported_or_run": false,
+  "observed_main_at_task_start": "871c9c57feb36ea0df549550bb4c307dacadb8cd",
+  "only_adopted_prior_identity": "A positive pole plus reanchored H charge = [-S_A(a\u00b7b)+iG_AB(b\u00b7q)]P(h)/D_A; no prior checkers used"
+}

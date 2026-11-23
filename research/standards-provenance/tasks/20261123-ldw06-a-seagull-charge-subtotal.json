@@ -1,0 +1,37 @@
+{
+  "record_type": "task_provenance",
+  "provenance_version": "1.0.0",
+  "task_id": "20261123-ldw06-a-seagull-charge-subtotal",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-a-seagull-charge-subtotal.md",
+  "task_brief_sha256": "dcb38c02299d27fe4317eff4f3d50927afe61994a3c87ae7b3e5398cf0aadc66",
+  "central_repository": "lm846802297-bit/high-energy-theory-research",
+  "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+  "lock_file_path": "research/standards-lock.yaml",
+  "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+  "applied_profiles": [
+    "task-handoff",
+    "research-compute",
+    "research-quality-gate",
+    "rcrps-v1.0.1"
+  ],
+  "project_extensions": [
+    {
+      "path": "AGENTS.md",
+      "scope": "Axial task routes and scope boundaries",
+      "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+    },
+    {
+      "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+      "scope": "Axial UV–EFT metadata",
+      "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+    }
+  ],
+  "acceptance_criteria": [
+    "Independent derivative of quadratic fundamental A scalar kinetic term and correct relative phase.",
+    "Exact A contact at ordinary Kappa with sole A_Y propagator, correct B spectator and heavy factor.",
+    "New symmetric increment without changing commutator; negative phase/order/route tests and nonzero-q orthogonal control.",
+    "Fresh byte replay with measured execution, standards and RCRPS validation.",
+    "Only this contact increment, no whole Ward/LSZ/BRST or regulator/integration/matching result."
+  ]
+}

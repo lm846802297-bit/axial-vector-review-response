@@ -1,0 +1,168 @@
+{
+  "scope": "one A seagull on the previously established A positive-pole plus reanchored H charge relation; no complete Ward or loop statement",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "quartic_generator_pairs": 9,
+    "quartic_matrix_entries": 36,
+    "vertex_route": "exact"
+  },
+  "points": [
+    {
+      "q_squared": "-4",
+      "b_dot_q": "5",
+      "a_dot_b": "45",
+      "W_Ay_By_h_denominators": [
+        "8",
+        "11",
+        "15",
+        "-393"
+      ],
+      "wrong_Aw_denominator": "17",
+      "entries": {
+        "contact_entry_checks": 768,
+        "increment_entry_checks": 768,
+        "nonzero_contact": 192,
+        "nonzero_uncontracted_contact": 768,
+        "nonzero_subtotal": 352,
+        "wrong_sign": 192,
+        "single_order": 288,
+        "wrong_A_scalar_pole": 192,
+        "extra_A_scalar_propagator": 192,
+        "wrong_internal_W_shift": 192,
+        "wrong_heavy_shift": 192,
+        "wrong_uncontracted_sign": 768,
+        "single_order_uncontracted": 1152
+      },
+      "subtotal_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_column": [
+          0,
+          0
+        ],
+        "value": "-7/415008"
+      },
+      "contact_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_column": [
+          0,
+          0
+        ],
+        "value": "1/415008"
+      }
+    },
+    {
+      "q_squared": "0",
+      "b_dot_q": "-9",
+      "a_dot_b": "73",
+      "W_Ay_By_h_denominators": [
+        "44",
+        "35",
+        "75",
+        "-377"
+      ],
+      "wrong_Aw_denominator": "49",
+      "entries": {
+        "contact_entry_checks": 768,
+        "increment_entry_checks": 768,
+        "nonzero_contact": 192,
+        "nonzero_uncontracted_contact": 768,
+        "nonzero_subtotal": 352,
+        "wrong_sign": 192,
+        "single_order": 288,
+        "wrong_A_scalar_pole": 192,
+        "extra_A_scalar_propagator": 192,
+        "wrong_internal_W_shift": 192,
+        "wrong_heavy_shift": 192,
+        "wrong_uncontracted_sign": 768,
+        "single_order_uncontracted": 1152
+      },
+      "subtotal_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_column": [
+          0,
+          0
+        ],
+        "value": "-1/765600"
+      },
+      "contact_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_column": [
+          0,
+          0
+        ],
+        "value": "-3/23223200"
+      }
+    },
+    {
+      "q_squared": "-4",
+      "b_dot_q": "0",
+      "a_dot_b": "45",
+      "W_Ay_By_h_denominators": [
+        "19",
+        "20",
+        "32",
+        "-386"
+      ],
+      "wrong_Aw_denominator": "28",
+      "entries": {
+        "contact_entry_checks": 768,
+        "increment_entry_checks": 768,
+        "nonzero_contact": 0,
+        "nonzero_uncontracted_contact": 768,
+        "nonzero_subtotal": 192,
+        "wrong_sign": 0,
+        "single_order": 0,
+        "wrong_A_scalar_pole": 0,
+        "extra_A_scalar_propagator": 0,
+        "wrong_internal_W_shift": 0,
+        "wrong_heavy_shift": 0,
+        "wrong_uncontracted_sign": 768,
+        "single_order_uncontracted": 1152
+      },
+      "subtotal_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_column": [
+          0,
+          0
+        ],
+        "value": "-27/7510016"
+      },
+      "contact_sample": null
+    }
+  ]
+}
