@@ -27,6 +27,13 @@
 
 - [单 VEV 轴矢量参数映射](../../stellar-cooling-original-uv-model-20261105/single_vev_axial_mapping.py)
 
+### 低质量标度后处理
+
+- [低质量标度与模型参数映射程序](analyze_low_mass_scaling.py)
+- [后处理数值汇总](outputs/low_mass_scaling_summary.json)
+
+该程序读取已有的局域 moving-muon 热响应和高阶固定剖面扫描 JSON，计算 $m_{A'}^2 Q_L/g_X^2$、$g_{X,\rm lower}/m_{A'}$、$v_s$ 区间及固定 $v_s$ 的 trapping 交点；不重新计算碰撞核或径向输运。
+
 ## 输入数据
 
 - [SFHo-18.8 数字化径向剖面](../data/sfho188_digitized.csv)
