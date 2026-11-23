@@ -1,0 +1,62 @@
+Python: 3.14.7
+Arithmetic: Fraction polynomials; exact Gaussian-rational 4x4 spinor matrices
+PASS 01 parameter weight integral
+PASS 02 parameter logarithmic constant
+PASS 03 rank-one parameter moment z^1
+PASS 04 rank-one parameter moment z^2
+PASS 05 rank-one parameter moment z^3
+PASS 06 rank-one parameter moment z^4
+PASS 07 rank-one parameter moment z^5
+PASS 08 rank-one parameter moment z^6
+PASS 09 PV numerator has no spurious p^-2 pole
+PASS 10 PV versus direct rank-one coefficient z^0
+PASS 11 PV versus direct rank-one coefficient z^1
+PASS 12 PV versus direct rank-one coefficient z^2
+PASS 13 PV versus direct rank-one coefficient z^3
+PASS 14 PV versus direct rank-one coefficient z^4
+PASS 15 PV versus direct rank-one coefficient z^5
+PASS 16 PV versus direct rank-one coefficient z^6
+PASS 17 minimal kinetic counterterm
+PASS 18 open-line (-i)^2*i^2 exact Gaussian phase
+PASS 19 left projector idempotence
+PASS 20 right projector idempotence
+PASS 21 left-external heavy mass numerator vanishes
+PASS 22 right-external heavy mass numerator vanishes
+PASS 23 left-external slash numerator component 0
+PASS 24 right-external slash numerator component 0
+PASS 25 left-external slash numerator component 1
+PASS 26 right-external slash numerator component 1
+PASS 27 left-external slash numerator component 2
+PASS 28 right-external slash numerator component 2
+PASS 29 left-external slash numerator component 3
+PASS 30 right-external slash numerator component 3
+PASS 31 massive exact function constant
+PASS 32 massive exact function first derivative
+PASS 33 hard IR pole cancels EFT soft UV pole
+PASS 34 massive full reconstruction
+PASS 35 renormalized massive reconstruction
+PASS 36 massive hard pole is not a new full-UV divergence
+PASS 37 massive hard angular expansion keeps epsilon pole product
+PASS 38 canonical fermion kinetic linear loop
+PASS 39 canonical scalar kinetic linear loop
+PASS 40 C5 all external-field factors
+PASS 41 C_LD all external-field factors
+PASS 42 C_RD all external-field factors
+PASS 43 own-flavor contribution to C5 field coefficient
+PASS 44 fermion high-derivative field redefinition
+PASS 45 noncommuting covariant square and Pauli sign
+PASS 46 cubic Dirac versus symmetric D2 completion
+PASS 47 right-source weak current decomposition
+NUMERICAL massless-scalar momentum integrals, Simpson n=8192:
+MOMENTUM z=-0.20, direct=0.687858681527, series12=0.687858681531
+MOMENTUM z=+0.05, direct=0.766987769684, series12=0.766987769684
+MOMENTUM z=+0.20, direct=0.822277384229, series12=0.822277384224
+NUMERICAL positive-mass p=0 hard/soft reconstruction, Decimal precision=50:
+MASS r=0.01, exact=0.708298700795244, hard+soft=0.708948298140119, remainder=6.4960E-4
+MASS r=0.001, exact=0.743582369755799, hard+soft=0.743592244721018, remainder=9.8750E-6
+MASS r=0.0001, exact=0.749128832789774, hard+soft=0.749128965962802, remainder=1.3317E-7
+RESULT: 47 exact symbolic/matrix checks passed; 6 numerical cases passed
+Self energy: Pi = q0*g2*slash(p)*[1/2*(Delta-L)+3/4+p2/(3*M2)]
+Mass-spurion hard: q0*g2*mphi2/M2*(3/2-L); soft tadpole kept explicitly.
+Scope: Yukawa-induced light-fermion two-point functions and field/EOM consequences only.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

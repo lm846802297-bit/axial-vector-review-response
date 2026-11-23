@@ -1,0 +1,58 @@
+RC-001 Q_LD pure-WW manual Wick-contraction audit
+
+Local execution:
+  python /tmp/rc001_ww_wick_multiplicity.py
+  5/5 regression tests passed using Python + SymPy.
+
+External matter lines:
+  barL, H, Hdag, L
+
+Unordered pair inventory:
+  Total pairs: 6
+  Same-Yukawa-vertex pairs: 2
+    {barL,H}
+    {Hdag,L}
+  Cross-vertex pairs: 4
+    {barL,Hdag}
+    {barL,L}
+    {H,Hdag}
+    {H,L}
+
+Second-order expansion:
+  S_int^(2) carries 1/2!.
+  For each unordered pair of distinct matter lines, there are two assignments
+  of the two current insertions to x and y.
+  Therefore multiplicity = 2/(2!) = 1 for each unordered pair.
+  The four cross-box classes LD-W-01/02/05/06 each have unit multiplicity
+  in this manual Wick-contraction convention.
+  Reversing the real-W loop momentum k -> -k is a dummy-variable relabeling,
+  not a second Wick contraction.
+
+Operator orientation:
+  Q_LD^dagger = Q_LD modulo a total derivative in the integrated action.
+  Therefore the conjugate tree orientation is not an additional factor of 2.
+
+Tree-level external-W contact:
+  D_mu H = partial_mu H - i g_2 T^I W_mu^I H
+  (D_mu H)^dagger = partial_mu H^dagger + i g_2 H^dagger T^I W_mu^I
+  D_mu L = partial_mu L - i g_2 T^I W_mu^I L
+  Thus the W terms in
+    (D_mu H)^dagger L + H^dagger D_mu L
+  cancel exactly for I=1,2,3.
+  The SU(2)-singlet composite H^dagger L has no direct W contact.
+
+Regression tests:
+  test_six_unordered_pairs: PASS
+  test_two_same_vertex_four_cross_vertex: PASS
+  test_each_unordered_pair_has_unit_second_order_multiplicity: PASS
+  test_su2_composite_has_no_direct_w_contact: PASS
+  test_hermitian_conjugate_is_same_action_operator_mod_ibp: PASS
+  Total: 5/5 PASS.
+
+Evidence boundary:
+  This is an explicit manual second-order Wick-contraction and representation
+  identity check. It is not a FeynArts/QGRAF-generated graph census.
+  It does not independently validate every Feynman-rule sign, fermion-flow
+  convention, seagull, or graph topology.
+  It does not compute the transverse one-loop external-W form factor or
+  the complete Slavnov-Taylor sum.

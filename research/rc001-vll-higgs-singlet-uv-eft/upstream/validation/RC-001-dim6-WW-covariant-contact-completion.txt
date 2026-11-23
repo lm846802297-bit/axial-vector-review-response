@@ -1,0 +1,56 @@
+RC-001 gauge-covariant local one-W contact completion
+
+The nonexceptional hard polynomial is decomposed as
+  C = a v_D + b v_minus + c v_plus,
+  v_D=-(p1+p2)=p3+p4,
+  v_minus=p2-p3,
+  v_plus=p2+p3,
+with
+  a=-1/2+L/2,
+  b=-1/32+7L/16,
+  c=7/32-5L/16,
+  L=ln(M_E^2/mu_R^2).
+
+Gauge-covariant redundant off-shell representatives:
+  Q_D^(3) = (barL sigma^I H) i gamma^mu (D_mu^adj(Hdag sigma^I L)),
+  O_minus^(3) = T3_(ij,kl) (barL_i gamma^mu L_l)
+                i[Hdag_k D_mu H_j - (D_mu Hdag_k) H_j],
+  O_plus^(3) = T3_(ij,kl) (barL_i gamma^mu L_l)
+               i[Hdag_k D_mu H_j + (D_mu Hdag_k) H_j].
+Their four-point momentum form factors are v_D, v_minus and v_plus,
+respectively, in the fixed all-incoming convention. O_plus is retained as
+an off-shell redundant/source direction; its Hermitian completion and EOM/IBP
+reduction are not performed here.
+
+One-W contacts:
+  Q_D^(3):
+    i g2 a epsilon^{IJK}
+      (barL sigma^I H) gamma^mu W_mu^J (Hdag sigma^K L)
+  O_minus^(3):
+    2 g2 b T3_(ij,kl) (barL_i gamma^mu L_l)
+      Hdag_k (sigma^J/2)_(jm) H_m W_mu^J
+  O_plus^(3):
+    0 (the gauge connections cancel in Hdag D H + (D Hdag)H).
+
+Pauli reduction used for the O_minus contact:
+  T3_(ij,kl) (sigma^I/2)_(jm)
+    = delta_il sigma^I_(km) - (1/2) sigma^I_(im) delta_kl.
+All components I=1,2,3 were checked exactly.
+
+At mu_R=M_E:
+  a=-1/2, b=-1/32, c=7/32.
+  Q_D contact coefficient: -i g2/2.
+  O_minus contact coefficient: -g2/16.
+  O_plus contact coefficient: 0.
+The common factor g2^2 |y_l|^2/(16 pi^2 M_E^2) is understood.
+
+Reproduction:
+  calculations/RC-001-dim6-WW-covariant-contact-completion.py.
+  The exact momentum decomposition and Pauli tensor contraction were checked
+  locally with SymPy.
+
+Boundary:
+  This is the EFT local one-W contact implied by a gauge-covariant redundant
+  off-shell operator basis. It is not the UV one-loop five-point amplitude.
+  The latter, the Hermitian completion, EOM/IBP reduction, external-leg
+  emissions, and full Slavnov-Taylor sum remain open.

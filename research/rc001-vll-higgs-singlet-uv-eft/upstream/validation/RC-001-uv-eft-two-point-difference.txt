@@ -1,0 +1,20 @@
+PASS: §276 C_hs matrix reconstructed from Gh,Gs
+PASS: §276 D_hs matrix reconstructed from Gh,Gs
+PASS: exact mass identity factorizes into diagonalization factors
+PASS: UV pole coefficient equals 2[q(x+Y)+2 r m1 m2]
+PASS: exact mass relation cancels the complete UV pole
+PASS: §277 mixed B0 reduction follows from the exact mass identity
+PASS: A0 terms cancel in K11+K22-2K12
+PASS: EFT bubble-plus-contact pole has coefficient -(8x-s)
+PASS: local inverse-kernel counterterm cancels the stated EFT pole
+PASS: contact tadpole has zero momentum derivative
+PASS: dimension-six derivative counterterm cancels the s-pole
+PASS: exact finite p^2=0 UV-minus-EFT subtraction
+PASS: large-mass expansion of the finite hard-minus-soft kernel
+PASS: leading hard Pi_hs(0) has the §274.4 positive sign
+PASS: historical two-point vs legacy on-shell representative difference is 4q/[3(16 pi^2)]
+RESULT: 15 exact symbolic/algebraic checks passed
+STATUS: the 4/3 difference is between the two-point result and the legacy on-shell four-point representative.
+STATUS: master-record §301.1-§301.4 attributes this difference to the off-shell external-momentum terms and EOM completion; the coefficients align in the same operator basis after that completion.
+OPEN: full-model Wilson-vector closure, higher-dimensional EFT soft/source sectors, complete dimension-eight hard matching, and independent diagram-level validation.
+SCOPE: algebraic checks only; no numerical loop integration or FeynArts/FeynCalc/Mathematica/Matchete/Matchmakereft run.

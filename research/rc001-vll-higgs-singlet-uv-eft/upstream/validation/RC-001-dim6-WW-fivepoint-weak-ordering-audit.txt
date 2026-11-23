@@ -1,0 +1,26 @@
+RC-001-WW-UV-FF-02 weak-index ordering audit
+
+PASS: six internal-W pair tensors reproduce T0/T3 projections (96/96).
+PASS: both matter-line generator orderings reduce to the three-W commutator tensor (576/576).
+PASS: six scalar-seagull group tensors reduce to one-half the other-endpoint generator (288/288).
+
+PAIR PROJECTIONS:
+  LD-W-01: 0 T0 + (-1/4) T3
+  LD-W-02: 0 T0 + (1/4) T3
+  LD-W-03: (-3/4) T0 + 0 T3
+  LD-W-04: (-3/4) T0 + 0 T3
+  LD-W-05: 0 T0 + (1/4) T3
+  LD-W-06: 0 T0 + (-1/4) T3
+
+RESULT:
+  Exact SU(2) weak-index ordering identities pass.
+
+BOUNDARY:
+  Group tensors only.
+  No Lorentz numerator phases or complete Feynman-rule sign sum.
+  No loop integration.
+  No gauge-fixing/ghost Slavnov-Taylor completion.
+  No external-leg/counterterm sum or Wilson coefficient.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

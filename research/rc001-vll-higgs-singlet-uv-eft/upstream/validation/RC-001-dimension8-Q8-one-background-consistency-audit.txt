@@ -1,0 +1,4 @@
+PASS 1: ordinary-line q.N identity holds before integration
+PASS 2: covariant contact angular average is 4*l^2*(d+2)/d*(q^mu+2r^mu)
+PASS 3: contact massless integral is scaleless after division by its single propagator
+SCOPE: algebraic checks; common R* UV/IR subtraction and hard matching remain open

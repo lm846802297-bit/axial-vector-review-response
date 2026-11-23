@@ -1,0 +1,12 @@
+RC-001 QLD8 Higgs-source-square channel census
+
+PASS 1: three leading-renormalizable source components J_d, J_u, J_e are enumerated.
+PASS 2: the source square has 9 ordered source pairs = 3 diagonal + 3 cross pairs and their Hermitian conjugates.
+PASS 3: each ordered pair has four product-rule derivative placements; these are not independent Wilson coefficients.
+PASS 4: opposite-projector pairs (d†d, u†u, e†e, d†e) are classified as vector-current Fierz channels.
+PASS 5: same-projector pairs (d†u, u†e) require scalar/tensor Fierz structures.
+PASS 6: quark crossed-color contractions and antisymmetric weak epsilon contractions are explicitly retained.
+PASS 7: the fermion EOM fixes only gamma traces; gamma-traceless derivative pieces remain.
+
+SCOPE: source-pair, chirality, weak/color/flavor and derivative-placement census before Fierz reduction.
+NOT CLAIMED: explicit d-dimensional Fierz closure, IBP reduction, evanescent counterterms, loop matching, or final dimension-eight basis.

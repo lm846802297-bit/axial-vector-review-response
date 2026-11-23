@@ -1,0 +1,10 @@
+PASS mu: H^dag L has (SU2,Y,x)=(1,-1,1)
+PASS mu: S_l l_R has (SU2,Y,x)=(1,-1,1)
+PASS mu: both composite sources transform exactly as E_l
+PASS mu: Q8 insertion connection has B and X gauge fields, no direct W insertion
+PASS tau: H^dag L has (SU2,Y,x)=(1,-1,-1)
+PASS tau: S_l l_R has (SU2,Y,x)=(1,-1,-1)
+PASS tau: both composite sources transform exactly as E_l
+PASS tau: Q8 insertion connection has B and X gauge fields, no direct W insertion
+PASS: eta_mu=+1 and eta_tau=-1 conjugate assignments are consistent
+SCOPE: exact representation/charge bookkeeping only; no gauge-loop integral or Ward identity evaluated

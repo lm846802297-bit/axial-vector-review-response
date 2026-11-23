@@ -1,0 +1,6 @@
+RC-001 QLD8 second-order fermion-EOM convention audit
+PASS: explicit gamma matrices satisfy the (+---) Clifford algebra.
+PASS: D^2 = slash(D)^2 - (1/2) sigma^{mu nu} F_{mu nu} for [D_mu,D_nu]=i F_{mu nu}.
+PASS: J_d, J_u, and J_e each carry Higgs hypercharge Y_H=+1/2.
+PASS: Q_L, u_R, d_R, L_e, e_R are neutral under U(1)_X.
+LIMIT: no Wilson coefficients, d-dimensional loop mixing, or finite matching computed.

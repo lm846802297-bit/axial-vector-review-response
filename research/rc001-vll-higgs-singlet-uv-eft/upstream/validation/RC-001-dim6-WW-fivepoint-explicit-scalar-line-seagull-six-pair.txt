@@ -1,0 +1,18 @@
+RC-001 B2c-IVm explicit scalar-line plus seagull kernels
+
+PASS: A-side, B-side, and same-vertex scalar line+seagull decompositions (12/12 component identities).
+PASS: A/B/S scalar-line WTIs with their oriented propagator differences (3/3).
+PASS: explicit contracted scalar-line+seagull kernels at rational point 1 (6/6 scalar endpoints).
+PASS: explicit contracted scalar-line+seagull kernels at rational point 2 (6/6 scalar endpoints).
+ENDPOINT KERNELS:
+  LD-W-02 B scalar -> slash(C_B) X_A slash(h) / k^2
+  LD-W-05 A scalar -> slash(h) slash(r_B^Y) slash(C_A) / (k+q)^2
+  LD-W-06 A and B scalar -> two separate kernels with S_A and S_B
+  LD-W-03 S scalar -> slash(C_S) slash(r_F^Y) / (k+q)^2
+  LD-W-04 S scalar -> slash(r_F^Y) slash(C_S) / (k+q)^2
+BOUNDARY: the six scalar endpoint kernels are explicit; no sum with R_FG/ghost/ST,
+          no loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Execution: local exact SymPy symbolic/rational arithmetic.
+The rational diagnostics use M_E^2=400 at two nonsingular integer momentum points.
+This is not a GitHub Actions run and not a physical benchmark scan.

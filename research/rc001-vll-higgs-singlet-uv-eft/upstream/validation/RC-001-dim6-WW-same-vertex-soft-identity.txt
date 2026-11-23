@@ -1,0 +1,60 @@
+RC-001 same-Yukawa-vertex pure-WW sub-block
+
+External ordering:
+  barL(p1), H(p2), Hdag(p3), L(p4), all incoming.
+  P = p1+p2 is the heavy momentum at the left Yukawa vertex.
+  Q = p3+p4 = -P is the heavy momentum at the conjugate right vertex.
+
+Same-vertex loop routings:
+  LD-W-03 (barL-H):
+    W denominator: k^2
+    light fermion denominator: (k+p1)^2
+    light scalar denominator: (k-p2)^2
+    stripped numerator: gamma_mu (slash(k+p1)) (2 p2-k)^mu
+  LD-W-04 (L-Hdag):
+    W denominator: k^2
+    light fermion denominator: (k+p4)^2
+    light scalar denominator: (k-p3)^2
+    stripped numerator: (2 p3-k)_mu slash(k+p4) gamma^mu
+
+Explicit 4D Euclidean matrix checks:
+  PASS LD-W-03 leading large-k numerator = -k^2 * identity.
+  PASS LD-W-04 leading large-k numerator = -k^2 * identity.
+  Therefore each stripped triangle has a logarithmic UV pole with unit
+  scalar residue and the displayed numerator sign, before the common
+  Feynman-rule phase, gauge coupling, Yukawa factors and weak generator.
+  The weak generator factor for each is -3/4 T0, from the exact SU(2)
+  projection in research/RC-001-dim6-SU2-attachment-projection.md.
+
+Chirality and tree matching:
+  P_R (slash(P)+M_E) P_L = slash(P) P_L.
+  The heavy mass numerator is killed by the chiral projectors.
+  For |P^2| << M_E^2:
+    P_R S_E(P) P_L -> -slash(P) P_L/M_E^2 + O(M_E^-4).
+  The EFT derivative momentum is q_D=p3+p4=-P, so the tree Q_LD
+  insertion carries the same -slash(P)/M_E^2 structure.
+
+Matching consequence:
+  The W-loop denominators are entirely light; the heavy propagator depends
+  only on P and is independent of loop momentum k.
+  The full-theory same-vertex graph at O(M_E^-2) is therefore the same
+  massless triangle form factor multiplying the tree-level Q_LD insertion.
+  The EFT insertion reproduces this soft graph exactly.
+  In the hard region, the loop integrals contain no M_E-dependent
+  denominator; after Taylor expansion they are scaleless in dimensional
+  regularization. Their UV/IR pieces must be kept separate until matching,
+  but their hard-minus-soft matching contribution is zero.
+
+Conclusion:
+  LD-W-03 and LD-W-04 are pure-soft at O(g2^2/M_E^2) and generate no
+  finite hard Wilson coefficient in UV-minus-EFT matching. They remain
+  necessary in the EFT soft sum, operator renormalization and full Ward
+  identity. This does not close external-leg corrections, parameter/
+  operator counterterms, the external-W five-point form factor, or the
+  complete Slavnov-Taylor sum.
+
+Reproduction:
+  calculations/RC-001-dim6-WW-same-vertex-soft-identity.py checks the
+  leading numerator, chiral heavy propagator projection and q_D=-P identity.
+  This is a local algebraic factorization check, not diagram-package
+  validation or a complete finite triangle integration.

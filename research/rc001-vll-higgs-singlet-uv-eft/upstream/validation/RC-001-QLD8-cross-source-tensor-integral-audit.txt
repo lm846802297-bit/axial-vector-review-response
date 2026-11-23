@@ -1,0 +1,19 @@
+RC-001 QLD8 cross-source full tensor UV-Taylor audit
+
+PASS: full I_{alpha beta} formula has the mixed antisymmetric projection.
+PASS: formal D-dimensional trace equals the independent scalar kernel.
+PASS: radial factors:
+  A=D/4 = 1-epsilon/2 + O(epsilon^2)
+  B=D(D+2)/24 = 1-5epsilon/6 + O(epsilon^2)
+  C=D(D+2)(D+4)/192 = 1-13epsilon/12 + O(epsilon^2)
+
+The formal trace uses g^alpha_alpha = D. A literal 4D matrix trace
+with symbolic D is not a valid check of the D-dimensional identity.
+
+Scope:
+Raw Lorentz tensor for rank-two x rank-two chain. Gamma/color reduction,
+common graph phase, external-gluon completion, complete QCD Z matrix,
+EOM/IBP quotient, and finite matching remain open.
+
+Reproducible source:
+calculations/RC-001-QLD8-cross-source-tensor-integral-audit.py

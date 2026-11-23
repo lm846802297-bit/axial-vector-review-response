@@ -1,0 +1,18 @@
+RC-001 B2c-IVn-f/03: LD-W-05 exact S-F endpoint split
+
+PASS: B-side oriented fermion WTI (16/16 Dirac components).
+PASS: A-side scalar WTI and V_A(k)-V_A(k+q)=q (1/1 and 8/8 identities/components).
+PASS: B-side fermion Yukawa-endpoint common-k map (20/20 vector components).
+PASS: three-W, fermion-line, scalar-line and seagull denominator factors (3/3 exact identities).
+PASS: A-side physical weak commutator ordering (48/48 weak components).
+PASS: A-side scalar seagull anticommutator (48/48 weak components).
+PASS: actual LD-W-05 R_FG current contraction at rational point (16/16 nonzero entries).
+PASS: re-based A-scalar commutator q-contact is explicit and nonzero (16/16 matrix entries); delta=-6/391.
+RATIONAL DIAGNOSTIC: denominator factors=(20, 8, 23, 17, -4, -390).
+RESULT: the B-side fermion/three-W sub-block uses V_A(k); the A-side scalar-line/seagull
+        kernel uses V_A(k+q)=V_A(k)-q and splits into V_A(k) plus explicit q contacts.
+BOUNDARY: no cancellation of the q contacts with external-leg/LSZ or ghost/ST terms is claimed.
+          No physical non-cancellation, full five-point STI, loop integration, or Wilson coefficient is claimed.
+
+Local test suite: 6/6 passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

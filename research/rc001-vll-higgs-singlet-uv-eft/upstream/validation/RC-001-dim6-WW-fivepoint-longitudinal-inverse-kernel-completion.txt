@@ -1,0 +1,11 @@
+RC-001 B2c-IVn-d longitudinal inverse-kernel completion
+
+PASS: transverse Yang-Mills kernel leaves D(k)-D(k+q)+R_FG (16/16 components).
+PASS: longitudinal p_mu p_nu difference contributes exactly -R_FG (16/16 components).
+PASS: K_mu_nu+p_mu p_nu=p^2 g_mu_nu and full Feynman-gauge chain closes (32/32 components).
+RESULT: the exact tensor needed to remove R_FG is the longitudinal inverse-kernel difference.
+BOUNDARY: this is an inverse-kernel algebra identity, not a ghost/ST diagram calculation.
+          The BRST/ghost realization and its coupling to the actual matter currents remain open.
+
+Execution: local exact SymPy symbolic arithmetic.
+This is not a GitHub Actions run and not a ghost-loop calculation.

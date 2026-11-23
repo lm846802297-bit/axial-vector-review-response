@@ -1,0 +1,6 @@
+d*B0 = 4*Delta_UV + 2 - 4*L: PASS
+All six one-vertex hard factors: PASS
+Conjugate-vertex doubling: PASS
+Mixed factors for eta_mu=+1 and eta_tau=-1: PASS
+Matching-scale finite sub-blocks: PASS
+SCOPE: vertex sub-block only; no full Wilson coefficients or diagram-level validation.

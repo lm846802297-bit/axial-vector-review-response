@@ -1,0 +1,22 @@
+RC-001 QLD8 non-Abelian IBP/EOM algebra audit
+
+PASS 1: all SU(2) fundamental-generator products T^a T^b.
+PASS 2: adjoint product rule for H^dagger T^a G.
+PASS 3: matrix-ordered [D^2,D_mu] commutator formula for
+        singlet and SU(2)-adjoint external insertions.
+PASS 4: SU(2) derivative-current bracket decomposes into
+        delta^{ab} partial X / 4 - epsilon^{abc} j_H^c / 2.
+PASS 5: SU(2) two-background bracket decomposes into
+        delta^{ab} S_{rho nu} / 4 + epsilon^{abc} K_{rho nu}^c / 2.
+PASS 6: derivative-of-f Higgs-EOM identity for singlet and adjoint
+        external insertions.
+PASS 7: retained SU(2) hard coefficient is b_W-a_W/2.
+
+Execution: Python 3 + SymPy exact symbolic matrix algebra.
+
+Scope:
+- Exact SU(2) generator, adjoint product-rule, matrix-ordering,
+  commutator, current-decomposition, and coefficient-map checks.
+- No loop integration or new UV/soft pole is computed.
+- No complete SMEFT current-basis reduction, counterterm closure,
+  or independent FeynArts/FeynCalc diagram validation is claimed.

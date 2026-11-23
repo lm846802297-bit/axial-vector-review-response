@@ -1,0 +1,146 @@
+{
+  "created_on_client_date": "2026-10-20",
+  "baseline_version": 63,
+  "output_version": 64,
+  "baseline_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(63).md",
+  "output_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(64).md",
+  "baseline_sha256_before": "5058cc421c577b01982bea96b248f63fcf566084b9aaca81151ff3ecf38364d5",
+  "baseline_sha256_after": "5058cc421c577b01982bea96b248f63fcf566084b9aaca81151ff3ecf38364d5",
+  "v63_is_exact_byte_prefix_of_v64": true,
+  "desktop_v53_is_exact_byte_prefix_of_v64": true,
+  "baseline_bytes": 1490706,
+  "appendix_bytes": 38909,
+  "output_bytes": 1529615,
+  "output_sha256": "a091469530aa9994841125a2ea91ea02350ee0835349e2905e11538a99fc7975",
+  "section260_subsections": [
+    "260.1",
+    "260.2",
+    "260.3",
+    "260.4",
+    "260.5",
+    "260.6",
+    "260.7",
+    "260.8",
+    "260.9",
+    "260.10",
+    "260.11",
+    "260.12"
+  ],
+  "appendix_math_delimiters_balanced": true,
+  "math_expression_braces_balanced": 224,
+  "appendix_code_fences_balanced": true,
+  "appendix_has_no_unexpected_control_characters": true,
+  "section260_embedded_checker_equals_delivered_checker": true,
+  "all_250_to_259_embedded_checkers_equal_delivered_checkers": true,
+  "python_version": "3.14.7",
+  "new_exact_global_assembly_checks_passed": 69,
+  "old_section_scripts_actually_rerun_this_build": 10,
+  "each_rerun_stdout_equals_its_archived_log": true,
+  "rerun_ledger": [
+    {
+      "section": 250,
+      "script_sha256": "b7cbaf111ebc9f9eed7df56f8ff6d6e6195b215dc133a459994a3b8b64253603",
+      "archived_log_sha256": "86f94f77ac7422c8675086bca45de742127dc61bd488cc0537188c5d5fadc8d4",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 56 checks passed; no failures"
+    },
+    {
+      "section": 251,
+      "script_sha256": "7264e2bdd0ffcf2708fc04879ec40a3c64ee72462cd9d90788a16019e5db3ccd",
+      "archived_log_sha256": "4334698cb2a086b8eecbba9d5d83e89011ba0a2c90862668eda39ec3df3d9cfc",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 59 exact symbolic checks passed; 3 high-precision numerical cases passed"
+    },
+    {
+      "section": 252,
+      "script_sha256": "832a3af675790a6219ec8bc849ad24ad7d864bf7f02a86603c65c96cc85e521b",
+      "archived_log_sha256": "01ee98ad56606868409c4b368e5fcf2b2fa5ab6bc4bcf614d05977255110f911",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 46 exact symbolic checks passed"
+    },
+    {
+      "section": 253,
+      "script_sha256": "b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335",
+      "archived_log_sha256": "06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 68 exact symbolic checks passed; 3 numerical parameter-integral cases passed"
+    },
+    {
+      "section": 254,
+      "script_sha256": "633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297",
+      "archived_log_sha256": "612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 68 exact symbolic checks passed; 3 neutral-background numerical cases passed"
+    },
+    {
+      "section": 255,
+      "script_sha256": "643c3e05ea7bf371baae8d6980eee9fc816674572db5eb1c4d5049ad53dd7c2d",
+      "archived_log_sha256": "569ff1d11058f0cdb6cdb14bd5a23a61437f281e64ca0155a52d20956adacb31",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 47 exact symbolic/matrix checks passed; 6 numerical cases passed"
+    },
+    {
+      "section": 256,
+      "script_sha256": "7ea661bd7e836c043f14be19b27cb50469e71ef6211512211340166ec9b17b85",
+      "archived_log_sha256": "407e85be85f6729b9f837874ade3bb2f3b4c6a63250a3623301daddfc46e61c6",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 62 exact graph/symbolic/matrix checks passed; 3 integrals and 3 high-precision hard limits passed"
+    },
+    {
+      "section": 257,
+      "script_sha256": "f8f2f991a118ac20767cf9017030057ebb7dbe18ec364e9f1a93bd1c279f1432",
+      "archived_log_sha256": "9918adc9d809e354897537ddf2c9717ce5a54d9d381ae27e01e2659a09cbc2bc",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 58 exact graph/symbolic checks passed; 3 integrals and 3 mass-basis hard limits passed"
+    },
+    {
+      "section": 258,
+      "script_sha256": "7a5e5fc703e5e8a53e18051be20f4f8976a6b9b804e7aa1d7245fa1e68f93658",
+      "archived_log_sha256": "f7fe678b1597b89b4ecbbc9964e19a036d1d051b8bf0ecff6935fb888e404d57",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 74 exact parameter/symbolic/group checks passed; 6 integrals and 3 IR hard limits passed"
+    },
+    {
+      "section": 259,
+      "script_sha256": "1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847",
+      "archived_log_sha256": "47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c",
+      "exit_code": 0,
+      "stdout_equals_archived": true,
+      "result": "RESULT: 53 exact determinant/Fierz/symbolic checks passed; 9 integrals and 6 IR hard limits passed"
+    }
+  ],
+  "arbitrary_kinetic_mixing_projection": "symbolic symmetric inverse; adjugate check; exact kappa=0,1/3,-2/5",
+  "new_diagram_generator_run": false,
+  "mass_reference_control": "m_ref^2=-mu_H^2; Eq6.4 and Eq6.7 agree after conversion",
+  "reference_printed_sign_discrepancies_from_section259_remain_unresolved": 2,
+  "new_checks_are_assembly_not_independent_end_to_end_diagram_validation": true,
+  "matching_scope": "specified diagonal UV benchmark; one loop; through inverse-heavy-mass order 2; conditional symbolic inputs",
+  "numerical_broken_phase_prediction_performed": false,
+  "checker_sha256": "05f4013d666a14265e577ccbeb9257e3cdfcff4f1f4bfa31973326c9dad7dc63",
+  "check_log_sha256": "d03213a89066cadadf9fbbcf66c5b3c410551199a24cb60525de8f35b12edeb1",
+  "feynarts_run": false,
+  "feyncalc_run": false,
+  "matchete_run": false,
+  "matchmakereft_run": false,
+  "desktop_v53_original_sha256_verified_unchanged": "6f14ea4a0f31df1c7809325719b952dcb914261938288e3bb84dd89fc01846c5",
+  "library_updated": false,
+  "planned_main_document_versions": [
+    64,
+    63
+  ],
+  "older_main_document_removed": "higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(62).md",
+  "older_content_verified_in_latest_before_removal": true,
+  "remaining_main_document_versions": [
+    64,
+    63
+  ]
+}

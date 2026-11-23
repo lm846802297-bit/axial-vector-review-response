@@ -1,0 +1,8 @@
+LD-W-01: exact SU(2) tensor identity PASS
+LD-W-02: exact SU(2) tensor identity PASS
+LD-W-03: exact SU(2) tensor identity PASS
+LD-W-04: exact SU(2) tensor identity PASS
+LD-W-05: exact SU(2) tensor identity PASS
+LD-W-06: exact SU(2) tensor identity PASS
+RESULT: all six Q_LD weak-generator contractions PASS.
+SCOPE: group-theory tensors only; no loop integrals or Wilson coefficients.

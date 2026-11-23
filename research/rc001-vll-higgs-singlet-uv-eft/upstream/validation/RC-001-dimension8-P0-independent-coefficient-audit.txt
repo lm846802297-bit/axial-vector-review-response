@@ -1,0 +1,7 @@
+PASS 1: independent subtraction isolates local remainder 5 s^2/12 + s u/2 - 3 u^2/10
+PASS 2: hard IR and soft UV residues cancel coefficient by coefficient
+PASS 3: finite hard+soft kernel is independent of matching scale
+PASS 4: explicit s- and u-pairing sum is crossing symmetric
+PASS 5: all 16 SU(2) component assignments reproduce the two Kronecker tensors
+PASS 6: determinant/EOM-current factor is 1/192 pi^2 and fixed-pairing amplitude factor is 1/24 pi^2
+SCOPE: independent algebraic post-processing only; no loop integral or diagram generation is repeated

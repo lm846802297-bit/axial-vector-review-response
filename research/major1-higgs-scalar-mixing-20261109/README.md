@@ -9,6 +9,10 @@
 
 > **2026-11-16 endpoint-quadrature repair:** the four SciPy/QUADPACK roundoff warnings in the exact-momentum fermion-sector pole driver were traced to the \(20\) TeV--muon heavy-light endpoint layer, \(\delta_x\sim2.8\times10^{-11}\). The production \(B_0\) integration now uses composite Gauss-Legendre panels with geometric endpoint refinement and open-threshold root-neighbourhood panels. The four legacy warning points agree with independent mpmath tanh-sinh at 50/70/90 digits to \(3.6\times10^{-15}\); the full two-benchmark/six-pole-pair scan is stable across GL orders 32--128, and five regression tests pass. See [the independent quadrature audit](../../docs/repository-management/POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md) and [the review record](../../docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md). This closes the numerical quadrature issue, not the full physical pole calculation: the gauge-complete propagator, diagonal self-energies/counterterms, complete EFT matching, physical widths and coherent detector-level observables remain open.
 
+## RC-001 upstream research archive
+
+The general VLL–Higgs–Singlet UV–EFT matching records, calculation scripts, validation outputs, and historical v66 source bundle are preserved separately in the [RC-001 archive](../rc001-vll-higgs-singlet-uv-eft/README.md). Its frozen source snapshot has 480/480 exact Git blob SHA and size matches. The [upstream interface](RC001_UPSTREAM_INTERFACE.md) records the model correspondence and transfer conditions. The archived calculation tree is not a replacement for this workstream's active Major 1 self-energy and complex-pole calculations; no result is promoted into the scalar two-point prediction by the relocation.
+
 ## 1. Independence and scope lock
 
 This PR studies only Higgs--radial-scalar mixing and the associated physical scalar poles and observables. It is independent of the Belle II collider-reinterpretation workstream and does not import or require Belle II widths, efficiencies, Crystal-Ball response functions, or collider-recast outputs.

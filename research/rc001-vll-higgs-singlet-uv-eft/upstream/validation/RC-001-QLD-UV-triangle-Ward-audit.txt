@@ -1,0 +1,13 @@
+PASS 1: light-line numerator contraction gives 2[(K.k) k'^2 - (K.k') k^2].
+PASS 2: heavy-line numerator, including the M_E^2 k^mu term, contracts to 2[(K.k)(K'^2-M_E^2) - (K'.k)(K^2-M_E^2)].
+PASS 3: both contractions reduce to differences of adjacent propagators.
+PASS 4: Yukawa gauge invariance gives q_E-q_L=-q_H.
+Independent SymPy exact-arithmetic verification: PASS.
+SCOPE: algebraic Ward contractions only; no loop integration, hard-region coefficient, or matched Wilson coefficient.
+
+
+CORRECTED ROUTING (q=p-p', q=k'-k=K-K')
+PASS: q.N_L = 2[(K'.k) k'^2 - (K.k') k^2].
+PASS: q.N_E = 2[(K'.k)(K^2-M_E^2) - (K.k)(K'^2-M_E^2)].
+PASS: light attachment gives Sigma(p)-Sigma(p'); heavy attachment gives Sigma(p')-Sigma(p).
+PASS: same relative sign in the amplitude and q_L-q_E=q_H satisfy the scalar-source Ward identity.

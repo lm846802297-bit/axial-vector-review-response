@@ -1,0 +1,7 @@
+PASS 1: independent SymPy re-evaluation of the covariant line numerator gives A_UV = 4(q.r)(q.r-r^2)/3.
+PASS 2: independent SymPy re-evaluation gives B_UV = -4 q^2(q.r-r^2)/3.
+PASS 3: q_mu times the line UV vector residue is exactly zero.
+PASS 4: full d-dimensional contact angular average is 4 l^2 (d+2)/d (q^mu+2r^mu).
+PASS 5: contact auxiliary-mass UV pole is 6 m_IR^4(q^mu+2r^mu)/(16 pi^2 epsilon), vanishing as m_IR -> 0.
+R* prescription: keep q^2>0 for the two-propagator line bubble; apply the auxiliary-mass IR rearrangement only to the scaleless one-propagator contact tadpole. Do not mass-deform chiral fermion propagators without restoring gauge covariance.
+SCOPE: restricted one-background two-scalar projection; complete functional Ward identity and UV-hard matching remain open.

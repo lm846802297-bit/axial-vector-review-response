@@ -1,0 +1,25 @@
+RC-001 nonexceptional WW hard matching-scale check
+
+Hard finite polynomial:
+  C_hard^fin =
+    (1/2-L/2) p1 +(11/16-3L/8) p2 +(1/4-3L/4) p3
+  L=ln(M_E^2/mu_R^2).
+
+Hard pole residue:
+  R = (1/2)p1 +(3/8)p2 +(3/4)p3.
+
+Exact checks:
+  d C_hard^fin / dL = -R.
+  Since dL/dln(mu_R)=-2:
+    d C_hard^fin / dln(mu_R) = 2 R.
+  The exceptional p1=p3=0 projection is 11/16-3L/8.
+
+Conclusion:
+  The coefficient of the matching logarithm is exactly minus the
+  nonexceptional hard-pole residue. This is a consistency relation between
+  the finite hard logarithm and the pole in this fixed sub-block.
+
+Boundary:
+  This does not by itself establish the full EFT RG cancellation; that
+  requires the complete operator mixing/counterterm matrix and all
+  amplitude sub-blocks. Source: calculations/RC-001-dim6-WW-hard-scale-dependence.py.

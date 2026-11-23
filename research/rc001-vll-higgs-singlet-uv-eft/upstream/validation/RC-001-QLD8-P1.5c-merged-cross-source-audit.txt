@@ -1,0 +1,7 @@
+RC-001 QLD8 P1.5c merged cross-source audit
+PASS: exact SS/TS/ST coefficients and D=4-2epsilon expansions
+PASS: scalar momentum polynomial and mixed wedge reduction
+PASS: mixed wedge structures are independent (rank 2)
+PASS: exact symmetric D-dimensional TT tensor and O(epsilon) expansion
+PASS: SS/TS/ST/TT signs and zero direct-singlet color projection
+LIMIT: no Fierz, EOM/IBP, R* subtraction, external-gluon completion, or Z matrix

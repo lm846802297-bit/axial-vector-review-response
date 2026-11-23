@@ -1,0 +1,6 @@
+Light Weyl trace: sum(Y*x)=0 separately for mu and tau
+Heavy Dirac trace: sum(Y*x)=-2*eta_mu-2*eta_tau=0
+Additive one-loop UV pole proportional to Tr(YX): CANCELS
+Finite heavy threshold: gY*gX*Q_l/(12*pi^2)*ln(M_E_mu^2/M_E_tau^2)
+Equal-heavy-mass threshold: 0
+SCOPE: does not set the independent renormalized chi boundary condition.

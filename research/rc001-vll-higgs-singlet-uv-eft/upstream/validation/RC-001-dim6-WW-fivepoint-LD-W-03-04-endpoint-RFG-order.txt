@@ -1,0 +1,26 @@
+RC-001 B2c-IVn-h/08: LD-W-03/04 same-vertex endpoint/R_FG order
+
+PASS: independently reconstructed exact SymPy endpoint reductions and two Dirac-bar relations (6/6).
+PASS: LD-W-03 endpoint W/Y and R_FG are nonzero and pairwise distinct.
+  nonzero entries W/Y/RFG=16/16/16;
+  denominators=(10, 8, 14, 11, -415).
+PASS: LD-W-04 endpoint W/Y and R_FG are nonzero and pairwise distinct.
+  nonzero entries W/Y/RFG=8/8/16;
+  denominators=(10, 8, -4, 3, -405).
+PASS: h_E is k-independent for both same-vertex spectators (32/32 derivatives).
+
+Execution provenance:
+- Environment: Python 3.13.5; SymPy 1.14.0; Linux x86_64.
+- The six symbolic matrix identities, rational-point matrices, and denominator
+  values were evaluated directly in the current Python analysis runtime using
+  an independently transcribed implementation of the displayed formulas.
+- The committed calculation entry point and standalone unittest file have NOT
+  yet been executed from their repository paths.
+- GitHub Actions: not run; no CI pass is claimed.
+- Independent FeynArts/FeynCalc validation: not run.
+
+BOUNDARY:
+  This is an endpoint-order/projector audit only.
+  It does not establish cancellation with scalar-line/seagull or three-W terms,
+  the full ordinary-matter longitudinal sum, BRST/ghost STI closure,
+  counterterm closure, UV-EFT subtraction, or a Wilson coefficient.

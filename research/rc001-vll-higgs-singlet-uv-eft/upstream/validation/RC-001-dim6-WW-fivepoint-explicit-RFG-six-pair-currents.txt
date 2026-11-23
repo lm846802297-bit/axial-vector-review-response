@@ -1,0 +1,31 @@
+RC-001 B2c-IVl explicit six-pair R_FG current projection
+
+PASS: exact direct-vs-factorized R_FG contractions at rational point 1 (6/6 pairs).
+  LD-W-01: nonzero 4x4 numerator entries=16; denominator factors=10,8,6,-3,-393
+  LD-W-02: nonzero 4x4 numerator entries=16; denominator factors=10,8,6,22,-393
+  LD-W-03: nonzero 4x4 numerator entries=16; denominator factors=10,8,14,11,-415
+  LD-W-04: nonzero 4x4 numerator entries=16; denominator factors=10,8,-3,2,-405
+  LD-W-05: nonzero 4x4 numerator entries=16; denominator factors=10,8,11,-3,-393
+  LD-W-06: nonzero 4x4 numerator entries=12; denominator factors=10,8,11,22,-393
+
+PASS: exact direct-vs-factorized R_FG contractions at rational point 2 (6/6 pairs).
+  LD-W-01: nonzero 4x4 numerator entries=16; denominator factors=20,8,11,-4,-390
+  LD-W-02: nonzero 4x4 numerator entries=16; denominator factors=20,8,11,20,-390
+  LD-W-03: nonzero 4x4 numerator entries=16; denominator factors=20,8,9,23,-428
+  LD-W-04: nonzero 4x4 numerator entries=16; denominator factors=20,8,-4,6,-410
+  LD-W-05: nonzero 4x4 numerator entries=16; denominator factors=20,8,23,-4,-390
+  LD-W-06: nonzero 4x4 numerator entries=12; denominator factors=20,8,23,20,-390
+
+RESULT: explicit pair-dependent R_FG current projections pass for all six pairs.
+MATRIX ORDER: LD-W-01/02/05/06 retain X_A slash(h) X_B; LD-W-03/04 retain
+             the distinct gamma-slash(r_F)-V_S and V_S-slash(r_F)-gamma orientations.
+BOUNDARY:
+  R_FG is not set to zero; its explicit contraction is retained.
+  Same-vertex heavy-channel propagators are spectator factors; their slash(h_E) numerator
+  is kept outside the loop-side R_FG kernel with the seed's chiral orientation.
+  Scalar seagull anticommutator terms are separate and are not folded into R_FG.
+  No ghost/ST completion, loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Execution: local exact SymPy rational arithmetic.
+The diagnostic uses M_E^2=400 and two generic nonsingular integer momentum points.
+This is not a GitHub Actions run and not a physical benchmark scan.

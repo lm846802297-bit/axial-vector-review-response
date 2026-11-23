@@ -1,0 +1,16 @@
+RC-001 B2c-IVn-g/03: all-six shifted Yukawa-singlet channel audit
+
+PASS: cross A endpoints share h-q after k'=k+q (8/8 vector components).
+PASS: cross B endpoints share h+q after k'=k-q (4/4 vector components).
+PASS: same-vertex LD-W-03/04 heavy spectators survive k->k±q (8/8 vector components, 16/16 derivative checks).
+PASS: left/right singlet charge sums with h-q, h+q, and h_E (192/192 weak components).
+RATIONAL LD-W-06 HEAVY DENOMINATORS: H0, HA, HB=(-377, -389, -365).
+
+RESULT: all six pair classes preserve the local Yukawa-singlet charge factor under the validated shifts.
+
+BOUNDARY:
+  This does not establish the full ordinary-matter longitudinal integrand cancellation,
+  the external-leg/LSZ sum, the ghost/ST completion, or a Wilson coefficient.
+
+Local regression suite: 6/6 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

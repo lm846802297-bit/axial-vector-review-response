@@ -1,0 +1,10 @@
+RC-001 QLD8 derivative/Fierz placement audit
+PASS: 9 ordered source pairs
+PASS: 3 diagonal and 3 cross+HC structures
+PASS: 36 ordered product-rule placements
+PASS: chiral classes {'RL': 3, 'LR': 2, 'RR': 2, 'LL': 2}
+PASS: placement 00 -> (('D_bar_psi',), ('D_bar_eta',))
+PASS: placement 01 -> (('D_bar_psi', 'D_xi'), ())
+PASS: placement 10 -> ((), ('D_chi', 'D_bar_eta'))
+PASS: placement 11 -> (('D_xi',), ('D_chi',))
+LIMIT: bookkeeping only; no d-dimensional loop mixing or finite matching

@@ -1,0 +1,34 @@
+# RC-001 diagram-tool availability check
+
+Date: 2026-10-23
+Purpose: determine whether this execution environment can perform the requested independent diagram-level UV–EFT validation.
+
+The local runtime probes checked the command line for `wolframscript`, `math`, `Mathematica`, `form`, `FORM`, `qgraf`, `sage`, `cadabra2`, and `pysecdec`. Python module availability was checked for `sympy`, `feyncalc`, `feynarts`, `pyfeyn`, `pylooptools`, `looptools`, `pysecdec`, and `sageall`.
+
+Observed output:
+
+```text
+form: not found
+FORM: not found
+qgraf: not found
+wolframscript: not found
+math: not found
+Mathematica: not found
+sage: not found
+cadabra2: not found
+pysecdec: not found
+sympy: available
+feyncalc: not available
+feynarts: not available
+pyfeyn: not available
+pylooptools: not available
+looptools: not available
+pysecdec: not available
+sageall: not available
+```
+
+Conclusion: the current runtime can execute Python/SymPy exact algebra and structural group/charge checks, but it has no installed Feynman-diagram generator or independent loop-integral package among the probed tools. Therefore no independent external diagram-level amplitude calculation is claimed. This missing tool is an open physics-evidence item, not a pass.
+
+CI is explicitly skipped for this iteration by project decision. That waiver applies only to the repository automation check; it does not waive the need for actual UV/EFT loop amplitudes, pole subtraction, finite hard coefficients, or independent diagram-level validation.
+
+This record does not assert that the user's local computer or other environments lack these tools.

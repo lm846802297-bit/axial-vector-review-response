@@ -1,0 +1,52 @@
+Python: 3.14.7
+Arithmetic: exact rational sparse polynomials; tensor/radial integration rules are explicit
+PASS 01 mixed graph expanded tensor integral
+PASS 02 mixed complete off-shell polynomial
+PASS 03 mixed on-shell old kernel
+PASS 04 mixed physical amplitude overall sign
+PASS 05 pure four-slash numerator zeroth order
+PASS 06 pure four-slash numerator first order
+PASS 07 pure four-slash numerator second order
+PASS 08 pure graph tensor and vacuum integrals
+PASS 09 pure routing 1 off-shell result
+PASS 10 pure routing 2 crossing
+PASS 11 complex singlet sum of routings
+PASS 12 Higgs direct weak-index tensor
+PASS 13 Higgs exchange weak-index tensor
+PASS 14 weak-index contraction (0, 1, 0, 1)
+PASS 15 weak-index contraction (0, 1, 1, 0)
+PASS 16 weak-index contraction (0, 0, 0, 0)
+PASS 17 H invariant operator projection
+PASS 18 H exchanged operator projection
+PASS 19 S invariant operator projection
+PASS 20 Higgs nonredundant QX coefficient
+PASS 21 singlet nonredundant QY coefficient
+PASS 22 mixed off-shell cH correction
+PASS 23 mixed off-shell cD correction
+PASS 24 mixed cDNR unchanged
+PASS 25 off-shell T_H and T_S complete mixed amplitude
+PASS 26 unified potential L row X^1Y^0
+PASS 27 unified potential L row X^0Y^1
+PASS 28 unified potential L row X^2Y^0
+PASS 29 unified potential L row X^0Y^2
+PASS 30 unified potential L row X^1Y^1
+PASS 31 unified potential L row X^3Y^0
+PASS 32 unified potential L row X^0Y^3
+PASS 33 unified potential L row X^2Y^1
+PASS 34 unified potential L row X^1Y^2
+PASS 35 unified source row FH X^0Y^0
+PASS 36 unified source row FH X^1Y^0
+PASS 37 unified source row FH X^0Y^1
+PASS 38 unified source row FS X^0Y^0
+PASS 39 unified source row FS X^1Y^0
+PASS 40 unified source row FS X^0Y^1
+PASS 41 H source square retained once
+PASS 42 S source square retained once
+PASS 43 background mixed kinetic leading term
+PASS 44 background mixed kinetic off-shell completion
+PASS 45 mass-basis radial kinetic slope
+PASS 46 four-point operators reproduce radial slope
+MIXED KERNEL: 1*IR*s + -1*L*s + 2*s + -1/6*t + -1/4*x1 + -1/4*x2 + -1/4*x3 + -1/4*x4
+PURE ROUTE 1: -1/2*t + -2/3*u + 3/4*x1 + 3/4*x2 + 3/4*x3 + 3/4*x4
+RESULT: 46 exact symbolic checks passed
+No numerical integration, FeynArts, FeynCalc, or independent external diagram generator was run.

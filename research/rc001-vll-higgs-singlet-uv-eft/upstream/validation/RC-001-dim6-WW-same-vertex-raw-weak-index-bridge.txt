@@ -1,0 +1,29 @@
+RC-001 B2c-IVe raw weak-index bridge: same-vertex WW pairs
+
+PASS: physical representation algebra (144/144 matrix components).
+PASS: two same-vertex seed tensors (32/32 weak components).
+PASS: F-line ordered commutators (96/96 components).
+PASS: S-line ordered commutators (96/96 components).
+PASS: F-line commutator phase cancels the S->F three-W group phase (96/96).
+PASS: S-line commutator phase cancels the S->F three-W group phase (96/96).
+PASS: raw scalar seagull anticommutator (96/96).
+
+SAME-VERTEX ATTACHMENT CENSUS:
+  LD-W-03: F=slot 0 (bar L); S=slot 1 (H); 4 graphs
+  LD-W-04: F=slot 3 (L); S=slot 2 (Hdag); 4 graphs
+  total = 8 direct five-point attachments
+
+ORIENTATION:
+  Internal W flows S -> F, so G_3W = -G_FS.
+  Matter-line phase-weighted commutator = -i g2 G_FS.
+  Three-W phase-weighted tensor = +i g2 G_FS.
+  Their weak/group-phase factors are opposite.
+
+BOUNDARY:
+  Same-vertex raw weak ordering and group-phase relation only.
+  The Lorentz kernels and shifted heavy denominator remain to be summed.
+  No complete Lorentz-weighted 24-graph cancellation, ghost/ST completion,
+  external-leg/CT sum, loop integration, or Wilson coefficient is claimed.
+
+Execution: exact SymPy arithmetic in the local calculation session.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.

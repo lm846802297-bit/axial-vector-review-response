@@ -1,0 +1,12 @@
+RC-001 QLD8 total-current expansion audit
+
+PASS 1: Y_H=1/2 and all five SM hypercharge representations are recorded.
+PASS 2: J_Y includes the Higgs current and every SM chiral fermion hypercharge current, with three generations and implicit colour sums.
+PASS 3: J_2 includes the Higgs current and all left-handed quark/lepton doublets; no right-handed singlet current is included.
+PASS 4: normalized U(1)_X charges are L_mu=+1, mu_R=-1, L_tau=-1, tau_R=+1, S=+2; H/quarks/electron are neutral.
+PASS 5: E_mu and E_tau are excluded from the low-energy EFT current because the VLLs have been integrated out; no N_R is added.
+PASS 6: exact rational EOM prefactors are -g_2^2/2, -g'^2/4, -g_2^2/8, +g_2^2/4, and -g'^2/4 in the five displayed current structures.
+PASS 7: the raw-field gauge EOM changes sign between D=partial+i g A and D=partial-i g A, while the currents built from the mapped D are unchanged.
+
+SCOPE: complete leading-renormalizable light-field current expansion for the restricted QLD8 gauge-EOM representatives.
+NOT CLAIMED: loop matching, fermion-EOM/Fierz reduction, two-background closure, complete dimension-eight Wilson vector, or independent diagram-package validation.

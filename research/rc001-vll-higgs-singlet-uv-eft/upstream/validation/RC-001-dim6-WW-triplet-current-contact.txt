@@ -1,0 +1,43 @@
+RC-001 Q_LD triplet derivative / external-W contact audit
+
+Local execution:
+  python /tmp/rc001_ww_triplet_current_contact.py
+  4/4 regression tests passed using Python + SymPy.
+
+Weak tensor:
+  T3_ij,kl = 2 delta_il delta_kj - delta_ij delta_kl
+           = sum_I sigma^I_ij sigma^I_kl.
+
+Define triplet composites:
+  X^I = barL sigma^I H
+  Y^I = Hdag sigma^I L
+
+The local triplet derivative operator is
+  Q_LD^(3) = X^I i gamma^mu (D_mu^adj Y)^I,
+with
+  (D_mu^adj Y)^I = partial_mu Y^I + g_2 epsilon^{IJK} W_mu^J Y^K.
+
+This follows from the exact matrix identity
+  -i g_2 [W_mu^J sigma^J/2, Y^K sigma^K]
+    = g_2 epsilon^{IJK} W_mu^J Y^K sigma^I.
+
+Therefore the EFT one-W contact implied by this triplet derivative operator is
+  L_contact = i g_2 C_Q3 epsilon^{IJK}
+              (barL sigma^I H) gamma^mu W_mu^J
+              (Hdag sigma^K L).
+
+Tests:
+  Pauli completeness/T3 identity: PASS
+  Adjoint covariant-derivative commutator: PASS
+  Triplet tensor normalization: PASS
+  Generic contact matrix is nonzero: PASS
+  Total: 4/4 PASS.
+
+Interpretation boundary:
+  This identifies the local EFT contact required by a T3 derivative operator.
+  With phi(x)=int_p exp(-i p.x) phi(p), the derivative on Y=Hdag sigma L
+  has p3+p4=-P. The WW note's raw amplitude coefficient multiplies +slash(P),
+  so C_Q3=-C3_amp in that convention. The contact sign follows C_Q3.
+  It is not the UV one-loop five-point form factor and does not establish
+  the final C_Hl^(3) coefficient. The full UV current amplitude, its EFT
+  subtraction, other operator tensors, and EOM/IBP reduction remain open.

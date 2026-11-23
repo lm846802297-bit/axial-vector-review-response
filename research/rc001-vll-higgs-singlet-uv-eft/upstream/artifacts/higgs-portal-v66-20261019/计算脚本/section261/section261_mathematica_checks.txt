@@ -1,0 +1,29 @@
+ENGINE 14.2.0 for Microsoft Windows (64-bit) (December 26, 2024)
+SYSTEM Windows-x86-64
+PASS 1 tadpole h
+PASS 2 tadpole s
+PASS 3 stationary invariant derivatives
+PASS 4 sextic radial Hessian
+PASS 5 tadpole contribution before stationarity
+PASS 6 Goldstone H potential mass
+PASS 7 Goldstone S potential mass
+PASS 8 radial kinetic matrix
+PASS 9 AH radial cancellation
+PASS 10 canonical kinetic
+PASS 11 mass anticommutator
+PASS 12 explicit mixed entry
+PASS 13 generalized characteristic equation
+PASS 14 generalized polynomial coefficients
+PASS 15 rotation sign
+PASS 16 fixed UV VEV shift
+PASS 17 gauge EOM shifted tadpole H
+PASS 18 gauge EOM shifted tadpole S
+PASS 19 gauge EOM radial spectral matrix
+PASS 20 noncommuting p4 field transformation
+PASS 21 p4 potential Hessian
+PASS 22 ordinary fermion h source
+PASS 23 ordinary fermion s source
+PASS 24 zero UV portal combined matrix
+PASS 25 zero UV portal per flavor
+RESULT: 25 Mathematica symbolic checks passed
+Scope: independent symbolic differentiation and matrix algebra; no loop diagram package was run.

@@ -1,0 +1,24 @@
+RC-001 B2c-IVb endpoint decomposition
+
+PASS: physical SU(2) charge sums vanish at both Yukawa singlets (96/96).
+PASS: A/B oriented fermion endpoint WTIs (32/32 Dirac components).
+PASS: A/B oriented scalar endpoint WTIs (2/2).
+PASS: three-W transverse inverse-kernel difference (16/16).
+PASS: Feynman-gauge propagator chain including R_FG (16/16).
+
+ENDPOINT LEDGER:
+  Yukawa-vertex gauge variation: cancels between the two light fields at each singlet vertex.
+  Internal-W endpoint: matter-line terms must be combined with the three-W difference.
+  Scalar endpoint: scalar-line insertion and seagull must be combined.
+  Feynman-gauge remainder R_FG: retained for gauge-fixing/ghost STI completion.
+  External-leg/LSZ and counterterms: separate terms in the full renormalized identity.
+
+BOUNDARY:
+  No complete Lorentz-weighted 24-graph sum.
+  No A/B matter-line plus three-W cancellation claimed.
+  No complete scalar-line/seagull endpoint sum.
+  No ghost/gauge-fixing Slavnov-Taylor completion.
+  No external-leg/counterterm sum or integrated Wilson coefficient.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

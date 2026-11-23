@@ -1,0 +1,20 @@
+RC-001 QLD8 cross-source mixed-tensor UV-Taylor audit
+
+PASS: D-dimensional angular coefficient c=(D-4)/12.
+PASS: q-dependent antisymmetric coefficient 2A/D=1/2.
+PASS: left rank-two x scalar color-weighted sum:
+  (D+8)/12 * Gamma^{mu nu} q_mu (p4-p3)_nu.
+PASS: scalar x right rank-two color-weighted sum:
+  -(D+8)/6 * Gamma^{mu nu} p1_mu p2_nu.
+PASS: D=4 limits and exact symbolic component identities.
+PASS: independent rational momentum samples: 6/6.
+PASS: D=4-2epsilon prefactor (D+8)/12 = 1-epsilon/6.
+
+Scope:
+Only mixed rank-two x scalar and scalar x rank-two projections.
+The rank-two x rank-two projection, full graph phase, external-gluon
+completion, complete QCD Z matrix, EOM/IBP quotient, and finite
+evanescent-scheme matching remain open.
+
+Reproducible source:
+calculations/RC-001-QLD8-cross-source-mixed-tensor-UV-audit.py

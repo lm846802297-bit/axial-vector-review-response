@@ -1,0 +1,69 @@
+name: RC-001 QLD8 counterterm-basis seed audit
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/rc001-qld8-counterterm-basis-audit.yml"
+      - "calculations/RC-001-QLD8-counterterm-basis-audit.py"
+      - "research/RC-001-QLD8-one-loop-counterterm-basis.md"
+      - "validation/RC-001-QLD8-counterterm-basis-audit.txt"
+      - "calculations/RC-001-QLD8-QCD-color-factor-audit.py"
+      - "research/RC-001-QLD8-QCD-color-factor-block.md"
+      - "validation/RC-001-QLD8-QCD-color-factor-audit.txt"
+      - "calculations/RC-001-QLD8-QCD-momentum-routing-audit.py"
+      - "research/RC-001-QLD8-QCD-one-loop-momentum-routing.md"
+      - "validation/RC-001-QLD8-QCD-momentum-routing-audit.txt"
+      - "calculations/RC-001-QLD8-ddim-Fierz-projection-audit.py"
+      - "research/RC-001-QLD8-d-dimensional-RL-tensor-Fierz-map.md"
+      - "validation/RC-001-QLD8-ddim-Fierz-projection-audit.txt"
+      - "calculations/RC-001-QLD8-QCD-direct-color-basis-audit.py"
+      - "research/RC-001-QLD8-QCD-direct-pairing-color-basis.md"
+      - "validation/RC-001-QLD8-QCD-direct-color-basis-audit.txt"
+      - "calculations/RC-001-QLD8-QCD-open-line-numerator-audit.py"
+      - "research/RC-001-QLD8-QCD-d-dagger-d-open-line-numerators.md"
+      - "validation/RC-001-QLD8-QCD-open-line-numerator-audit.txt"
+      - "calculations/RC-001-QLD8-cross-source-scalar-UV-audit.py"
+      - "research/RC-001-QLD8-cross-source-scalar-UV-pole.md"
+      - "validation/RC-001-QLD8-cross-source-scalar-UV-audit.txt"
+      - "calculations/RC-001-QLD8-cross-source-mixed-tensor-UV-audit.py"
+      - "research/RC-001-QLD8-cross-source-mixed-tensor-UV-poles.md"
+      - "validation/RC-001-QLD8-cross-source-mixed-tensor-UV-audit.txt"
+      - "calculations/RC-001-QLD8-cross-source-tensor-integral-audit.py"
+      - "research/RC-001-QLD8-cross-source-rank2xrank2-UV-kernel.md"
+      - "validation/RC-001-QLD8-cross-source-tensor-integral-audit.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-counterterm-basis-seeds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Run exact QLD8 basis and gamma-duality audit
+        run: python calculations/RC-001-QLD8-counterterm-basis-audit.py
+      - name: Run exact QLD8 QCD color-factor audit
+        run: python calculations/RC-001-QLD8-QCD-color-factor-audit.py
+      - name: Run exact QLD8 QCD momentum-routing audit
+        run: python calculations/RC-001-QLD8-QCD-momentum-routing-audit.py
+      - name: Run d-dimensional QLD8 direct RL tensor Fierz projection audit
+        run: python calculations/RC-001-QLD8-ddim-Fierz-projection-audit.py
+      - name: Run direct-pairing QLD8 QCD color-basis audit
+        run: python calculations/RC-001-QLD8-QCD-direct-color-basis-audit.py
+      - name: Run QLD8 QCD open-line numerator gamma audit
+        run: python calculations/RC-001-QLD8-QCD-open-line-numerator-audit.py
+      - name: Run QLD8 cross-source scalar UV Taylor audit
+        run: python calculations/RC-001-QLD8-cross-source-scalar-UV-audit.py
+      - name: Run QLD8 cross-source mixed tensor UV Taylor audit
+        run: python calculations/RC-001-QLD8-cross-source-mixed-tensor-UV-audit.py
+      - name: Run QLD8 cross-source full tensor UV Taylor audit
+        run: python calculations/RC-001-QLD8-cross-source-tensor-integral-audit.py

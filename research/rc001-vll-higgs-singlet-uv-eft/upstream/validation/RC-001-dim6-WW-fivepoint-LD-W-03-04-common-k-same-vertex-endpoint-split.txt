@@ -1,0 +1,37 @@
+RC-001 B2c-IVn-f/04: LD-W-03/04 same-vertex endpoint bridge
+
+PASS: LD-W-03/04 opposite fermion WTIs (32/32 Dirac components).
+PASS: S->F scalar WTI and current rebase (1/1 WTI, 4/4 vector components).
+PASS: k_old=k+q scalar-line/seagull common-k map (24/24 vector components).
+PASS: shifted scalar/fermion/current bridge for the Delta_W term (16/16 components).
+PASS: seagull denominator equals the three-W denominator divided by k^2 (1/1 exact identity).
+PASS: same-vertex weak tensors and S->F group phases:
+      seed=32, F_commutator=96, S_commutator=96,
+      F_threeW_phase=96, S_threeW_phase=96, scalar_seagull=96.
+PASS: chiral heavy-propagator projection and k-independent spectator (16/16 matrix, 16/16 momentum checks).
+PASS: actual LD-W-03/04 R_FG direct-vs-factorized contractions (64/64 matrix components).
+PASS: actual scalar endpoint kernels raw-vs-rebased (64/64 matrix components).
+
+Point 1:
+  LD-W-03 denominators=(7,10,16,13,8,11,-402); delta_S=3/88;
+    symmetric q coefficient=19/176; N_RFG=16/16; q contacts=16/16,16/16.
+  LD-W-04 denominators=(7,10,-5,-10,2,5,-401); delta_S=3/10;
+    symmetric q coefficient=7/20; N_RFG=16/16; q contacts=16/16,16/16.
+Point 2:
+  LD-W-03 denominators=(34,44,58,46,35,49,-407); delta_S=2/245;
+    symmetric q coefficient=6/245; N_RFG=16/16; q contacts=16/16,16/16.
+  LD-W-04 denominators=(34,44,4,-4,13,19,-405); delta_S=6/247;
+    symmetric q coefficient=16/247; N_RFG=16/16; q contacts=8/16,8/16.
+
+RESULT:
+  V_S^line=2p_S-(k+q)=V_S^3W-q, V_S^3W=2p_S-k.
+  The symmetric q contact is (Delta_Y+Delta_W)/2; the commutator q contact is -i delta_S/2.
+  LD-W-03 keeps slash(C_S) slash(r_F^Y); LD-W-04 keeps slash(r_F^Y) slash(C_S).
+
+BOUNDARY:
+  This does not sum the four longitudinal attachments with all endpoint/LSZ terms.
+  The q contacts and R_FG are retained; no physical non-cancellation, full STI,
+  loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Local regression suite: 7/7 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

@@ -1,0 +1,15 @@
+RC-001 B2c-IVn-a same-vertex fermion-line WTI
+
+PASS: LD-W-03/04 opposite open-line WTI identities (32/32 Dirac components).
+PASS: q-contracted insertion and seed Dirac-Hermitian conjugation (32/32 components).
+PASS: common-k fermion momenta r_F^Y=r_F^W+q (4/4 vector components).
+PASS: same-vertex heavy channel is k-independent spectator (16/16 derivatives).
+LD-W-03:
+  S(r_F^W) slash(q) P_L S(r_F^Y) = S(r_F^W) P_R - P_L S(r_F^Y)
+LD-W-04:
+  S(r_F^Y) slash(q) P_L S(r_F^W) = P_L S(r_F^W) - S(r_F^Y) P_R
+BOUNDARY: same-vertex fermion-line WTI only; no full 24-graph sum,
+          ghost/ST completion, loop integration, or Wilson coefficient.
+
+Execution: local exact SymPy symbolic arithmetic.
+This is not a GitHub Actions run and not a FeynArts/FeynCalc run.

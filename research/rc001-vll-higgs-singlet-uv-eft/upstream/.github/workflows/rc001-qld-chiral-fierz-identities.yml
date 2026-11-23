@@ -1,0 +1,28 @@
+name: RC-001 QLD chiral Fierz identities
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/rc001-qld-chiral-fierz-identities.yml"
+      - "calculations/RC-001-QLD-chiral-Fierz-identities.py"
+      - "validation/RC-001-QLD-chiral-Fierz-identities.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-four-dimensional-fierz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy==1.14.0
+      - name: Run exact Fierz matrix identities
+        run: python calculations/RC-001-QLD-chiral-Fierz-identities.py

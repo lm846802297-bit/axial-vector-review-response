@@ -1,0 +1,86 @@
+RC-001 QLD dimension-eight one-background amplitude projection
+
+Normalization: all form factors are multiplied by pi^2 M_E^4; the common g_A |y_l|^2 and charge factors are omitted.
+
+Independent off-shell invariants:
+  P=p^2, Q=q^2, R=p.q, P'=p'^2=P+Q-2R
+  Sigma_3=P^2+P P'+P'^2
+  T^mu=Q p^mu-R q^mu
+  S^mu=-(p+p')^mu Sigma_3
+
+Minimal amplitude columns:
+  B_P^mu=(P-R) T^mu
+  B_Q^mu=Q T^mu
+  B_S^mu=S^mu
+
+Their form-factor columns (F_p,F_q):
+  B_P: (Q(P-R), -R(P-R))
+  B_Q: (Q^2, -RQ)
+  B_S: (-2 Sigma_3, Sigma_3)
+
+Polynomial coefficient matrix, rows ordered as F_p then F_q and, within each, P^2, PQ, PR, Q^2, QR, R^2:
+  [[ 0,  0, -6],
+   [ 1,  0, -6],
+   [ 0,  0, 12],
+   [ 0,  1, -2],
+   [-1,  0,  8],
+   [ 0,  0, -8],
+   [ 0,  0,  3],
+   [ 0,  0,  3],
+   [-1,  0, -6],
+   [ 0,  0,  1],
+   [ 0, -1, -4],
+   [ 1,  0,  4]]
+
+Exact checks:
+  PASS: rank = 3
+  PASS: minor (rows F_p:P^2, F_p:PQ, F_p:Q^2) = -6
+  PASS: Gram determinant = 3432
+  PASS: q.B_P = 0
+  PASS: q.B_Q = 0
+  PASS: q.B_S = P'^3-P^3
+
+Hard-region coefficient vectors, with common g_A |y_l|^2/(pi^2 M_E^4) restored outside the table:
+  Gamma_X = a_X B_P + b_X B_Q
+  a_X = (30/eps_IR + 30 L_M + 70)/720
+  b_X = 21/720
+  c_X = 0
+
+  Gamma_L = a_L B_P + b_L B_Q + c_L B_S
+  a_L = (12/eps_IR + 12 L_M + 25)/288
+  b_L = 1/48
+  c_L = 1/192
+
+Charge projections:
+  U(1)_X: q_E Gamma_X (q_H=0)
+  U(1)_Y: -Gamma_X + Gamma_L/2 (q_E=-1,q_H=+1/2)
+    a_Y = -(60/eps_IR + 60 L_M + 155)/2880
+    b_Y = -3/160
+    c_Y = 1/384
+  SU(2)_L: T^a Gamma_L (q_E=0)
+
+Full-amplitude cross-check:
+  Gamma_X(full): a_X=(30 ell_Q+20)/720, b_X=21/720, c_X=0
+  Gamma_L(full): a_L=(12 ell_Q+5)/288, b_L=1/48, c_L=1/192
+  The logarithm ell_Q=ln(Q/M_E^2) is nonlocal EFT/full-amplitude information and is not a local Wilson coefficient.
+
+Scope:
+  The three columns are independent in the restricted off-shell one-background amplitude projection. The displayed Abelian operator representatives are not yet a complete non-Abelian or nonredundant SMEFT basis. IBP, Higgs/lepton EOM, gauge EOM, source/current companions, counterterms, and the other O(M_E^-4) channels remain to be reduced.
+  The hard-region coefficients retain IR poles and are not finite renormalized Wilson coefficients.
+
+
+Independent scalar two-point source check:
+  B0 = Delta_UV - L + 1 + z/2 + z^2/6 + z^3/12 + O(z^4)
+  [z^3] { -h [Delta_UV-L+1 + (1-z) B0] } = +h/12
+  h=|y_l|^2/(16 pi^2), hence
+  Pi_Hl|p^6 = |y_l|^2 p^6/(192 pi^2 M_E^4)
+  This equals the source coefficient c_S extracted from the QLD hard Ward identity.
+  PASS: exact rational coefficient 1/12
+  PASS: conversion to |y_l|^2/(192 pi^2 M_E^4)
+  LIMIT: this is an analytic extension of the recorded A0/B0 two-point kernel, not a new FeynArts/FeynCalc run.
+
+Massless on-shell diagnostic (P=P'=0, hence R=Q/2):
+  B_P = -B_Q/2
+  B_S = 0
+  The three-column polynomial map therefore collapses to rank 1 on this restricted kinematic surface. Generic off-shell momenta are essential to extract the three amplitude coefficients.
+  PASS: exact SymPy substitutions reproduce both relations.

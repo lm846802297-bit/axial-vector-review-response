@@ -1,0 +1,73 @@
+Python: 3.14.7
+Arithmetic: Fraction polynomials; exact Gaussian-rational Fierz matrices; raw operator subtraction
+PASS 001 LR numerical matrix Fierz, all 256 entries
+PASS 002 LL numerical matrix Fierz, all 256 entries
+PASS 003 Grassmann permutation sign
+PASS 004 scalar LR to vector LR including Grassmann sign
+PASS 005 vector LL exchanged Fierz including Grassmann sign
+PASS 006 complex scalar loop times finite three-denominator integral phase
+PASS 007 complex scalar loop times four-denominator integral phase
+PASS 008 Nambu normal/anomalous trace and no mixed-flavor LR cross
+PASS 009 Nambu trace versus complex-scalar loop multiplicity
+PASS 010 right-handed conjugate scalar cross sign
+PASS 011 ordered pair factor converts to unordered pair
+PASS 012 mixed heavy-light angular finite constant
+PASS 013 mixed heavy-light MS finite coefficient
+PASS 014 mixed LR scalar hard coefficient
+PASS 015 mixed LR vector display after finite subtraction
+PASS 016 two-C5 scalar bubble pole cancellation
+PASS 017 mixed LR scalar RG
+PASS 018 mixed heavy-light single-C6 soft pole cancellation
+PASS 019 mixed heavy-light current RG
+PASS 020 unequal-heavy divided difference series order 0
+PASS 021 unequal-heavy divided difference series order 1
+PASS 022 unequal-heavy divided difference series order 2
+PASS 023 unequal-heavy divided difference series order 3
+PASS 024 positive-scalar-mass LR hard remainder
+PASS 025 positive-scalar-mass mixed heavy-light hard remainder
+PASS 026 weak epsilon all-index identity
+PASS 027 published mixed SM down lq singlet
+PASS 028 published mixed SM up lq singlet
+PASS 029 published mixed SM lq triplet
+PASS 030 published mixed SM right up current
+PASS 031 published mixed SM right down/e current
+PASS 032 all nine Higgs source products retained
+PASS 033 published qu/qd color singlet source
+PASS 034 published qu/qd color octet source
+PASS 035 published quqd source
+PASS 036 published ledq source
+PASS 037 published lequ source sign
+PASS 038 published single-heavy pure LL coefficient
+PASS 039 published pure-gauge current control qq
+PASS 040 published pure-gauge current control uu
+PASS 041 published pure-gauge current control dd
+PASS 042 published pure-gauge current control ee
+PASS 043 published pure-gauge current control qe
+PASS 044 published pure-gauge current control eu
+PASS 045 published pure-gauge current control ed
+PASS 046 published pure-gauge current control le
+PASS 047 published hypercharge penguin le
+PASS 048 published hypercharge penguin lu
+PASS 049 published hypercharge penguin ld
+PASS 050 published weak penguin lq triplet
+PASS 051 own hypercharge lq/le ratio
+PASS 052 reference lq constant discrepancy is explicitly nonzero
+PASS 053 reference ud sign discrepancy is explicitly nonzero
+REFERENCE_DISCREPANCY Eq6.40 printed-minus-own: 25/216
+REFERENCE_DISCREPANCY Eq6.31 printed: -8/135 own: 8/135
+NUMERICAL positive unequal-heavy radial kernel, Simpson n=8192:
+MASS_PAIR a=1, b=1, integral=1.000000000000, closed=1.000000000000
+MASS_PAIR a=1, b=4, integral=0.462098120373, closed=0.462098120373
+MASS_PAIR a=2, b=7, integral=0.250552593699, closed=0.250552593699
+NUMERICAL regulated LR and heavy-light radial functions, Simpson n=8192:
+REGULATED r=0.02, LR=2.157119339664, LRclosed=2.157119339664, SM=-3.052918581245, SMclosed=-3.052918581245
+REGULATED r=0.005, LR=3.385335509020, LRclosed=3.385335509020, SM=-4.346675454204, SMclosed=-4.346675454204
+REGULATED r=0.001, LR=4.931442572583, LRclosed=4.931442572583, SM=-5.920590539471, SMclosed=-5.920590539471
+NUMERICAL two independent hard remainders, Decimal precision=50:
+HARD_LIMIT r=0.01, LRhard=-1.852181789784475, target=-2; SMhard=0.354149350397622, target=3/8
+HARD_LIMIT r=0.001, LRhard=-1.976312706399545, target=-2; SMhard=0.371791184877900, target=3/8
+HARD_LIMIT r=0.0001, LRhard=-1.996715094781189, target=-2; SMhard=0.374564416394887, target=3/8
+RESULT: 53 exact determinant/Fierz/symbolic checks passed; 9 integrals and 6 IR hard limits passed
+Reference status: 2 printed-sign discrepancies recorded, not counted as agreement.
+Four-fermion basis: raw scalar/current products; poles subtracted before four-dimensional Fierz.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.
