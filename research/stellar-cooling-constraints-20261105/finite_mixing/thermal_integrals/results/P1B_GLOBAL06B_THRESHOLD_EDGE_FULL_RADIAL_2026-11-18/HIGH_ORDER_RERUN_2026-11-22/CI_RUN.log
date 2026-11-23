@@ -17,4 +17,4 @@ high-order points 431/431
   "all_rates_finite_nonnegative": true,
   "full_global_high_order_acceptance": false
 }
-unique points=431 runtime=470.7s
+unique points=431 runtime=707.7s
