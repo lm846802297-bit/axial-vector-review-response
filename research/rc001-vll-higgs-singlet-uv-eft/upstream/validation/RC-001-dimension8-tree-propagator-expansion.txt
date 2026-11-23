@@ -1,0 +1,12 @@
+RC-001 dimension-eight tree-level VLL Schur-complement audit
+
+PASS: cross-chirality Schur-complement term expands with Lagrangian coefficients +y lambda/M_E and +y lambda/M_E^3
+PASS: in L_EFT = -C5 O5 - C7 O7 + h.c., C5=-y lambda/M_E and C7=C5/M_E^2
+PASS: same-chirality tree terms generate +|y|^2 Q_LD/M_E^2 and +|y|^2 Q_LD^(8)/M_E^4
+PASS: same-chirality tree terms generate +|lambda|^2 Q_RD/M_E^2 and +|lambda|^2 Q_RD^(8)/M_E^4
+PASS: next cross-chirality term is dimension nine and order M_E^-5
+
+Execution: local SymPy exact series/algebraic checks.
+Convention: Dslash=i gamma.D acts on the complete right-hand source; C5 and C7 are defined through L_EFT=-C5 O5-C7 O7+h.c.
+
+LIMIT: no scalar/gauge EOM minimal-basis canonicalization, loop matching, or external diagram-package validation is claimed.

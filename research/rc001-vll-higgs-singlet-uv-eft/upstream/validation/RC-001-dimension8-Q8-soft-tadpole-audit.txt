@@ -1,0 +1,6 @@
+PASS 1: the one-insertion Q8 fermion tadpole numerator reduces to K + 3(k.p) + 2(k.p)^2/K + p^2 + p^2(k.p)/K
+PASS 2: odd terms vanish and tensor reduction gives only scaleless integrals int 1 and int k^2
+PASS 3: the pure massless unbroken-phase one-insertion tadpole vanishes in dimensional regularization
+PASS 4: adding a C5-induced light-fermion mass insertion raises the formal order to at least M_E^-5
+SCOPE: pure scalar two-point/tadpole projection, one Q_LD^(8) or Q_RD^(8) insertion, no gauge attachments
+OPEN: O(g^2/M_E^4) gauge-corrected fermionic/current amplitudes, covariant-derivative contact terms, EOM/source reduction, and UV hard partners

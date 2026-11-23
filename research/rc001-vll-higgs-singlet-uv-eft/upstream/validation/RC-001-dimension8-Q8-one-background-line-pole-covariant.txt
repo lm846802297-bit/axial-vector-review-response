@@ -1,0 +1,13 @@
+A0 = -4*x*(x - 1)*(Q2*x - 2*QR)*(Q2*x**2 - 2*QR*x + R2)
+A2 = -2*(8*Q2*x**3 - 6*Q2*x**2 - 16*QR*x**2 + 12*QR*x + 5*R2*x - 3*R2)
+A4 = -4*(2*x - 1)
+B0 = -4*Q2*x*(x - 1)*(Q2*x**2 - 2*QR*x + R2)
+B2 = -2*(4*Q2*x**2 - 3*Q2*x - 2*QR*x + R2)
+B4 = 0
+UV coefficient of q^mu = 4*QR*(QR - R2)/3
+UV coefficient of r^mu = -4*Q2*(QR - R2)/3
+q_mu times UV vector residue = 0
+PASS: full d-dimensional invariant angular averages
+PASS: Feynman-parameter integration
+PASS: transverse UV residue
+SCOPE: ordinary-line graph only; contact/R* subtraction and hard matching remain open
