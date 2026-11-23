@@ -30,7 +30,7 @@ This is targeted high-order acceptance, not exhaustive high-order convergence ov
 
 - B.16 strict validator: numeric schema, finite-value checks, source/opacity identity, immutable energy-node reference, baseline closure, and sparse joint-to-marginal checks.
 - B.16 regression suite: sparse zero-bin handling and hard failure for missing non-zero bins or unexpected labels.
-- B.13 provenance: exact source commit, input hashes, local/CI environment records, output hashes, target coverage, and independent result validation.
+- B.13 provenance: exact source commit, input hashes, local/CI environment records, output hashes, target coverage, and independent result validation. The local primary run's validator hash differs from the committed validator hash; the exact local validator bytes are unavailable, this identity gap is explicitly preserved in the B.13 provenance record, and the committed validator is separately reproduced by the independent CI lane.
 - Calculation jobs remain read-only; result archival is isolated in separately permissioned jobs.
 - Production axial-vector rates, transport outputs, and constraint figures remain unchanged.
 
