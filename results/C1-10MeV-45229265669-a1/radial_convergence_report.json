@@ -1,0 +1,213 @@
+{
+  "title": "C1 10 MeV adaptive radial integration and radial-grid convergence",
+  "status": "PASS: 103/153-node adaptive radial convergence below 0.12% for both outer boundaries and all three polarizations",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "energy_order": 32,
+  "neutrino_angular_order": 128,
+  "susceptibility_order": 192,
+  "coupling_range": [
+    1e-11,
+    1
+  ],
+  "max_quadpack_relative_error_estimate": 1.3831232889847977e-07,
+  "max_mode_sum_relative_residual": 2.2133373146652667e-16,
+  "surface_asymptote": {
+    "103": {
+      "by_mode_erg_s": {
+        "L": 4.793610440402357e+51,
+        "+": 4.7936104404023585e+51,
+        "-": 4.793610440402357e+51
+      },
+      "total_erg_s": 1.4380831321207074e+52,
+      "high_g_total_relative_residual": 3.697221575291644e-16,
+      "high_g_mode_relative_residuals": {
+        "L": 4.1593742722031004e-16,
+        "+": 2.772916181468733e-16,
+        "-": 5.545832362937467e-16
+      }
+    },
+    "153": {
+      "by_mode_erg_s": {
+        "L": 4.793610431977923e+51,
+        "+": 4.7936104319779255e+51,
+        "-": 4.793610431977926e+51
+      },
+      "total_erg_s": 1.4380831295933773e+52,
+      "high_g_total_relative_residual": 3.6972215817892513e-16,
+      "high_g_mode_relative_residuals": {
+        "L": 5.545832372683879e-16,
+        "+": 4.159374279512907e-16,
+        "-": 2.7729161863419376e-16
+      }
+    }
+  },
+  "radial_grid_convergence": {
+    "coarse_radial_points": 103,
+    "fine_radial_points": 153,
+    "coupling_points": 121,
+    "Rfar_Rnu": {
+      "total": {
+        "max_absolute_difference_over_reference_peak": 0.00015194698257626316,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.000980258352240603,
+        "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+        "max_pointwise_relative_difference_all_points": 0.000980258352240603,
+        "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+        "reference_fraction_of_peak_at_raw_relative_max": 0.0014615916307777045,
+        "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+      },
+      "per_mode": {
+        "L": {
+          "max_absolute_difference_over_reference_peak": 0.00011771102263308911,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0009800099291956694,
+          "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+          "max_pointwise_relative_difference_all_points": 0.0009800099291956694,
+          "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 0.0016706714933368116,
+          "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+        },
+        "+": {
+          "max_absolute_difference_over_reference_peak": 7.739148084597921e-05,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0009755272944511938,
+          "at_g_X_max_absolute_difference": 1.9952623149688786e-08,
+          "max_pointwise_relative_difference_all_points": 0.0009755272944511938,
+          "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 0.0014148673088029192,
+          "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+        },
+        "-": {
+          "max_absolute_difference_over_reference_peak": 0.00025725393629224565,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.000985237816577977,
+          "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+          "max_pointwise_relative_difference_all_points": 0.000985237816577977,
+          "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 0.0013390145943353504,
+          "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+        }
+      }
+    },
+    "Rfar_100km_vacuum_nu_tail": {
+      "total": {
+        "max_absolute_difference_over_reference_peak": 0.00016096285691870573,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.0011097275508863145,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+        "max_pointwise_relative_difference_all_points": 0.26073951353873326,
+        "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+        "reference_fraction_of_peak_at_raw_relative_max": 8.743890751069963e-306,
+        "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+      },
+      "per_mode": {
+        "L": {
+          "max_absolute_difference_over_reference_peak": 0.0001254333173879186,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0010186950717914094,
+          "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+          "max_pointwise_relative_difference_all_points": 0.2701100451427167,
+          "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 1.9280189593194844e-305,
+          "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+        },
+        "+": {
+          "max_absolute_difference_over_reference_peak": 0.00016339861017023927,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0011232704367734221,
+          "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+          "max_pointwise_relative_difference_all_points": 0.24381242989296947,
+          "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 4.4573602873623565e-306,
+          "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+        },
+        "-": {
+          "max_absolute_difference_over_reference_peak": 0.00018757194009485874,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0011692956845857593,
+          "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+          "max_pointwise_relative_difference_all_points": 0.24261457333271805,
+          "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 4.198852169483397e-306,
+          "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+        }
+      }
+    },
+    "max_relevant_pointwise_relative_difference_all_boundaries_and_modes": 0.0011692956845857593,
+    "max_absolute_difference_over_curve_peak_all_boundaries_and_modes": 0.00025725393629224565,
+    "relevant_region_definition": "Reference luminosity > 1e-8 of the 153-node curve peak",
+    "one_percent_target_met": true,
+    "all_boundaries_and_modes_below_0_12_percent": true,
+    "raw_100km_tail_relative_max": 0.26073951353873326,
+    "raw_100km_tail_relative_max_at_g_X": 8.91250938133744e-07,
+    "raw_100km_tail_reference_fraction_of_peak_at_relative_max": 8.743890751069963e-306,
+    "surface_asymptote_103_vs_153_relative_difference": 1.75742972738346e-09,
+    "max_QUADPACK_relative_error_estimate_both_grids": 1.3831232889847977e-07,
+    "max_three_mode_closure_residual_both_grids": 2.2133373146652667e-16,
+    "high_coupling_surface_residual_by_mode": {
+      "103": {
+        "L": 4.1593742722031004e-16,
+        "+": 2.772916181468733e-16,
+        "-": 5.545832362937467e-16
+      },
+      "153": {
+        "L": 5.545832372683879e-16,
+        "+": 4.159374279512907e-16,
+        "-": 2.7729161863419376e-16
+      }
+    },
+    "checksum_manifest_verified": true,
+    "checksum_validation": [
+      {
+        "file": "croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json",
+        "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125",
+        "matches": true
+      },
+      {
+        "file": "croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv",
+        "sha256": "f0b469435b6e39b27f390ab513671dd4bac4a681405f2a73092aae7c87ec580c",
+        "matches": true
+      },
+      {
+        "file": "croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+        "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
+        "matches": true
+      },
+      {
+        "file": "croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv",
+        "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
+        "matches": true
+      }
+    ]
+  },
+  "legacy_simpson_over_adaptive_samples": [
+    {
+      "g_X": 1e-11,
+      "legacy_simpson_over_adaptive": 0.9998098891137982
+    },
+    {
+      "g_X": 1.0797751623277093e-07,
+      "legacy_simpson_over_adaptive": 1.0313982879300703
+    },
+    {
+      "g_X": 1.1006941712522081e-06,
+      "legacy_simpson_over_adaptive": 67.26117837799302
+    },
+    {
+      "g_X": 9.08517575651686e-06,
+      "legacy_simpson_over_adaptive": 4584.944908207622
+    },
+    {
+      "g_X": 9.261187281287918e-05,
+      "legacy_simpson_over_adaptive": 476435.68085106957
+    },
+    {
+      "g_X": 0.0009440608762859227,
+      "legacy_simpson_over_adaptive": 49507498.06085959
+    },
+    {
+      "g_X": 0.009623506263980867,
+      "legacy_simpson_over_adaptive": 5144434548.040882
+    },
+    {
+      "g_X": 0.09809947127268744,
+      "legacy_simpson_over_adaptive": 534569667952.77606
+    },
+    {
+      "g_X": 1,
+      "legacy_simpson_over_adaptive": 55548326492353.19
+    }
+  ]
+}

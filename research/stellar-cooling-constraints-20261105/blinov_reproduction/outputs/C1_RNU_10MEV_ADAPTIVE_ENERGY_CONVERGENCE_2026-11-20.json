@@ -12,8 +12,8 @@
     "csv_path": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
     "radial_points": 153,
     "energy_order": 48,
-    "sha256_json": "4064d5d5b5abe4d8c6c0702f727a884a6a9b40e775199ddee03e30a10dd855ec",
-    "sha256_csv": "0684921de1208ff605ea2f00d2a3da7a98ed90ff559fae711eaab1a1c4334c89"
+    "sha256_json": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0",
+    "sha256_csv": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e"
   },
   "fixed_parameters": {
     "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
@@ -39,10 +39,10 @@
   },
   "comparison_definition": "Full 121-point curves are compared pointwise. Both the maximum absolute difference divided by the reference curve peak and the maximum pointwise relative difference where the reference exceeds 1e-8 of its peak are reported. Thin-source channel/mode integrals and surface asymptotes are compared separately.",
   "target": 0.0001,
-  "maximum_over_all_reported_metrics": 1.3031064813802635e-07,
+  "maximum_over_all_reported_metrics": 1.3031064843244444e-07,
   "total_curve_changes": {
     "Rfar_Rnu_adaptive_quad": {
-      "max_absolute_difference_over_reference_peak": 2.10501834259472e-08,
+      "max_absolute_difference_over_reference_peak": 2.1050183555695878e-08,
       "max_pointwise_relative_difference_above_1e-8_peak": 3.4630050717213577e-08,
       "at_g_X_max_absolute_difference": 3.7583740428844355e-08
     },
@@ -61,12 +61,12 @@
       },
       "+": {
         "max_absolute_difference_over_reference_peak": 3.822588148617885e-08,
-        "max_pointwise_relative_difference_above_1e-8_peak": 6.098631257810197e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 6.098631279203516e-08,
         "at_g_X_max_absolute_difference": 3.7583740428844355e-08
       },
       "-": {
-        "max_absolute_difference_over_reference_peak": 3.6151567504539406e-08,
-        "max_pointwise_relative_difference_above_1e-8_peak": 5.02365492716044e-08,
+        "max_absolute_difference_over_reference_peak": 3.6151567593560855e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 5.023654939530942e-08,
         "at_g_X_max_absolute_difference": 3.7583740428844355e-08
       }
     },
@@ -82,17 +82,17 @@
         "at_g_X_max_absolute_difference": 1.3081774742601928e-08
       },
       "-": {
-        "max_absolute_difference_over_reference_peak": 1.2931985060009602e-09,
-        "max_pointwise_relative_difference_above_1e-8_peak": 1.3031064813802635e-07,
+        "max_absolute_difference_over_reference_peak": 1.2931985821606614e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 1.3031064843244444e-07,
         "at_g_X_max_absolute_difference": 1.6155980984398728e-08
       }
     }
   },
   "thin_source_total_relative_changes": {
     "B7_nu_mu_plus_nu_tau": 1.4914220396306372e-10,
-    "B13_mu_minus": 1.1885815958656533e-11,
-    "B13_mu_plus": 1.2233984991319248e-13,
-    "B13_mu_pm": 1.1804897751531062e-11,
+    "B13_mu_minus": 1.1886026349422963e-11,
+    "B13_mu_plus": 1.224585112613139e-13,
+    "B13_mu_pm": 1.1805106695170687e-11,
     "B7_plus_B13": 1.2637565121688472e-10,
     "Croon_Eq47_mu_minus_only": 2.471926132924844e-15
   },
@@ -103,22 +103,22 @@
       "-": 3.664771294096132e-10
     },
     "B13_mu_minus": {
-      "L": 1.6155596995424945e-11,
+      "L": 1.6156003927164585e-11,
       "+": 1.1815837435317071e-11,
-      "-": 1.1815837435317071e-11
+      "-": 1.1815623589488077e-11
     },
     "B13_mu_plus": {
-      "L": 2.7225797762517207e-12,
-      "+": 8.335377884030407e-14,
-      "-": 8.323332540267357e-14
+      "L": 2.7237013589855634e-12,
+      "+": 8.347423227793457e-14,
+      "-": 8.347423227793457e-14
     },
     "B13_mu_pm": {
-      "L": 1.6070197533662096e-11,
+      "L": 1.6070804063020737e-11,
       "+": 1.1734884610225804e-11,
       "-": 1.1734884610225804e-11
     },
     "B7_plus_B13": {
-      "L": 5.642719031689904e-11,
+      "L": 5.642699362081079e-11,
       "+": 1.1354406000410361e-11,
       "-": 2.933430680322251e-10
     }
@@ -128,11 +128,11 @@
     "+": 3.4630050162630375e-08,
     "-": 3.463005002398456e-08
   },
-  "max_quadpack_relative_error_estimate": 5.7783770229782604e-08,
-  "max_mode_sum_relative_residual": 2.149740412312329e-16,
+  "max_quadpack_relative_error_estimate": 5.778377017322402e-08,
+  "max_mode_sum_relative_residual": 2.0697248493930658e-16,
   "detailed_balance": {
     "max_B7_mode_residual": 3.295430550940328e-14,
-    "max_B13_charge_mode_residual": 6.064784371309958e-14,
+    "max_B13_charge_mode_residual": 6.077111168812619e-14,
     "max_final_muon_shell_relative_error": 5.380211888635872e-13
   },
   "scope": "10 MeV C1 interior-profile energy convergence for the adaptive radial integral. It does not add the unavailable outer 25--100 km semi-Compton opacity and is not an SN1987A exclusion curve."

@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "result_summary",
+  "run_id": "C1-10MeV-45229265669-a1",
+  "created_at": "2026-11-23T17:48:21Z",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "axial-vector-supernova-cooling",
+    "workstream_id": "C1-10MeV"
+  },
+  "calculation": "C1 10 MeV pure-vector B.7 plus exact moving-muon B.13 interior-profile transport with adaptive radial integration",
+  "scope": {
+    "included": [
+      "B.7 two-flavour neutrino coalescence/inverse decay",
+      "B.13 exact moving-muon semi-Compton production/inverse absorption",
+      "mu_minus and mu_plus targets",
+      "L/T+/T- polarization modes",
+      "adaptive radial PCHIP/QUADPACK integration",
+      "121-point g_X scan"
+    ],
+    "excluded": [
+      "outer 25-100 km semi-Compton opacity",
+      "angular escape average",
+      "lapse/redshift correction in Croon Sec. 3 convention",
+      "final SN1987A exclusion curve"
+    ],
+    "assumptions": [
+      "reviewed reconstructed SFHo-18.8 1 s profile",
+      "pure-vector C1 endpoint: gV/gX=1 and gA/gX=0",
+      "B.7 two-flavour vacuum tail to R_far=100 km"
+    ]
+  },
+  "benchmark": {
+    "mediator_mass": {
+      "value": 10.0,
+      "unit": "MeV"
+    },
+    "g_X_scan": {
+      "minimum": 1e-11,
+      "maximum": 1.0,
+      "points": 121
+    },
+    "muon_couplings": {
+      "gV_over_gX": 1.0,
+      "gA_over_gX": 0.0
+    },
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ],
+    "radial_points": 153,
+    "energy_order": 48,
+    "R_nu": {
+      "value": 25.151168281622343,
+      "unit": "km"
+    }
+  },
+  "observables": [
+    {
+      "name": "thin_source_B7_plus_B13_per_gX2",
+      "value": 5.1850723547572387e+70,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "Optically thin B.7+B.13 source coefficient with common g_X^2 removed."
+    },
+    {
+      "name": "thin_source_B7_per_gX2",
+      "value": 4.451623112847546e+70,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "B.7 nu_mu+nu_tau source coefficient with g_X^2 removed."
+    },
+    {
+      "name": "thin_source_B13_mu_minus_per_gX2",
+      "value": 7.284043719488514e+69,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "B.13 mu_minus source coefficient with g_X^2 removed."
+    },
+    {
+      "name": "thin_source_B13_mu_plus_per_gX2",
+      "value": 5.044869960840787e+67,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "B.13 mu_plus source coefficient with g_X^2 removed."
+    },
+    {
+      "name": "thin_source_B13_mu_pm_over_Croon_Eq47",
+      "value": 0.695916946039104,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Both-charge B.13 source divided by same-grid Croon Eq. (4.7) mu_minus-only source."
+    },
+    {
+      "name": "radial_grid_max_relevant_relative_change",
+      "value": 0.0011692956845857593,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum 103/153-node relative change above 1e-8 of the fine-grid curve peak."
+    },
+    {
+      "name": "energy_order_max_relative_change",
+      "value": 1.3031064843244444e-07,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum reported 32/48 energy-order relative metric at fixed 153 radial nodes."
+    },
+    {
+      "name": "maximum_B7_detailed_balance_residual",
+      "value": 3.295430550940328e-14,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum B.7 mode detailed-balance residual."
+    },
+    {
+      "name": "maximum_B13_detailed_balance_residual",
+      "value": 6.077111168812619e-14,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum B.13 charge/mode detailed-balance residual."
+    },
+    {
+      "name": "maximum_final_muon_shell_relative_error",
+      "value": 5.380211888635872e-13,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum final-muon on-shell closure residual."
+    },
+    {
+      "name": "maximum_QUADPACK_relative_error_estimate",
+      "value": 1.3831232889847977e-07,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum QUADPACK relative error estimate across both audits."
+    },
+    {
+      "name": "maximum_three_mode_sum_relative_residual",
+      "value": 2.2133373146652667e-16,
+      "unit": "1",
+      "status": "computed",
+      "definition": "Maximum L+T++T- closure residual across both audits."
+    },
+    {
+      "name": "Rnu_high_coupling_surface_asymptote",
+      "value": 1.4380831793942685e+52,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "153x48 high-coupling surface asymptote at R_nu."
+    },
+    {
+      "name": "Rnu_adaptive_luminosity_peak",
+      "value": 1.0490507289874273e+55,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "Maximum R_far=R_nu luminosity on the coupling grid.",
+      "dimensions": {
+        "g_X_at_peak": 2.4641473082812814e-08
+      }
+    },
+    {
+      "name": "R100km_vacuum_nu_tail_luminosity_peak",
+      "value": 1.537014702414015e+54,
+      "unit": "erg s^-1",
+      "status": "computed",
+      "definition": "Maximum 100 km luminosity with B.7 vacuum neutrino tail only.",
+      "dimensions": {
+        "g_X_at_peak": 1.0592537251772898e-08
+      }
+    }
+  ],
+  "data_files": [
+    {
+      "path": "results/C1-10MeV-45229265669-a1/local_profile.csv",
+      "role": "153-node local production-rate profile",
+      "format": "csv",
+      "bytes": 82881,
+      "sha256": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e",
+      "rows": 153,
+      "columns": [
+        "mass_MeV",
+        "r_km",
+        "T_MeV",
+        "mu_mu_MeV",
+        "mu_numu_MeV",
+        "chi_mu_minus_MeV3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+        "Q_B13_mu_minus_per_g2_MeV5",
+        "Q_B13_mu_plus_per_g2_MeV5",
+        "Q_B13_mu_pm_per_g2_MeV5",
+        "Q_B7_plus_B13_per_g2_MeV5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5",
+        "B13_mu_minus_over_Croon_Eq47",
+        "B13_mu_pm_over_Croon_Eq47",
+        "Q_B7_L_per_g2_MeV5",
+        "Q_B13_mu_minus_L_per_g2_MeV5",
+        "Q_B13_mu_plus_L_per_g2_MeV5",
+        "Q_B13_mu_pm_L_per_g2_MeV5",
+        "Q_B7_plus_B13_L_per_g2_MeV5",
+        "Q_B7_+_per_g2_MeV5",
+        "Q_B13_mu_minus_+_per_g2_MeV5",
+        "Q_B13_mu_plus_+_per_g2_MeV5",
+        "Q_B13_mu_pm_+_per_g2_MeV5",
+        "Q_B7_plus_B13_+_per_g2_MeV5",
+        "Q_B7_-_per_g2_MeV5",
+        "Q_B13_mu_minus_-_per_g2_MeV5",
+        "Q_B13_mu_plus_-_per_g2_MeV5",
+        "Q_B13_mu_pm_-_per_g2_MeV5",
+        "Q_B7_plus_B13_-_per_g2_MeV5"
+      ],
+      "units": {
+        "mass_MeV": "MeV",
+        "r_km": "km",
+        "T_MeV": "MeV",
+        "mu_mu_MeV": "MeV",
+        "mu_numu_MeV": "MeV",
+        "chi_mu_minus_MeV3": "MeV^3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_per_g2_MeV5": "MeV^5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5": "MeV^5",
+        "B13_mu_minus_over_Croon_Eq47": "1",
+        "B13_mu_pm_over_Croon_Eq47": "1",
+        "Q_B7_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_-_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_-_per_g2_MeV5": "MeV^5"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/coupling_curve.csv",
+      "role": "121-point adaptive coupling/luminosity curve",
+      "format": "csv",
+      "bytes": 58749,
+      "sha256": "a6bed8201af52dbed63c08424162ae71aa3d59c6f3a5d7f1d390775724a9e5ed",
+      "rows": 121,
+      "columns": [
+        "g_X",
+        "Rfar_Rnu",
+        "Rfar_Rnu_by_mode_erg_s_L",
+        "Rfar_Rnu_by_mode_erg_s_+",
+        "Rfar_Rnu_by_mode_erg_s_-",
+        "Rfar_Rnu_mode_sum_relative_residual",
+        "Rfar_100km_vacuum_nu_tail",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_L",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_+",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_-",
+        "Rfar_100km_vacuum_nu_tail_mode_sum_relative_residual",
+        "Rfar_Rnu_adaptive_quad",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_L",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_+",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_-",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_L",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_+",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_-",
+        "Rfar_Rnu_adaptive_quad_mode_sum_relative_residual",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_L",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_+",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_-",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_L",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_+",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_-",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual"
+      ],
+      "units": {
+        "g_X": "1",
+        "Rfar_Rnu": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_Rnu_mode_sum_relative_residual": "1",
+        "Rfar_100km_vacuum_nu_tail": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_mode_sum_relative_residual": "1",
+        "Rfar_Rnu_adaptive_quad": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_L": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_+": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_-": "1",
+        "Rfar_Rnu_adaptive_quad_mode_sum_relative_residual": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_L": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_+": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_-": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual": "1"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/final_transport.json",
+      "role": "full 153x48 C1 transport result with local profile and coupling scan",
+      "format": "json",
+      "bytes": 710457,
+      "sha256": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0"
+    }
+  ],
+  "scientific_status": "provisional",
+  "interpretation": "The 10 MeV C1 interior-profile result passes radial and energy-order convergence. Outer 25-100 km semi-Compton opacity is omitted; this is not a final SN1987A exclusion curve.",
+  "extensions": {
+    "supernova_transport": {
+      "source_profile": {
+        "path": "results/C1-10MeV-45229265669-a1/sfho188_digitized.csv",
+        "original_source_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+        "bytes": 182716,
+        "rows": 1687,
+        "R_nu_km": 25.151168281622343
+      },
+      "channels": [
+        "B.7",
+        "B.13"
+      ],
+      "muon_targets": [
+        "mu_minus",
+        "mu_plus"
+      ],
+      "polarization_modes": [
+        "L",
+        "+",
+        "-"
+      ],
+      "outer_opacity": {
+        "B7_vacuum_tail": "included",
+        "B13_semicompton_25_100_km": "omitted"
+      },
+      "coupling_curve_csv": "results/C1-10MeV-45229265669-a1/coupling_curve.csv",
+      "convergence_report": "results/C1-10MeV-45229265669-a1/convergence_report.json"
+    }
+  }
+}
