@@ -546,6 +546,8 @@ $$
 - $E_q$ 是每次产生的 $A'$ 能量；
 - $\overline{|\mathcal M|^2}$ 对初态自旋、光子偏振平均，并对末态缪子自旋求和；$A'$ 极化 $\lambda$ 单独保留。
 
+式 (25) 写的是发射（production）积分：入射光子的统计因子为 $f_\gamma(E_k)$，末态缪子带有 Pauli blocking。对应的逆过程吸收核 $A'+\mu\rightarrow\gamma+\mu$ 则使用初态缪子占据、末态缪子 blocking，以及末态光子的 Bose enhancement $1+f_\gamma(E_k)$。因此，$1+f_\gamma$ 属于吸收核的末态统计因子，不应额外乘入式 (25) 的发射积分。
+
 分布函数为
 
 $$
@@ -670,7 +672,7 @@ $$
 $$
 g_{\rm long}
 \equiv
-\frac{2g_A^\mu m_\mu}{m_{A'}}.
+\frac{2|g_A^\mu|m_\mu}{m_{A'}}.
 \tag{43}
 $$
 
@@ -825,11 +827,11 @@ $$
 \tau_\lambda(E,r)
 =
 \int_r^\infty
-\frac{dr'}{\lambda_\lambda(E,r')},
+\frac{d\ell'}{\lambda_\lambda(E,r')},
 \tag{56}
 $$
 
-其中 $\lambda_\lambda$ 是相应极化态的吸收平均自由程。若以吸收为主，单次产生后无进一步相互作用的近似逃逸概率为
+其中 $d\ell'$ 是沿径向传播路径的 proper-length 元素，$\lambda_\lambda$ 是相应极化态的局域吸收平均自由程。若以吸收为主，单次产生后无进一步相互作用的近似逃逸概率为
 
 $$
 P_{\rm esc,\lambda}(E,r)
