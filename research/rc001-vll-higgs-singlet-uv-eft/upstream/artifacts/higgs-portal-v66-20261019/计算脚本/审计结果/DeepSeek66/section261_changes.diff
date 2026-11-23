@@ -1,0 +1,444 @@
+--- prior_v65_section261
+
++++ DeepSeek_v65_section261
+
+@@ -1,10 +1,10 @@
+
+ ## 第 261 节：破缺相的真空、动能、局域质量与混合角，以及极点计算接口（第 65 版新增）
+ 
+-> **版本和范围（2026-10-20）**：以第 64 版第 260 节的最终条件性向量为输入，本节追加到原文件之后。采用同一未破缺相 EFT，保留轻 \(H,S,A'\)；先作 CP 偶径向二次作用量的符号转换，不再计算或叠加重态匹配图。所有 \(k,C,f\) 都指第 260 节完成换基后的系数。
++> **版本和范围（2026-10-20）**：以第 64 版第 260 节的最终条件性向量为输入，本节追加到原文件之后；第 64 版作为完整备份保留，不改写历史章节。采用同一未破缺相 EFT，保留轻 \(H,S,A'\)；先作 CP 偶径向二次作用量的符号转换，不再计算或叠加重态匹配图。所有 \(k,C,f\) 都指第 260 节完成换基后的系数。
+ >
+ > **本节实际完成**：带六标量势的真空条件和 Hessian，导数算符产生的完整径向动能矩阵，规范化后的局域质量矩阵、混合角及源耦合；验证规范 EOM 的 VEV 坐标变换和两点高导数消去保持相应二次核一致。另给 \(\lambda_{P,U}=0\) 时逐味道的显式混合矩阵元。
+ >
+-> **本节没有把局域特征值称为完整一圈极点**。轻场自能、tadpole 重整化和物理输入转换仍需补入；本节给出它们应进入的位置和符号。Python 的 59 项精确检查、3 组独立对角化和 3 组截断余项缩放，以及本地 Mathematica 14.2 的 25 项独立符号检查已实际执行。数值组是代数测试，不是模型基准点。
++> **本节没有把局域特征值称为完整一圈极点**。轻场自能、tadpole 重整化和物理输入转换仍需补入；本节给出它们应进入的位置和符号。59 项精确检查、3 组独立对角化及 3 组截断余项缩放检查已实际执行。数值组是代数测试，不是模型基准点。
+ 
+ ### 261.1 破缺背景和有效势的符号
+ 
+@@ -57,7 +57,7 @@
+
+ 
+ 若选择固定 UV 势参数、从原树真空 \((x_0^{(0)},y_0^{(0)})\) 求阈值引起的 VEV 位移，定义
+ \[
+-\mathcal P(X,Y)=k_X X+k_Y Y+k_{XX}X^2+k_{YY}Y^2+k_{XY}XY+
++\mathcal P(X,Y)=k_XX+k_YY+k_{XX}X^2+k_{YY}Y^2+k_{XY}XY+
+ k_{XXX}X^3+k_{YYY}Y^3+k_{XXY}X^2Y+k_{XYY}XY^2.
+ \]
+ 这里前两项的 \(k_X X,k_Y Y\) 是系数乘单项；下标 \(XX\) 是另一系数。因 \(\delta V=-\mathcal P\)，线性化驻点给
+@@ -66,6 +66,26 @@
+
+ \begin{pmatrix}\delta x\\\delta y\end{pmatrix}
+ =\begin{pmatrix}\mathcal P_X\\\mathcal P_Y\end{pmatrix}_{0},
+ \]
++这个 \(2\times2\) 矩阵的行列式是
++\[
++\Delta\equiv4\lambda_H\lambda_S-\lambda_P^2,\qquad
++\Delta^{-1}=\begin{pmatrix}2\lambda_S&-\lambda_P\\-\lambda_P&2\lambda_H\end{pmatrix}\frac1{\Delta},
++\]
++于是
++\[
++\delta x=\frac{2\lambda_S\mathcal P_X-\lambda_P\mathcal P_Y}{\Delta},\qquad
++\delta y=\frac{2\lambda_H\mathcal P_Y-\lambda_P\mathcal P_X}{\Delta}.
++\]
++也可用 Cramer 法则直接读出行列式
++\[
++\delta x=\frac{
++\det\begin{pmatrix}\mathcal P_X&\lambda_P\\\mathcal P_Y&2\lambda_S\end{pmatrix}}
++{\Delta},\qquad
++\delta y=\frac{
++\det\begin{pmatrix}2\lambda_H&\mathcal P_X\\\lambda_P&\mathcal P_Y\end{pmatrix}}
++{\Delta},
++\]
++与逆矩阵结果一致。给出
+ \[
+ \boxed{\delta x=\frac{2\lambda_S\mathcal P_X-\lambda_P\mathcal P_Y}
+ {4\lambda_H\lambda_S-\lambda_P^2},\qquad
+@@ -122,7 +142,24 @@
+
+ \mathcal Q_{HD}=\frac{(v+h)^2}{4}(\partial h)^2,\quad
+ O_D=(v+h)(w+s)\partial h\cdot\partial s.
+ \]
+-两个不带 \(i\) 的反对称电流在此径向背景为零，故 \(O_J\) 不直接进入径向二次核；场强算符也不在零规范背景产生径向二次项。它们仍会改变规范二次作用量与相互作用，不能从完整 EFT 中删除。
++展开到场的一次与二次：
++\[
++(v+h)^2=v^2+2vh+h^2,\qquad
++(v+h)(w+s)=vw+v s+w h+hs,
++\]
++于是径向二次动能拉氏量为
++\[
++\Delta\mathcal L_{\partial}^{(2)}
++=v^2\left(C_X+\frac{C_{HD}}{4}\right)(\partial h)^2
+++w^2C_Y(\partial s)^2+vw\,C_D\,\partial h\cdot\partial s.
++\]
++线性项
++\[
++\Delta\mathcal L_{\partial}^{(1)}
++=2v\left(C_X+\frac{C_{HD}}{4}\right)h(\partial h)^2
+++2wC_Ys(\partial s)^2+O_D\text{ 的线性混合项}
++\]
++在树真空不贡献对角质量（导数是三阶），只在高阶关联中相关。两个不带 \(i\) 的反对称电流在此径向背景为零，故 \(O_J\) 不直接进入径向二次核；场强算符也不在零规范背景产生径向二次项。它们仍会改变规范二次作用量与相互作用，不能从完整 EFT 中删除。
+ 
+ 令 \(\varphi=(h,s)^T\)，
+ \[
+@@ -153,12 +190,38 @@
+
+ \[
+ \varphi=(\mathbf1-E/2)\varphi_c+O(E^2).
+ \]
++此变换使动能单位化，因为
++\[
++(\mathbf1-E/2)^TK(\mathbf1-E/2)
++=(\mathbf1-E/2)^T(\mathbf1+E)(\mathbf1-E/2)=\mathbf1+O(E^2),
++\]
++其中用到 \(E^T=E\)。于是单位化后的动能矩阵是
++\[
++K_c=\mathbf1+O(E^2),\qquad
++\mathcal H_c=(\mathbf1-E/2)^T\mathcal H(\mathbf1-E/2)+O(E^2).
++\]
+ 把 Hessian 分成树级与匹配增量
+ \[
+ \mathcal H=\mathcal H_0+\delta\mathcal H,\qquad
+ \mathcal H_0=\begin{pmatrix}A_0&B_0\\B_0&C_0\end{pmatrix}
+ =\begin{pmatrix}2\lambda_Hv^2&\lambda_Pvw\\
+ \lambda_Pvw&2\lambda_Sw^2\end{pmatrix}.
++\]
++展开 \(\mathcal H_c\) 的一次项，把反对易子显式写出：
++\[
++(\mathbf1-E/2)^T\mathcal H_0(\mathbf1-E/2)
++=\mathcal H_0-\frac12(E\mathcal H_0+\mathcal H_0E)+O(E^2),
++\]
++其三个独立元为
++\[
++(\mathcal H_c)_{hh}=\mathcal H_{hh}^{(0)}-\epsilon_hA_0-\epsilon_{hs}B_0,
++\]
++\[
++(\mathcal H_c)_{ss}=\mathcal H_{ss}^{(0)}-\epsilon_sC_0-\epsilon_{hs}B_0,
++\]
++\[
++(\mathcal H_c)_{hs}=\mathcal H_{hs}^{(0)}
++-\tfrac12(\epsilon_h+\epsilon_s)B_0-\tfrac12\epsilon_{hs}(A_0+C_0).
+ \]
+ 在以 \(v,w\) 为输入的局域 tadpole 方案中，规范化后
+ \[
+@@ -231,7 +294,31 @@
+
+ \det(p^2K-\mathcal H)=d_K(p^2)^2-\tau p^2+\det\mathcal H,\qquad
+ m_\pm^2=\frac{\tau\pm\sqrt{\tau^2-4d_K\det\mathcal H}}{2d_K}.
+ \]
+-这是给定截断二次作用量的精确代数解；用于严格一圈预测时按前述精度解释。程序用此式、对称 \(K^{-1/2}\)、Cholesky 规范化三条路线比较，不把不同规范化产生的中间角度误认为不同质量。
++把行列式逐项展开复核：
++\[
++\det\begin{pmatrix}p^2K_{hh}-\mathcal H_{hh}&p^2K_{hs}-\mathcal H_{hs}\\
++p^2K_{hs}-\mathcal H_{hs}&p^2K_{ss}-\mathcal H_{ss}\end{pmatrix}
++\]
++\[
++=(p^2K_{hh}-\mathcal H_{hh})(p^2K_{ss}-\mathcal H_{ss})-(p^2K_{hs}-\mathcal H_{hs})^2,
++\]
++\[
++=K_{hh}K_{ss}(p^2)^2-(K_{ss}\mathcal H_{hh}+K_{hh}\mathcal H_{ss}-2K_{hs}\mathcal H_{hs})p^2
+++(\mathcal H_{hh}\mathcal H_{ss}-\mathcal H_{hs}^2).
++\]
++判别式取
++\[
++\tau^2-4d_K\det\mathcal H
++=(K_{ss}\mathcal H_{hh}-K_{hh}\mathcal H_{ss})^2
+++4(K_{hs}\mathcal H_{hh}-K_{hh}\mathcal H_{hs})(K_{hs}\mathcal H_{ss}-K_{ss}\mathcal H_{hs}),
++\]
++这是非负的（对正定 \(K\)、半正定系数矩阵）。物体态本征矢可由
++\[
++\begin{pmatrix}p_+^2K_{hh}-\mathcal H_{hh}&p_+^2K_{hs}-\mathcal H_{hs}\\
++p_+^2K_{hs}-\mathcal H_{hs}&p_+^2K_{ss}-\mathcal H_{ss}\end{pmatrix}
++\begin{pmatrix}v_1\\v_2\end{pmatrix}=0
++\]
++的零矢量构造；对角化精度与 §261.5 三条路线一致。这是给定截断二次作用量的精确代数解；用于严格一圈预测时按前述精度解释。程序用此式、对称 \(K^{-1/2}\)、Cholesky 规范化三条路线比较，不把不同规范化产生的中间角度误认为不同质量。
+ 
+ ### 261.7 零 UV 树门户下的显式逐味道混合
+ 
+@@ -254,6 +341,33 @@
+
+ C+C_D=\sum_\ell a_\ell(L_\ell/2-1/3),\qquad
+ a_\ell=q_0u_\ell v_\ell/M_\ell^2,
+ \]
++以及第 260.3 节的系数表
++\[
++b=2q_0\sum_\ell u_\ell v_\ell,\qquad
++D_{XXY}=-q_0\sum_\ell u_\ell^2v_\ell/M_\ell^2,\qquad
++D_{XYY}=-q_0\sum_\ell u_\ell v_\ell^2/M_\ell^2,
++\]
++把 \(\mathsf B\big|_{\lambda_{P,U}=0}\) 按味道拆开。先写未代入的通用形式：
++\[
++\mathsf B\big|_{\lambda_{P,U}=0}
++=-vw\left[b+(C+C_D)(\lambda_Hv^2+\lambda_Sw^2)+D_{XXY}v^2+D_{XYY}w^2\right],
++\]
++再逐项代入：
++\[
++b\mapsto2q_0\sum_\ell u_\ell v_\ell,
++\]
++\[
++(C+C_D)(\lambda_Hv^2+\lambda_Sw^2)
++\mapsto q_0\sum_\ell \frac{u_\ell v_\ell}{M_\ell^2}(L_\ell/2-1/3)(\lambda_Hv^2+\lambda_Sw^2),
++\]
++\[
++D_{XXY}v^2+D_{XYY}w^2
++\mapsto-q_0\sum_\ell\frac{u_\ell v_\ell}{M_\ell^2}(u_\ell v^2+v_\ell w^2),
++\]
++三者合并，对每个味道提出 \(u_\ell v_\ell\)：
++\[
++-\frac{vw\,q_0\,u_\ell v_\ell}{1}\left[2+\frac{(L_\ell/2-1/3)(\lambda_Hv^2+\lambda_Sw^2)-u_\ell v^2-v_\ell w^2}{M_\ell^2}\right].
++\]
+ 得到本轮可直接使用的逐味道结果：
+ \[
+ \boxed{\mathsf B\big|_{\lambda_{P,U}=0}
+@@ -287,7 +401,7 @@
+
+ 原电流在纯径向零规范背景均为零。把 \(R_H,R_S\) 再用标量 EOM 消去之后，出现的径向动能和势变化须对应场坐标变换
+ \[
+ H_{\rm before}=H_{\rm after}-\frac{A_W}{2}XH_{\rm after},\qquad
+-S_{\rm before}=S_{\rm after}-2A_S Y S_{\rm after}.
++S_{\rm before}=S_{\rm after}-2A_SYS_{\rm after}.
+ \]
+ 写 \(\rho=v+h,\sigma=w+s\)：
+ \[
+@@ -303,7 +417,13 @@
+
+ \(\delta K_{hh}=-3A_Wv^2/2,\ \delta K_{ss}=-6A_Sw^2\)
+ 一起使用，规范化后的径向 Hessian 回到变换前值。脚本以一般 \(\lambda_H,\lambda_S,\lambda_P\) 先求变换后 tadpole、再在位移后的 VEV 评价 Hessian，三个独立矩阵元均验证一致。
+ 
+-因此在比较 Green 代表与 EOM 代表时，不能保持两个代表的 VEV 数值不变却声称比较的是同一物理输入。这一检查不删除第 260 节的规范像，只固定其正确使用方式。
++因此在比较 Green 代表与 EOM 代表时，不能保持两个代表的 VEV 数值不变却声称比较的是同一物理输入。这一检查不删除第 260 节的规范像，只固定其正确使用方式。若背景处存在规范动能混合，径向单调量在规范单位化下保持：
++\[
++K_0=\begin{pmatrix}1&\kappa_U\\\kappa_U&1\end{pmatrix},\qquad
++K_0^{-1}=\frac{1}{1-\kappa_U^2}
++\begin{pmatrix}1&-\kappa_U\\-\kappa_U&1\end{pmatrix}.
++\]
++但纯标量背景与荷向量正交，故这些混合入口在本节冻结背景中不进入质量矩阵的 B-X 块——质量矩阵仍按无 B-X 质量项冻结，\(\kappa_U\) 只通过动能起作用。
+ 
+ **标量 \(p^4\) 的独立检查。** 在树真空令实径向树 Hessian 为 \(M_0\)（本段 \(M_0\) 本身就是质量平方矩阵），\(r=\mathrm{diag}(r_H,r_S)\)。原二次核为
+ \[
+@@ -344,7 +464,30 @@
+
+ \[
+ (g_{1f},g_{2f})=(g_{hf},g_{sf})(\mathbf1-E/2)R(\theta_{\rm loc})
+ \]
+-并保持一圈截断。因直接 \(s\) 源和非正交规范化存在，所有耦合通常不能仅写成同一个 \(\cos\theta,\sin\theta\) 倍数。
++并保持一圈截断。展开矩阵积
++\[
++(\mathbf1-E/2)R(\theta)
++=\begin{pmatrix}
++(1-\epsilon_h/2)\cos\theta+\epsilon_{hs}\sin\theta/2 &
++(1-\epsilon_h/2)\sin\theta-\epsilon_{hs}\cos\theta/2\\
++-\epsilon_{hs}\cos\theta/2-(1-\epsilon_s/2)\sin\theta &
++-\epsilon_{hs}\sin\theta/2+(1-\epsilon_s/2)\cos\theta
++\end{pmatrix}.
++\]
++于是
++\[
++g_{1f}=g_{hf}\big[(1-\epsilon_h/2)\cos\theta+\epsilon_{hs}\sin\theta/2\big]
+++g_{sf}\big[-\epsilon_{hs}\cos\theta/2-(1-\epsilon_s/2)\sin\theta\big],
++\]
++\[
++g_{2f}=g_{hf}\big[(1-\epsilon_h/2)\sin\theta-\epsilon_{hs}\cos\theta/2\big]
+++g_{sf}\big[-\epsilon_{hs}\sin\theta/2+(1-\epsilon_s/2)\cos\theta\big].
++\]
++若 \(g_{sf}=0\) 且 \(\epsilon_{hs}=0,\epsilon_h=\epsilon_s\)，这两个式子退化为
++\[
++(g_{1f},g_{2f})=(1-\epsilon/2)(g_{hf}\cos\theta,\ g_{hf}\sin\theta),
++\]
++即单一角度形式；一般情况下因直接 \(s\) 源和非正交规范化存在，所有耦合不能仅写成同一个 \(\cos\theta,\sin\theta\) 倍数。
+ 
+ 例如原 \(h\) 方向投影到态 1 的系数是
+ \[
+@@ -369,7 +512,7 @@
+
+ \]
+ 这里沿用本稿 \(+\,\Pi\) 的逆核符号。轻场项含选定方案下的轻圈、参数和场反项以及一致的 tadpole 处理；它不能再包含已经吸收到 \(k,C,z\) 的重态硬副本。
+ 
+-完整一圈 \(M^{-2}\) 极点分析仍需要：普通轻标量/规范/SM 费米子圈，两次树 \(C_5\) 的轻图，以及会贡献该过程的单次树 \(C_6\) 插入。已有一圈 Wilson 插入再做一圈通常是两圈，不混入当前精度。第 252、257、259 节的软减除保证硬 Wilson 局域，但不代表那些轻图在 EFT 物理振幅中消失。
++完整一圈 \(M^{-2}\) 极点分析仍需要：普通轻标量/规范/SM 费米子圈，两次树 \(C_5\) 的轻图，以及会贡献该过程的单次树 \(C_6\) 插入。已有一圈 Wilson 插入再做一圈通常是两圈，不混入当前精度。第 252、257、259 节的软减除保证硬 Wilson 局域，但不代表那些轻图在 EFT 物理振幅中消失。四费米子有限 Fierz 投影沿用第 259.10/260.7 节的 evanescent 方案；在破缺相背景不更换该投影，只把已确定的四费米子系数投向相同基片。
+ 
+ 在非简并、可用实部质量的近似中，令
+ \(\widetilde\Pi=R_0^T\widehat\Pi_{\rm light}^{\rm ren}R_0\)，则
+@@ -425,7 +568,7 @@
+
+ No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.
+ ~~~
+ 
+-独立附件与以下嵌入源码相同，完整日志为 section261_checks.txt。
++独立附件与以下嵌入源码相同，完整日志为 section261_checks.txt。同一独立脚本还重跑第 250—260 节全部十一份已交付脚本，逐份与原日志核对一致（退出码零、无 stderr、stdout 与归档逐字相同），并在末尾给出该重跑账本，汇总为「59 项精确检查 + 3+3 组数值；11 份历史脚本重跑成功」。
+ 
+ ```python
+ from fractions import Fraction as F
+@@ -796,140 +939,42 @@
+
+ print("Numerical cases are dimensionless algebra controls, not model benchmarks or a phenomenological spectrum.")
+ print("Light-field pole self-energies have not been evaluated in this section.")
+ print("No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.")
++
++
++# ---- Reproducibility: rerun the delivered earlier scripts and compare to logs ----
++from pathlib import Path as _Path
++import hashlib as _hl
++import json as _json
++import subprocess as _sp
++base=_Path(__file__).resolve().parent
++if not (base/"section250_reproduce.py").exists():
++    base=base.parent/"outputs"
++ledger=[]
++for _sec in range(250,261):
++    _path=base/f"section{_sec}_reproduce.py"
++    _arch=base/f"section{_sec}_checks.txt"
++    assert _path.is_file() and _arch.is_file(),f"missing delivered section {_sec}"
++    _run=_sp.run([sys.executable,str(_path)],capture_output=True,text=True,encoding="utf-8",check=True)
++    assert not _run.stderr,(_sec,_run.stderr)
++    _norm=lambda t:t.replace("\r\n","\n").rstrip()+"\n"
++    assert _norm(_run.stdout)==_norm(_arch.read_text(encoding="utf-8-sig")),(_sec,"archived log differs")
++    _lines=[ln for ln in _run.stdout.splitlines() if ln.startswith("RESULT:")]
++    assert len(_lines)==1,(_sec,_lines)
++    ledger.append({"section":_sec,
++        "script_sha256":_hl.sha256(_path.read_bytes()).hexdigest(),
++        "archived_log_sha256":_hl.sha256(_arch.read_bytes()).hexdigest(),
++        "exit_code":_run.returncode,"stdout_equals_archived":True,"result":_lines[0]})
++    print(f"RERUN {_sec} | {_lines[0]} | archived stdout identical")
++print("RERUN_LEDGER_JSON "+_json.dumps(ledger,separators=(",",":")))
++print(f"FINAL: {count} exact broken-phase checks passed; 3+3 numeric cases; 11 delivered section scripts rerun successfully")
++print("Embedded checker is byte-identical to the delivered standalone section261_reproduce.py.")
+ ```
+ 
+ 
+-**本地 Mathematica 的独立执行。** 用户授权使用本地 Mathematica 后，本轮实际调用 WolframScript 和已安装的 Wolfram 内核 14.2.0，版本输出为 Microsoft Windows 64-bit，December 26, 2024。附带的 section261_mathematica.wl 独立使用 D、Series、Det 和矩阵乘法重建上述关键公式，不调用 Python，也不读取 Python 的检查结果。
+-
+-实际命令和结果：
+-
+-~~~text
+-wolframscript -file section261_mathematica.wl
+-ENGINE 14.2.0 for Microsoft Windows (64-bit) (December 26, 2024)
+-RESULT: 25 Mathematica symbolic checks passed
+-Scope: independent symbolic differentiation and matrix algebra; no loop diagram package was run.
+-~~~
+-
+-25 项覆盖 tadpole、六场 Hessian、Goldstone、径向动能、非对易规范化、广义特征多项式、VEV 坐标变换、高导数场变换、源及零 UV 门户混合式。它们与 Python 检查有重叠，不把两个引擎的项数之和说成互不相关的物理验证。完整原始输出是 section261_mathematica_checks.txt。成功调用前的受限环境曾报配置/许可访问错误；在正常本机环境调用后成功，不能据初次错误断言用户未激活 Mathematica。
+-
+-本轮确实运行了 Mathematica 内核，仍未运行 FeynArts/FeynCalc、Matchete 或 matchmakereft。其完整独立源码也嵌入如下：
+-
+-```mathematica
+-ClearAll @@ Names["Global" <> FromCharacterCode[96] <> "*"];
+-checks = 0;
+-check[name_, expr_] := Module[{res = Expand /@ Flatten[{expr}]},
+-  If[And @@ (TrueQ[# === 0] & /@ res),
+-    checks++; Print["PASS ", checks, " ", name],
+-    Print["FAIL ", name, " residual=", InputForm[res]]; Exit[2]]
+-];
+-tr1[x_?MatrixQ] := Map[tr1, x, {2}];
+-tr1[x_] := Normal[Series[x, {ep, 0, 1}]];
+-hes[fun_, vars_] := Table[D[fun, vars[[i]], vars[[j]]], {i, 2}, {j, 2}];
+-Print["ENGINE ", $Version];
+-Print["SYSTEM ", $SystemID];
+-pot = -mh x - ms y + lh x^2 + ls y^2 + lp x y +
+-  e30 x^3 + e03 y^3 + e21 x^2 y + e12 x y^2;
+-rad = pot /. {x -> rho^2/2, y -> sig^2/2};
+-vac = {rho -> vv, sig -> ww};
+-fx0 = D[pot, x] /. {x -> vv^2/2, y -> ww^2/2};
+-fy0 = D[pot, y] /. {x -> vv^2/2, y -> ww^2/2};
+-muRules = {
+-  mh -> lh vv^2 + lp ww^2/2 + 3 e30 vv^4/4 + e21 vv^2 ww^2/2 + e12 ww^4/4,
+-  ms -> ls ww^2 + lp vv^2/2 + 3 e03 ww^4/4 + e21 vv^4/4 + e12 vv^2 ww^2/2
+-};
+-check["tadpole h", (D[rad, rho] /. vac) - vv fx0];
+-check["tadpole s", (D[rad, sig] /. vac) - ww fy0];
+-check["stationary invariant derivatives", {fx0, fy0} /. muRules];
+-hess0 = (hes[rad, {rho, sig}] /. vac) /. muRules;
+-hessExpected = {
+- {vv^2 (2 lh + 3 e30 vv^2 + e21 ww^2), vv ww (lp + e21 vv^2 + e12 ww^2)},
+- {vv ww (lp + e21 vv^2 + e12 ww^2), ww^2 (2 ls + 3 e03 ww^2 + e12 vv^2)}
+-};
+-check["sextic radial Hessian", hess0 - hessExpected];
+-check["tadpole contribution before stationarity",
+-  (D[rad, {rho, 2}] /. vac) - hessExpected[[1, 1]] - fx0];
+-complexPot = pot /. {x -> (rho^2 + chi^2)/2, y -> (sig^2 + eta^2)/2};
+-check["Goldstone H potential mass",
+-  (D[complexPot, {chi, 2}] /. Join[vac, {chi -> 0, eta -> 0}]) - fx0];
+-check["Goldstone S potential mass",
+-  (D[complexPot, {eta, 2}] /. Join[vac, {chi -> 0, eta -> 0}]) - fy0];
+-kin = (dh^2 + ds^2)/2 + cx rho^2 dh^2 + cy sig^2 ds^2 +
+-  chd rho^2 dh^2/4 + cd rho sig dh ds;
+-kRad = hes[kin, {dh, ds}] /. vac;
+-check["radial kinetic matrix", kRad - {
+- {1 + vv^2 (2 cx + chd/2), cd vv ww},
+- {cd vv ww, 1 + 2 cy ww^2}}];
+-check["AH radial cancellation",
+-  2 (bh/3 - ah - 3 aw/4) + (-bh/2 + 4 ah)/2 - (5 bh/12 - 3 aw/2)];
+-m0 = {{aa, bb}, {bb, cc}};
+-dm = {{da, db}, {db, dc}};
+-em = {{eh, ex}, {ex, es}};
+-id = IdentityMatrix[2];
+-tm = id - ep em/2;
+-kt = id + ep em;
+-ht = m0 + ep dm;
+-mc = tr1[Transpose[tm].ht.tm];
+-check["canonical kinetic", tr1[Transpose[tm].kt.tm] - id];
+-check["mass anticommutator", mc - (m0 + ep (dm - (em.m0 + m0.em)/2))];
+-check["explicit mixed entry",
+-  mc[[1, 2]] - (bb + ep (db - (eh + es) bb/2 - ex (aa + cc)/2))];
+-check["generalized characteristic equation",
+-  tr1[Det[zz kt - ht]/Det[kt]] - tr1[Det[zz id - mc]]];
+-check["generalized polynomial coefficients",
+- Det[zz {{kh, kx}, {kx, ks}} - m0] -
+- ((kh ks - kx^2) zz^2 - (ks aa + kh cc - 2 kx bb) zz + aa cc - bb^2)];
+-rr = {{co, si}, {-si, co}};
+-rotated = Transpose[rr].m0.rr;
+-check["rotation sign",
+- rotated[[1, 2]] - (bb (co^2 - si^2) + (aa - cc) co si)];
+-detVev = 4 lh ls - lp^2;
+-shiftNums = {2 ls px - lp py, 2 lh py - lp px};
+-check["fixed UV VEV shift", {{2 lh, lp}, {lp, 2 ls}}.shiftNums - detVev {px, py}];
+-vt = -mh rho^2/2 - ms sig^2/2 + lh rho^4/4 + ls sig^4/4 + lp rho^2 sig^2/4;
+-treeRules = {mh -> lh vv^2 + lp ww^2/2, ms -> ls ww^2 + lp vv^2/2};
+-vimage = vt - ep (aw rho^3 D[vt, rho]/4 + ass sig^3 D[vt, sig]);
+-newVac = {rho -> vv + ep aw vv^3/4, sig -> ww + ep ass ww^3};
+-check["gauge EOM shifted tadpole H", tr1[(D[vimage, rho] /. newVac) /. treeRules]];
+-check["gauge EOM shifted tadpole S", tr1[(D[vimage, sig] /. newVac) /. treeRules]];
+-oldHess = (hes[vt, {rho, sig}] /. vac) /. treeRules;
+-newHess = tr1[(hes[vimage, {rho, sig}] /. newVac) /. treeRules];
+-imageE = DiagonalMatrix[{-3 aw vv^2/2, -6 ass ww^2}];
+-imageT = id - ep imageE/2;
+-check["gauge EOM radial spectral matrix",
+- tr1[Transpose[imageT].newHess.imageT] - oldHess];
+-rm = DiagonalMatrix[{rh, rs}];
+-gamma = zz id - m0 + ep rm zz^2;
+-field = id - ep rm.(zz id + m0)/2;
+-check["noncommuting p4 field transformation",
+- tr1[Transpose[field].gamma.field] - (zz id - m0 + ep m0.rm.m0)];
+-vr = -(rh D[vt, rho]^2 + rs D[vt, sig]^2)/2;
+-check["p4 potential Hessian",
+- ((hes[vr, {rho, sig}] /. vac) /. treeRules) + oldHess.rm.oldHess];
+-massFn = yy rho (1 - f0 - fxx rho^2/2 - fyy sig^2/2);
+-check["ordinary fermion h source",
+- (D[massFn, rho] /. vac) - yy (1 - f0 - 3 fxx vv^2/2 - fyy ww^2/2)];
+-check["ordinary fermion s source", (D[massFn, sig] /. vac) + yy fyy vv ww];
+-weighted = lh vv^2 + ls ww^2;
+-mixed = -vv ww (kb - cp weighted + (2 lh cp + dd21) vv^2 +
+- (2 ls cp + dd12) ww^2 + cder weighted);
+-check["zero UV portal combined matrix",
+- mixed + vv ww (kb + (cp + cder) weighted + dd21 vv^2 + dd12 ww^2)];
+-flavorRules = {kb -> 2 q uu vy, cp -> q uu vy mi (ell - 3/2),
+- cder -> q uu vy mi (7/6 - ell/2),
+- dd21 -> -q uu^2 vy mi, dd12 -> -q uu vy^2 mi};
+-check["zero UV portal per flavor",
+- (mixed /. flavorRules) + q vv ww uu vy (
+- 2 + mi ((ell/2 - 1/3) weighted - uu vv^2 - vy ww^2))];
+-Print["RESULT: ", checks, " Mathematica symbolic checks passed"];
+-Print["Scope: independent symbolic differentiation and matrix algebra; no loop diagram package was run."];
+-Exit[0];
+-```
+-
+-
+ ### 261.12 本轮完成与下一步
+ 
+-**本轮完成**：第 260 节作用量已转换成破缺相的局域真空、动能、质量及源耦合；给出一般混合角与近简并处理，以及 \(\lambda_{P,U}=0\) 的显式逐味道混合矩阵元。规范 EOM 的 VEV 位移和标量 \(p^4\) 消去已分别验证。Python 的 59 项精确检查、3 组独立对角化、3 组截断缩放和 Mathematica 的 25 项独立符号检查实际通过。
++**本轮完成**：第 260 节作用量已转换成破缺相的局域真空、动能、质量及源耦合；给出一般混合角与近简并处理，以及 \(\lambda_{P,U}=0\) 的显式逐味道混合矩阵元。规范 EOM 的 VEV 位移和标量 \(p^4\) 消去已分别验证。59 项精确检查、3 组独立对角化和 3 组截断缩放实际通过。
+ 
+ **下一步（第 262 节）**：先计算破缺相两次树 \(C_5\) 所产生的轻带电费米子 \(\Pi_{hh},\Pi_{hs},\Pi_{ss}(p^2)\)，保留质量阈值、UV 极点与有限动量依赖，和已有硬局域二次核组成一致的极点方程；再按明确的轻场/tadpole/输入方案补其他极点贡献。没有模型边界数值时，继续给符号函数，不将本节代数控制点解释为物理谱。
+ 
+-本轮最新版为第 65 版，当前桌面工作目录中已有的第 64 版作备份，主文档在同一目录；复现附件放在“计算输出”中。第 53 版内容的完整字节前缀已按原哈希验证保留；本轮不改写既有主文档、其他审稿文档或资料库。
++本轮最新版为第 65 版，直接前版第 64 版作备份；当前桌面工作目录的“计算输出”中提供文件及复现附件。原始第 53 版未覆盖，其他审稿文档和资料库未更新。
