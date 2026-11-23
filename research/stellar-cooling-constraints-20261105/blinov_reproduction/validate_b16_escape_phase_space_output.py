@@ -8,6 +8,11 @@ import math
 import re
 from pathlib import Path
 
+try:
+    from .energy_grid_identity import compare_energy_grid, load_energy_grid_reference
+except ImportError:
+    from energy_grid_identity import compare_energy_grid, load_energy_grid_reference
+
 
 TOL = 2.0e-10
 CLOSURE_TOL = 2.0e-10
@@ -113,6 +118,7 @@ def validate(
     data: dict,
     baseline: dict | None = None,
     baseline_sha256: str | None = None,
+    grid_reference: dict | None = None,
 ) -> dict:
     _assert_finite_tree(data)
     if baseline is not None:
@@ -175,9 +181,29 @@ def validate(
 
         baseline_result = baseline.get("result", baseline)
         expected = baseline_result["configuration"]
-        for key in ("source_grid_sha256", "opacity_grid_sha256", "energy_grid_sha256"):
+        for key in ("source_grid_sha256", "opacity_grid_sha256"):
             if config[key] != expected[key]:
                 raise AssertionError(f"{key} differs from the archived high-order baseline")
+        if grid_reference is None:
+            if config["energy_grid_sha256"] != expected["energy_grid_sha256"]:
+                raise AssertionError("energy_grid_sha256 differs from the archived high-order baseline")
+            energy_grid_comparison = None
+        else:
+            if grid_reference.get("energy_grid_sha256") != expected["energy_grid_sha256"]:
+                raise AssertionError("Energy-grid node reference does not match the archived baseline SHA-256")
+            reference_file_sha = grid_reference.get("_file_sha256")
+            if config.get("energy_grid_reference_file_sha256") != reference_file_sha:
+                raise AssertionError("Energy-grid reference file fingerprint differs from the production result")
+            if "energy_grid_nodes_MeV" not in config:
+                raise AssertionError("Production result is missing the energy-grid nodes required for independent validation")
+            energy_grid_comparison = compare_energy_grid(
+                config["energy_grid_nodes_MeV"], grid_reference
+            )
+            if not energy_grid_comparison["matches"]:
+                raise AssertionError(
+                    "Energy-grid nodes differ from the archived baseline beyond the declared tolerance: "
+                    + json.dumps(energy_grid_comparison, sort_keys=True)
+                )
         if data["profile"]["sha256"] != baseline_result["profile"]["sha256"]:
             raise AssertionError("Profile fingerprint differs from the archived high-order baseline")
 
@@ -381,6 +407,7 @@ def validate(
                 "energy_node_count", "energy_grid_sha256",
             )
         },
+        "energy_grid_reference_comparison": energy_grid_comparison if baseline is not None else None,
         "regions": region_reports,
         "acceptance_tolerances": {
             "luminosity_and_partition_relative": CLOSURE_TOL,
@@ -401,13 +428,19 @@ def main() -> int:
         type=Path,
         default=here / "outputs" / "b16_global_high_order_independent_grid_10mev_2026-11-09.json",
     )
+    parser.add_argument(
+        "--grid-reference", type=Path, default=here / "outputs" / "b16_energy_grid_reference_10mev_2026-11-09.json"
+    )
     args = parser.parse_args()
     data = load_json(args.result)
     baseline = None if args.no_baseline else load_json(args.baseline)
     baseline_sha256 = (
         None if args.no_baseline else hashlib.sha256(args.baseline.read_bytes()).hexdigest()
     )
-    report = validate(data, baseline, baseline_sha256)
+    grid_reference = None if args.no_baseline else load_energy_grid_reference(
+        args.grid_reference, baseline["result"]["configuration"]["energy_grid_sha256"]
+    )
+    report = validate(data, baseline, baseline_sha256, grid_reference)
     print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
     return 0
 
