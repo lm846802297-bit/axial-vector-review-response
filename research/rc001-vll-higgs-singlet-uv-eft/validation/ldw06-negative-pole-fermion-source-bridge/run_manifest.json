@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.1",
+  "record_type": "run_manifest",
+  "run_id": "rc001-ldw06-pole-bridge-20261123T163138Z",
+  "created_at": "2026-11-23T16:31:41.852549+00:00",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "RC-001",
+    "workstream_id": "RC-001-WW-UV-FF-02"
+  },
+  "source": {
+    "commit_sha": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+    "script_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/check.py",
+    "script_sha256": "ede236bcb5c9facbd8f4cf4121c890033e02e86ec49caede9261e39f70d29bbd"
+  },
+  "inputs": [
+    {
+      "name": "RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "format": "markdown",
+      "bytes": 13031,
+      "sha256": "e08371ce9013fdfd1c1a3a68189c607ed15e535e51bd76f1e1d9e4e5f751343c",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "format": "markdown",
+      "bytes": 14903,
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "format": "markdown",
+      "bytes": 7997,
+      "sha256": "a908cc810572f1c5a22477f87b6475575afe54be096f7eb941facc82e5d971ff",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-1PI-vs-1PR-LSZ-boundary.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-1PI-vs-1PR-LSZ-boundary.md",
+      "format": "markdown",
+      "bytes": 4558,
+      "sha256": "4d2e151dc466714f242bffce4da7cc3735eae9fa0020cff618c5f35bf58cbe84",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "format": "markdown",
+      "bytes": 39402,
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-explicit-scalar-line-seagull-six-pair.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-explicit-scalar-line-seagull-six-pair.md",
+      "format": "markdown",
+      "bytes": 7560,
+      "sha256": "263deae3dba5d088b0b0811e3498f44dc5cb289c13b12aca8666a01af4a5c732",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "format": "markdown",
+      "bytes": 4822,
+      "sha256": "58495507f5fb8d7280ed2ef8182b6cb828f97ba73ea76edccc674383f3ca9049",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "e83f1935dce60d46cdfe6ebfa0224cb395498c1b",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "format": "markdown",
+      "bytes": 7240,
+      "sha256": "962a10f30b07f802f50e3a4ea886e7d66b69ecc595a78f7373c6192c39e513a8",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    }
+  ],
+  "configuration": {
+    "physics": {
+      "diagnostic_M_E_squared": "400 in consistent arbitrary units",
+      "process": "internal LD-W-06 negative scalar poles and two bare fermion charge-source terms"
+    },
+    "numerics": {
+      "method": "exact symbolic/rational matrix arithmetic",
+      "diagnostic_points": 2,
+      "comparison_tolerance": 0
+    },
+    "conventions": {
+      "metric": "+---",
+      "momentum": "all incoming",
+      "fourier_phase": "exp(-ipx)",
+      "q_is_external_W": true
+    }
+  },
+  "environment": {
+    "platform": "Linux x86_64",
+    "runtime": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "git": "git version 2.56.1"
+    },
+    "dependencies": {
+      "sympy": "1.14.0"
+    },
+    "hardware": {
+      "execution_target": "GPT-managed Linux cloud workspace",
+      "processes": 1,
+      "logical_cpus_available": 9,
+      "gpu_used": false
+    }
+  },
+  "execution": {
+    "status": "succeeded",
+    "command": "python -B research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/check.py",
+    "started_at": "2026-11-23T16:31:38.998968+00:00",
+    "finished_at": "2026-11-23T16:31:41.852549+00:00",
+    "exit_code": 0,
+    "wall_time_s": 2.853536,
+    "source_control": {
+      "event": "local_manual",
+      "checkout_mode": "detached_commit",
+      "checkout_ref": null,
+      "pr_number": null,
+      "pr_url": null,
+      "pr_head_sha": null,
+      "base_sha": null,
+      "tested_merge_sha": null,
+      "head_ref": null,
+      "base_ref": null,
+      "workflow_run_id": null,
+      "workflow_run_attempt": null,
+      "working_tree_state": "dirty",
+      "dirty_paths": [
+        "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/check.py"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/native.json",
+      "role": "native exact matrix-component diagnostics",
+      "format": "json",
+      "sha256": "f7d92466c76e7eb6fc15e7ab00274906da6c011cb0945640fca866378b083059",
+      "bytes": 1932,
+      "records": 2
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "checks": [
+      {
+        "check_id": "analytic-routing",
+        "name": "Complete shifted routes and cleared plus-heavy matrix identity",
+        "category": "analytic",
+        "status": "passed",
+        "threshold": "exact",
+        "observed": "12 vector maps and 16/16 cleared matrix entries",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/native.json"
+      },
+      {
+        "check_id": "signed-sewing",
+        "name": "Translated poles and signed source bridge",
+        "category": "independent",
+        "status": "passed",
+        "threshold": "zero differing entries",
+        "observed": "B_translated_literal=1536, A_B_anchor_translate_not_rebase=1536, commutator_bridge=1536, fermion_charge_source_interface=1536",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/native.json"
+      },
+      {
+        "check_id": "negative-sign-controls",
+        "name": "False common argument, wrong B weak order and missing heavy shift",
+        "category": "unit",
+        "status": "passed",
+        "threshold": "each applicable mutation detected",
+        "observed": "each requested mutation changes exact rational entries at both diagnostics",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/native.json"
+      },
+      {
+        "check_id": "native-byte-replay",
+        "name": "Fresh native output vs previously reviewed exact JSON",
+        "category": "integrity",
+        "status": "passed",
+        "threshold": "byte-identical stdout and no stderr",
+        "observed": "f7d92466c76e7eb6fc15e7ab00274906da6c011cb0945640fca866378b083059",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/native.json"
+      }
+    ]
+  },
+  "archive": {
+    "status": "local_only"
+  },
+  "extensions": {
+    "standards_provenance": {
+      "task_id": "20261123-ldw06-negative-pole-fermion-source-bridge",
+      "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-negative-pole-fermion-source-bridge.md",
+      "task_brief_sha256": "c9dc6f2f23c4750ed012631f1f622e2fefd8536bbe9c851ac141ee057f9f0118",
+      "central_repository": "lm846802297-bit/high-energy-theory-research",
+      "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+      "lock_file_path": "research/standards-lock.yaml",
+      "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+      "applied_profiles": [
+        "task-handoff",
+        "research-compute",
+        "research-quality-gate",
+        "rcrps-v1.0.1"
+      ],
+      "project_extensions": [
+        "AGENTS.md",
+        "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
+      ],
+      "project_extension_records": [
+        {
+          "path": "AGENTS.md",
+          "scope": "Axial task routes and scope boundaries",
+          "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+        },
+        {
+          "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+          "scope": "Axial UV–EFT metadata",
+          "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+        }
+      ]
+    },
+    "uv_eft": {
+      "model": "Unbroken SU(2) singlet vector-like heavy lepton E; Higgs and light fermions massless",
+      "parameters": {
+        "M_E_squared_diagnostic": 400,
+        "y_ell": "symbolic Yukawa; squared modulus in P4",
+        "g2": "symbolic SU(2) coupling",
+        "scalar_mass": 0
+      },
+      "gauge": "ordinary Feynman gauge",
+      "gamma5": "four-dimensional exact Dirac matrices with P_L=(I−γ5)/2; no D-dimensional trace, integration or scheme claim",
+      "ir_prescription": "nonsingular off-shell rational momenta; two nonsingular points, including a nonzero lightlike q; no original mass-shell limit; no integrated IR regulator",
+      "renormalization": {
+        "scheme": null,
+        "scale": null,
+        "reason": "bare integrand diagnostic, no loop integral or UV subtraction"
+      },
+      "matching": {
+        "scale": null,
+        "operator_basis": null,
+        "reason": "no EFT projection, matching or Wilson extraction"
+      },
+      "diagram_coverage": "two scalar-line negative WTI pole terms plus the charge-only external barred and unbarred fermion slots on the ordered LD-W-06 S–S box",
+      "counterterms": "not evaluated; no field-strength or full LSZ claim"
+    }
+  }
+}

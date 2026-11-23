@@ -1,0 +1,80 @@
+{
+  "scope": "two internal negative WTI poles and two fermion charge-source entries only",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "complete_momentum_current_maps": 12,
+    "cleared_plus_heavy_matrix_entries": 16,
+    "weak_slot_components_per_test_point": 48
+  },
+  "points": [
+    {
+      "q_squared": "-4",
+      "heavy_denominators_h_minus_q_h_h_plus_q": [
+        "-405",
+        "-393",
+        "-389"
+      ],
+      "signed_entry_counts": {
+        "B_translated_literal": 768,
+        "A_B_anchor_translate_not_rebase": 768,
+        "commutator_bridge": 768,
+        "fermion_charge_source_interface": 768,
+        "wrong_B_heavy_shift": 288,
+        "wrong_B_order": 288,
+        "same_k_anchor_difference": 352,
+        "nonzero_source_residual": 336
+      },
+      "fermion_charge_only_remainder_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_col": [
+          0,
+          0
+        ],
+        "normalized_exact_value": "-3/273790"
+      }
+    },
+    {
+      "q_squared": "0",
+      "heavy_denominators_h_minus_q_h_h_plus_q": [
+        "-389",
+        "-377",
+        "-365"
+      ],
+      "signed_entry_counts": {
+        "B_translated_literal": 768,
+        "A_B_anchor_translate_not_rebase": 768,
+        "commutator_bridge": 768,
+        "fermion_charge_source_interface": 768,
+        "wrong_B_heavy_shift": 288,
+        "wrong_B_order": 288,
+        "same_k_anchor_difference": 352,
+        "nonzero_source_residual": 352
+      },
+      "fermion_charge_only_remainder_sample": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_col": [
+          0,
+          0
+        ],
+        "normalized_exact_value": "36/44729165"
+      }
+    }
+  ]
+}
