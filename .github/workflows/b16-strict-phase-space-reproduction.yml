@@ -124,7 +124,12 @@ jobs:
           check_event_inputs() {
             for input_path in \
               "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py" \
               "research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py" \
               "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json" \
               "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json" \
               "research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py" \
