@@ -1,8 +1,8 @@
 # 审稿修订项目入口
 
-更新日期：2026-11-22。
+更新日期：2026-11-24。
 
-> **当前首批整合状态（2026-11-23）：** 最新 main 基线为 `276cb335d466d1c1864448bcd222fe60d7fdcdc8`；首批整合 PR [#140](https://github.com/lm846802297-bit/axial-vector-review-response/pull/140) 来自分支 `integration/b13-b16-first-batch-20261123`，基于该 main 构建，尚未合并。PR #121、#133、#134 的 B.13/B.16 内容已按路径/文件指纹整合；新增 5 个科研工作流，另补录 2 个此前遗漏的治理工作流。整合树有 2,380 个条目、2,218 个文件和 162 个目录；877 份 Markdown/text 文件在 462 条基线与 415 条补充登记中各登记一次。补充登记为 167 `PASS_WITH_NOTES`、6 `HISTORICAL`、242 `PENDING`；242 份 PENDING 文件已登记但尚未逐份审查。125 个工作流全部登记，110 个 REVIEWED_WITH_NOTES、1 个 ACTIVE、14 个历史候选。B.16 10 MeV 相空间账目闭合，但 Fig. 7 +92.4284% 物理偏差仍未解决；B.13 431 点 targeted high-order 复现通过，全局 1,687 节点验收仍未完成。没有更新生产轴矢量约束。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
+> **当前状态（2026-11-24）：** PR #140 已合并，B.13/B.16 首批整合进入 main。独立 Croon/Lai vector benchmark 正通过 PR [#123](https://github.com/lm846802297-bit/axial-vector-review-response/pull/123) 审查。PR #123 分支有 2,534 个 Git-tree 条目（2,369 个文件、165 个目录）、903 份 Markdown/text 文件（655 `.md`、248 `.txt`）和 140 个工作流。462 份基线文档已 disposition；441 份补充文档中 167 PASS_WITH_NOTES、6 HISTORICAL、268 PENDING，其中 26 份新增 Croon/C1 文档尚待逐项内容审查。140 个工作流均已登记，其中 15 个新工作流仍为 PENDING。C1 10 MeV 结果是纯矢量 benchmark，外层 25–100 km 半康普顿 opacity 未纳入，不是最终 SN1987A 排除曲线，也不是轴矢量约束。Fig. 7 +92.4284% 偏差仍未解决。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
 
 > **当前状态提示（2026-11-16）：** 本文件中带有 2026-11-06 日期的任务条目属于历史工作快照，不再代表当前 PR 或科学验收状态。最新状态请以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 和 [research 主索引](research/MAIN_RESEARCH_INDEX_2026-11-13.md) 为准。
 
