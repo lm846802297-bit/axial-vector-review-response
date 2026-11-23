@@ -41,8 +41,8 @@ jobs:
       - name: Validate structured records and referenced artifacts
         shell: bash
         run: |
-          mapfile -d '' records < <(find results -type f \\
-            \\( -name 'run_manifest.json' -o -name 'result_summary.json' -o -name 'validation_report.json' \\) \\
+          mapfile -d '' records < <(find results -type f \
+            \( -name 'run_manifest.json' -o -name 'result_summary.json' -o -name 'validation_report.json' \) \
             -print0 | sort -z)
           if (( ${#records[@]} )); then
             python docs/repository-management/schemas/validate_result_records.py --repo-root . "${records[@]}"
