@@ -1,0 +1,9 @@
+CURRENT SOURCE REDUCTION STRUCTURES
+Light: {'k': 31, 'p': 12, 'q': 12}
+Heavy: {'k': 14, 'p': 3, 'pp': 3}
+RETAINED TERM INSTANCES BEFORE ANGULAR PAIRING (not unique after Taylor-order combination)
+Light: {'k': 42, 'p': 22, 'q': 22}
+Heavy: {'k': 48, 'p': 22, 'pp': 22}
+PASS: explicit-vector components selected at scalar degree 4; free k^mu at degree 5.
+PASS: light graph expands both (k+q)^2 and (k+p)^2+M^2 denominators.
+PASS: heavy graph expands both (k+p)^2+M^2 and (k+p')^2+M^2 denominators.
