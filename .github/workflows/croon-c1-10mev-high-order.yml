@@ -1,11 +1,6 @@
 name: Croon C1 10 MeV high-order vector transport
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-c1-10mev-high-order.yml'
   workflow_dispatch:
 
 permissions:
