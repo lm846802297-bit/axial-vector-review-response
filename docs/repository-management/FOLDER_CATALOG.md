@@ -4,11 +4,11 @@ Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-a
 
 ## Repository footprint
 
-- **2,537 Git-tree entries:** 2,372 files and 165 directories.
-- **906 Markdown/text files:** 658 `.md` and 248 `.txt`.
+- **2,540 Git-tree entries:** 2,375 files and 165 directories.
+- **907 Markdown/text files:** 658 `.md` and 249 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 444 entries — 182 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 256 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Document coverage:** all 906 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; 237 pre-existing documents remain pending (233 RC-001 archive files and four low-mass axial-vector package documents). Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`.
+- **Supplemental register:** 445 entries — 183 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 256 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Document coverage:** all 907 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; 237 pre-existing documents remain pending (233 RC-001 archive files and four low-mass axial-vector package documents). Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`. The separately generated C1 high-order `SHA256SUMS` text manifest is also registered as `PASS_WITH_NOTES`.
 - **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
