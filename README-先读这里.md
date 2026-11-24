@@ -2,7 +2,7 @@
 
 更新日期：2026-11-24。
 
-> **当前状态（2026-11-24）：** PR #140 已合并，B.13/B.16 首批整合进入 main。独立 Croon/Lai vector benchmark 正通过 PR [#123](https://github.com/lm846802297-bit/axial-vector-review-response/pull/123) 审查。PR #123 分支有 2,534 个 Git-tree 条目（2,369 个文件、165 个目录）、903 份 Markdown/text 文件（655 `.md`、248 `.txt`）和 140 个工作流。462 份基线文档已 disposition；441 份补充文档中 167 PASS_WITH_NOTES、6 HISTORICAL、268 PENDING，其中 26 份新增 Croon/C1 文档尚待逐项内容审查。140 个工作流均已登记，其中 15 个新工作流仍为 PENDING。C1 10 MeV 结果是纯矢量 benchmark，外层 25–100 km 半康普顿 opacity 未纳入，不是最终 SN1987A 排除曲线，也不是轴矢量约束。Fig. 7 +92.4284% 偏差仍未解决。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
+> **当前状态（2026-11-24）：** PR #140 已合并，B.13/B.16 首批整合进入 main。独立 Croon/Lai vector benchmark 正通过 PR [#123](https://github.com/lm846802297-bit/axial-vector-review-response/pull/123) 审查。PR #123 分支有 2,534 个 Git-tree 条目（2,369 个文件、165 个目录）、903 份 Markdown/text 文件（655 `.md`、248 `.txt`）和 140 个工作流。462 份基线文档已 disposition；441 份补充文档中 167 PASS_WITH_NOTES、6 HISTORICAL、268 PENDING，其中 242 份既有导入文档和 26 份新增 Croon/C1 文档仍待逐项内容审查。140 个工作流均已登记：125 个 REVIEWED_WITH_NOTES、1 个 ACTIVE、14 个 HISTORICAL_CANDIDATE、0 个 PENDING。15 个 Croon/Lai A0/C1 工作流已逐项静态审查；4 个缺少分支保护的写权限工作流已修复。C1 10 MeV 结果是纯矢量 benchmark，外层 25–100 km 半康普顿 opacity 未纳入，不是最终 SN1987A 排除曲线，也不是轴矢量约束。Fig. 7 +92.4284% 偏差仍未解决。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
 
 > **当前状态提示（2026-11-16）：** 本文件中带有 2026-11-06 日期的任务条目属于历史工作快照，不再代表当前 PR 或科学验收状态。最新状态请以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 和 [research 主索引](research/MAIN_RESEARCH_INDEX_2026-11-13.md) 为准。
 
