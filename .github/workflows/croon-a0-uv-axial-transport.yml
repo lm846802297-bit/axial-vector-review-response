@@ -1,16 +1,6 @@
 name: Croon A0 UV finite-mixing axial transport
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-a0-uv-axial-transport.yml'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_a0_uv_axial_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_a0_uv_axial_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/model.py'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
   workflow_dispatch:
 
 permissions:
@@ -18,6 +8,7 @@ permissions:
 
 jobs:
   a0-10mev-transport:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
