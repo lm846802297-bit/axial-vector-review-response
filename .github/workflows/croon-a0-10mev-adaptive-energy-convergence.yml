@@ -1,16 +1,6 @@
 name: Croon A0 10 MeV adaptive energy-order convergence
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-a0-10mev-adaptive-energy-convergence.yml'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_a0_10mev_adaptive_energy_convergence.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_a0_uv_axial_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json'
   workflow_dispatch:
 
 permissions:
@@ -18,6 +8,7 @@ permissions:
 
 jobs:
   a0-adaptive-energy-convergence:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
