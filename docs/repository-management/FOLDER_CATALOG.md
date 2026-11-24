@@ -7,7 +7,7 @@ Inventory snapshot measured on PR #142 review branch `maintenance/92nd-document-
 - **2,551 Git-tree entries:** 2,385 files and 166 directories.
 - **915 Markdown/text files:** 664 `.md` and 251 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 450 entries — 205 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 240 `PENDING`, 3 `REVISION_REQUIRED`.
+- **Supplemental register:** 453 entries — 221 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 223 `PENDING`, 3 `REVISION_REQUIRED`.
 - **Document coverage:** all 915 Markdown/text paths are registered exactly once. The 93rd–96th review reports now state static source/output inspection only; their previous unsupported execution claims were withdrawn. The 98th review executed nine dimension-six source scripts and two independent regression scripts locally, with exact source fingerprints and output comparisons recorded. The old 28/20/20 degree-five output remains historical; the corrected 31/12/12 and 14/3/3 angular-reduction structures were reproduced by the degree-five regression. Eight of the nine existing dimension-six validation outputs matched stdout byte-for-byte; the nonexceptional-kinematics archive is a curated summary. The broader nonexceptional WW research note and full UV-EFT subtraction ledger remain PENDING.
 - **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
