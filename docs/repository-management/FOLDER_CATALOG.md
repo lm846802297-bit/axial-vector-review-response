@@ -4,11 +4,11 @@ Inventory snapshot measured on PR #142 review branch `maintenance/92nd-document-
 
 ## Repository footprint
 
-- **2,541 Git-tree entries:** 2,376 files and 165 directories.
-- **908 Markdown/text files:** 659 `.md` and 249 `.txt`.
+- **2,542 Git-tree entries:** 2,377 files and 165 directories.
+- **909 Markdown/text files:** 660 `.md` and 249 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 446 entries — 184 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 255 `PENDING`, 1 `REVISION_REQUIRED`.
-- **Document coverage:** all 908 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; five additional RC-001 records were inspected in the 92nd review: four remain PENDING pending execution provenance and one Q8 output is REVISION_REQUIRED. The remaining 255 PENDING records comprise 232 RC-001 archive files, four low-mass axial-vector package documents and 19 Croon/C1 checksum/archive records. Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`. The separately generated C1 high-order `SHA256SUMS` text manifest is also registered as `PASS_WITH_NOTES`.
+- **Supplemental register:** 447 entries — 185 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 254 `PENDING`, 2 `REVISION_REQUIRED`.
+- **Document coverage:** all 909 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; five RC-001 records were inspected in the 92nd review (four PENDING, one Q8 REVISION_REQUIRED); five more were inspected in the 93rd review (four PENDING, one mixed-kinetic threshold REVISION_REQUIRED). The remaining 254 PENDING records comprise 231 RC-001 archive files, four low-mass axial-vector package documents and 19 Croon/C1 checksum/archive records. Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`. The separately generated C1 high-order `SHA256SUMS` text manifest is also registered as `PASS_WITH_NOTES`.
 - **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
