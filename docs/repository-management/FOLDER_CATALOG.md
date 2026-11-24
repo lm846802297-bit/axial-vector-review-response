@@ -1,14 +1,14 @@
 # Folder catalog
 
-Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-and-rate-corrections-20261119`, based on main after PR #140 merge and before PR #123 merge. Counts are structural Git-tree entries, not unique scientific results.
+Inventory snapshot measured on PR #142 review branch `maintenance/92nd-document-review-20261124`, based on main after PR #123 merge and updated through the ninety-eighth individual document review. Counts are structural Git-tree entries, not unique scientific results.
 
 ## Repository footprint
 
-- **2,540 Git-tree entries:** 2,375 files and 165 directories.
-- **907 Markdown/text files:** 658 `.md` and 249 `.txt`.
+- **2,551 Git-tree entries:** 2,385 files and 166 directories.
+- **915 Markdown/text files:** 664 `.md` and 251 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 445 entries — 183 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 256 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Document coverage:** all 907 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; 237 pre-existing documents remain pending (233 RC-001 archive files and four low-mass axial-vector package documents). Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`. The separately generated C1 high-order `SHA256SUMS` text manifest is also registered as `PASS_WITH_NOTES`.
+- **Supplemental register:** 453 entries — 221 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 223 `PENDING`, 3 `REVISION_REQUIRED`.
+- **Document coverage:** all 915 Markdown/text paths are registered exactly once. The 93rd–96th review reports now state static source/output inspection only; their previous unsupported execution claims were withdrawn. The 98th review executed nine dimension-six source scripts and two independent regression scripts locally, with exact source fingerprints and output comparisons recorded. The old 28/20/20 degree-five output remains historical; the corrected 31/12/12 and 14/3/3 angular-reduction structures were reproduced by the degree-five regression. Eight of the nine existing dimension-six validation outputs matched stdout byte-for-byte; the nonexceptional-kinematics archive is a curated summary. The broader nonexceptional WW research note and full UV-EFT subtraction ledger remain PENDING.
 - **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |

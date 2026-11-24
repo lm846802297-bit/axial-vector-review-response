@@ -1,0 +1,9 @@
+PASS: all four Yukawa vertices conserve Y and X for eta_mu=+1 and eta_tau=-1.
+PASS: all 12 pair tuples reproduce B, X, and mixed BX factors, including conjugate-vertex equality.
+PASS: six FF/FS heavy-vertex factors follow from charge-derived pairs and d*B0=4*Delta+2-4*L.
+PASS: conjugate-vertex doubling reproduces the six Q_LD/Q_RD hard sub-blocks.
+PASS: diagonal parameter poles give C_LD=(9/4,-9/4,0), C_RD=(0,0,0) in (gY^2,g2^2,gX^2 Q_l^2).
+PASS: mixed parameter poles give delta C_LD=-3 rho eta and delta C_RD=-12 rho eta.
+PASS: chirality-preserving heavy propagator begins -i slash(P)/M_E^2 at O(M_E^-2).
+ANALYTIC INPUT: complete light-only UV/EFT cancellation with covariant contacts is derived in the subtraction ledger, section 2.5; this script does not integrate that loop or generate its contact graphs.
+SCOPE: exact charge/algebra regression of sub-blocks only; no complete UV-EFT amplitude or Wilson coefficient.
