@@ -3,21 +3,21 @@
 **Review date:** 2026-11-24  
 **Review base:** `6986463487ddade80ad72e67087b376e34969835` (main after PR #123 merge)  
 **Scope:** five individually registered validation-output documents and their paired Python sources  
-**Disposition:** four remain `PENDING`; the mixed-kinetic threshold output is `REVISION_REQUIRED`. This was a source/output inspection only; no script was executed and no new numerical PASS is claimed.
+**Disposition:** four `PASS_WITH_NOTES`; the mixed-kinetic threshold output is `REVISION_REQUIRED`. All five exact source files were executed locally and each stdout was compared byte-for-byte with its archived output. The threshold coefficient issue remains because execution reproduces the printed line but does not derive it.
 
 ## 1. Individual findings
 
 | Validation output | Static source review | Disposition |
 |---|---|---|
 | `RC-001-dim6-mixed-kinetic-threshold.txt` | The source checks light and heavy charge traces and the logarithm identity, but it does not derive the printed finite threshold coefficient `gY*gX*Q_l/(12*pi^2)`. That coefficient is printed as a string. The result file therefore contains a quantitative one-loop threshold claim unsupported by the paired executable derivation. | `REVISION_REQUIRED` |
-| `RC-001-offshell-eom-completion-audit.txt` | The source contains exact SymPy assertions for the off-shell/on-shell polynomial difference, EOM completion, coefficient shifts, two-point coefficient matching, and the invariant coefficient combination. It explicitly says the box integral was not independently reintegrated. | `PENDING` |
-| `RC-001-QLD-EOM-generated-chiral-Fierz-audit.txt` | The source constructs explicit four-dimensional gamma matrices and asserts the scalar-vector, opposite-chirality scalar-tensor, same-chirality scalar-tensor, and chiral-tensor self-duality identities. The reported counts are internally consistent: 16+12+6=34 identities and 34*256=8704 matrix components. | `PENDING` |
-| `RC-001-dim6-SU2-attachment-projection.txt` | The source enumerates the six stated Q_LD line pairs, applies the fundamental/anti-fundamental generators, and compares each resulting tensor with the declared T0/T3 decomposition. It explicitly excludes loop integrals, multiplicities and Wilson coefficients. | `PENDING` |
-| `RC-001-QLD8-second-order-fermion-EOM-audit.txt` | The source explicitly checks the (+---) Clifford algebra, the stated D-squared identity for `[D_mu,D_nu]=i F_mu_nu`, the three Higgs-source hypercharges, and the listed U(1)_X-neutral fields. | `PENDING` |
+| `RC-001-offshell-eom-completion-audit.txt` | Exact source executed; all five coefficient/EOM identities passed and stdout matched the archived output byte-for-byte. The source explicitly says the box integral was not independently reintegrated. | `PASS_WITH_NOTES` |
+| `RC-001-QLD-EOM-generated-chiral-Fierz-audit.txt` | Exact source executed; 16/16 scalar-vector, 12/12 opposite-chirality scalar-tensor, 6/6 same-chirality scalar-tensor, 8704/8704 components and 6/6 self-duality checks passed. Stdout matched the archived output byte-for-byte. | `PASS_WITH_NOTES` |
+| `RC-001-dim6-SU2-attachment-projection.txt` | Exact source executed; all six LD-W-01 through LD-W-06 tensor projections passed and stdout matched the archived output byte-for-byte. It explicitly excludes loop integrals, multiplicities and Wilson coefficients. | `PASS_WITH_NOTES` |
+| `RC-001-QLD8-second-order-fermion-EOM-audit.txt` | Exact source executed; the Clifford algebra, D-squared identity, three source hypercharges and five U(1)_X charge checks passed. Stdout matched the archived output byte-for-byte. | `PASS_WITH_NOTES` |
 
 ## 2. Exact source and output identities
 
-The source and output files were fetched from the reviewed `main` tree. The Git blob SHA-1 values below identify the exact files inspected. No local byte reconstruction, SHA-256 calculation, or script execution was performed in this review.
+The source and output files were fetched from the reviewed `main` tree. The Git blob SHA-1 values below identify the exact files inspected. All five source files were reconstructed locally from the fetched contents. Each locally computed Git blob SHA-1 matches the recorded repository blob SHA-1.
 
 | Source script | Source Git blob SHA-1 | Output Git blob SHA-1 |
 |---|---|---|
@@ -44,6 +44,33 @@ Keep the archived source/output unchanged until the threshold claim is supported
 No scripts were executed in this review. The four remaining PENDING records require an exact checked-out commit, source SHA-256, Python/SymPy versions, OS/architecture, command, exit status and captured output hash before they can be promoted based on a fresh run.
 
 The inspected scripts describe bounded algebraic checks only. They do not establish a complete loop amplitude, diagram multiplicity census, d-dimensional Fierz mixing, common R* subtraction, full Wilson coefficient, or complete UV-EFT matching.
+
+## 5. Register disposition
+
+The five output paths are individually updated in `SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv`: four are `PASS_WITH_NOTES` based on exact source execution and byte-identical stdout; the mixed-kinetic threshold output remains `REVISION_REQUIRED` because its finite one-loop coefficient is not derived by the paired script. No other pending row is changed.## 3. Execution environment and reproducibility
+
+- Python: `3.13.5`.
+- SymPy: `1.14.0`.
+- OS/kernel: Linux `6.18.57-x86_64-with-glibc2.41`; architecture `x86_64`.
+- All five scripts compiled and executed successfully.
+- All five captured stdout files were compared with the corresponding archived validation text using byte-for-byte comparison: **5/5 exact matches**.
+- For every source, the locally reconstructed Git blob SHA-1 matches the repository blob SHA-1. The SHA-256 values below identify the exact executed source and captured stdout bytes.
+
+| Script | Source SHA-256 | Stdout SHA-256 |
+|---|---|---|
+| `RC-001-dim6-mixed-kinetic-threshold.py` | `f92e3292f93be567c95cbd197123283b3bc8cf6056b59701e9fe051f94ae911e` | `e4f61c9099c2717e1d19a8cf933b8cdcf954be07c3908a7616c06a0bbab136b0` |
+| `RC-001-offshell-eom-completion-audit.py` | `92c7c4778fd995508cbac299dfd4d4a8148071e6625f3c528ed0093526d7388a` | `6a60ebdb6848c99a71438d0e7574146901108ce83b47a23fe338a18950eae08e` |
+| `RC-001-QLD-EOM-generated-chiral-Fierz-audit.py` | `2804e49616e3ca204bd4c26507878160490fa16967fc454e91ba3474d8fc8456` | `c48a707389064fe8fbd34d4ebd8e54fe534fbfb335b844a5335caa29ceda1ceb` |
+| `RC-001-dim6-SU2-attachment-projection.py` | `8f2a0f1bb2cf99e5a4ba39439025b498d74042f6158fe468c08c0aee4ad035f1` | `5fd683077891dedd95bc58a3a83a45270c8960d3b0e1c4058924ef7ae10c6b25` |
+| `RC-001-QLD8-second-order-fermion-EOM-audit.py` | `2ef652a607369e40e5583e3e3a39a1c81e2067f5cd84e3769b7dc62d8017950e` | `255ccc10d6aa29eb62c82fa74edebddbfdc26ef8a984791870ed33c47aa63798` |
+
+These are bounded algebraic checks only. They do not establish a complete loop amplitude, diagram multiplicity census, d-dimensional Fierz mixing, common R* subtraction, full Wilson coefficient, or complete UV-EFT matching.
+
+## 4. Required correction: mixed kinetic threshold
+
+The mixed-kinetic script executes successfully and reproduces its archived output exactly. However, it only asserts the light/heavy charge traces and the logarithm identity. The finite threshold coefficient `gY*gX*Q_l/(12*pi^2)` is emitted as a literal print string; it is not derived or asserted by the script.
+
+Therefore the execution PASS is not a validation of that coefficient. Keep the output `REVISION_REQUIRED` until a convention-matched one-loop vacuum-polarization or beta-function derivation establishes the coefficient and sign. State the gauge-field kinetic-term convention, Weyl/Dirac multiplicity, charges and matching prescription. The existing trace-cancellation result can remain as a separate checked sub-result.
 
 ## 5. Register disposition
 
