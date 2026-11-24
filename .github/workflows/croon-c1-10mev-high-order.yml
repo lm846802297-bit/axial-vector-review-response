@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   c1-10mev-high-order:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
