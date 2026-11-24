@@ -153,7 +153,7 @@ For the nine existing source/output pairs, eight archived outputs are byte-ident
 | `RC-001-dim6-yukawa-vertex-charge-factors.py` | `4f74a0ea416833859c668a6392ffce070e273ca1` | `587e1999a4c4c905cf20ab9b215514b58db7ae1e` | `8f33169e3fac7819d450ad9dff6c0828be39283cd2dc33089cc2a61c0f3b75dc` | `1666eced13195d05cdc43b801ac8eb9dcf95eaeeda4de71e36653071a84ea3b1` | byte-identical |
 
 **Independent dimension-six charge/kernel regression**
-- Source Git blob: `19cc4cffac58b054f3587b03d3e5f0302bd25656`; SHA-256: `e5b7bffe8a79a2f20384e220701b526ed39100b730599cffcdf406a93824097b`.
+- Source Git blob: `88d78330c93c3b336ac5c17aca246fd4217c0183`; SHA-256: `d2050e7e5239cfef2dbcef8ced283a1f23e6060afb841c9542181712e6e0c77b`.
 - Native output Git blob: `444ec2b058c87b312f9b584cb76be3b0d4b3c0fe`; SHA-256: `f3d76c4d68ac744c18094c8e7683ffba1937550966494d9403d730304df371c3`.
 
 **Earlier degree-five regression re-execution**
