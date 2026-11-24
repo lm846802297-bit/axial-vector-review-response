@@ -1,14 +1,6 @@
 name: Croon C1 10 MeV adaptive radial boundary-layer baseline
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-c1-10mev-adaptive-radial-baseline.yml'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/adaptive_radial_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c1_b13_vector_transport.py'
   workflow_dispatch:
 
 permissions:
@@ -16,6 +8,7 @@ permissions:
 
 jobs:
   c1-adaptive-radial-baseline:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
