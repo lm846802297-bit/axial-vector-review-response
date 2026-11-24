@@ -5,7 +5,6 @@ on:
     branches:
       - research/croon-vector-benchmark-and-rate-corrections-20261119
     paths:
-      - '.github/workflows/croon-c1-adaptive-radial-output-audit.yml'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_adaptive_radial_output_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json'
