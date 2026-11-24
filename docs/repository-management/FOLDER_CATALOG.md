@@ -1,6 +1,6 @@
 # Folder catalog
 
-Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-and-rate-corrections-20261119`, based on current main after PR #140 merge. Counts are structural Git-tree entries, not unique scientific results; PR #123 remains under review.
+Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-and-rate-corrections-20261119`, based on main after PR #140 merge and before PR #123 merge. Counts are structural Git-tree entries, not unique scientific results.
 
 ## Repository footprint
 
@@ -9,7 +9,7 @@ Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-a
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
 - **Supplemental register:** 441 entries — 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 268 `PENDING`, 0 `REVISION_REQUIRED`.
 - **Document coverage:** all 903 Markdown/text paths are registered exactly once. The 242 previously pending imported documents remain unreviewed; 26 newly added Croon/C1 documents are also registered as `PENDING`.
-- **Workflow inventory:** 140 YAML workflows — 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 15 `PENDING`.
+- **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
