@@ -4,11 +4,11 @@ Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-a
 
 ## Repository footprint
 
-- **2,534 Git-tree entries:** 2,369 files and 165 directories.
-- **903 Markdown/text files:** 655 `.md` and 248 `.txt`.
+- **2,536 Git-tree entries:** 2,371 files and 165 directories.
+- **905 Markdown/text files:** 657 `.md` and 248 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 441 entries — 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 268 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Document coverage:** all 903 Markdown/text paths are registered exactly once. The 242 previously pending imported documents remain unreviewed; 26 newly added Croon/C1 documents are also registered as `PENDING`.
+- **Supplemental register:** 443 entries — 181 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 256 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Document coverage:** all 905 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; 237 older imported documents remain pending. Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`.
 - **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
@@ -17,7 +17,7 @@ Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-a
 | `.github/` | 145 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 148 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 150 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
 | `research/` | 1,845 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
