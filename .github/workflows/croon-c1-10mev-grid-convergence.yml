@@ -1,11 +1,6 @@
 name: Croon C1 10 MeV grid convergence audit
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-c1-10mev-grid-convergence.yml'
   workflow_dispatch:
 
 permissions:
@@ -13,6 +8,7 @@ permissions:
 
 jobs:
   c1-10mev-grid-convergence:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
