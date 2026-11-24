@@ -114,3 +114,9 @@ The [研究决策与不可回退事项](审稿意见-gpt/项目规范/研究决�
 ### Axial-vector referee-response boundary
 
 Apply this standard to internal research discussion, progress reports, calculations, reviews, and task handoffs. Formal referee-facing response letters and manuscript text remain governed by the repository's dedicated referee-response writing rules. Retain genuine physical and experimental applicability qualifications where they are scientifically relevant, while avoiding repetitive defensive wording. Never insert internal task status, branch/PR/CI details, or workflow notes into the referee-facing letter.
+
+## Shared Particle Physics Research Skill
+
+When available, use the user-level Codex Skill `high-energy-theory-research` for relevant scientific tasks. Explicitly invoke `$high-energy-theory-research` when the task requires it, load only the relevant references, and record the installed source commit when the Skill materially contributes to a result. If unavailable, report that status and follow this repository's existing workflow.
+
+Use it for symbolic and loop calculations, UV/IR separation, EFT matching, paper reading, and reproducibility checks. Preserve the author decision register, manuscript edit boundaries, and referee-response writing and review rules. This repository's instructions, research records, and specialized Skills govern project-specific decisions. Keep the shared Skill centrally maintained and avoid repository-local copies.
