@@ -1,6 +1,14 @@
 name: Croon C1 10 MeV high-order vector transport
 
 on:
+  push:
+    branches:
+      - research/croon-vector-benchmark-and-rate-corrections-20261119
+    paths:
+      - '.github/workflows/croon-c1-10mev-high-order.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c1_b13_vector_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
   workflow_dispatch:
 
 permissions:
