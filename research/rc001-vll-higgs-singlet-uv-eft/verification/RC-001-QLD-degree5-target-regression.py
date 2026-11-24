@@ -122,3 +122,4 @@ print('Heavy:', raw['E'])
 print('PASS: explicit-vector components selected at scalar degree 4; free k^mu at degree 5.')
 print('PASS: light graph expands both (k+q)^2 and (k+p)^2+M^2 denominators.')
 print('PASS: heavy graph expands both (k+p)^2+M^2 and (k+p\')^2+M^2 denominators.')
+
