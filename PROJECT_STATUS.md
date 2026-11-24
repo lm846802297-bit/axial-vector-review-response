@@ -34,7 +34,7 @@ The C1 benchmark is a pure-vector calculation and cannot update the axial-vector
 
 1. Validate the C1 `run_manifest.json`, `result_summary.json`, and `validation_report.json` against the current main RCRPS v1.0.1-compatible validator and all local SHA-256/CSV references.
 2. Complete the final exact-HEAD checks and full diff review for PR #123, retaining the outer-opacity limitation and keeping the C1 vector result separate from axial-vector constraints.
-3. Continue the 268 pending document reviews in small, individually dispositioned batches: 242 previously imported documents and 26 new Croon/C1 documents. Do not bulk-mark them as passed.
+3. Continue the 256 pending document reviews in small, individually dispositioned batches: 237 previously imported documents and 19 new Croon/C1 documents. Do not bulk-mark them as passed.
 4. Revisit PR #132 only after central PR #27 is merged and the Skill publication checks are complete.
 
 ---
