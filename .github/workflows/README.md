@@ -168,7 +168,7 @@ Inventory reconciled on PR #123 branch on 2026-11-24 after PR #140 merged into m
 - [`export-a0-energy-source-bundle.yml`](export-a0-energy-source-bundle.yml)
 - [`original-uv-goldstone-ward-regression.yml`](original-uv-goldstone-ward-regression.yml)
 
-These 15 workflows are individually registered as `REVIEWED_WITH_NOTES`. Ten write-enabled workflows now have exact job-level branch guards; four previously unguarded jobs were fixed, and two self-only push triggers were removed to avoid unnecessary compute. Two read-only workflows retain unpinned dependencies, and two C1 runs were still in progress at review time. See the [workflow review report](../../docs/repository-management/workflow-reviews/CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md).
+These 15 workflows are individually registered as `REVIEWED_WITH_NOTES`. Nine write-enabled workflows now have exact job-level branch guards; four previously unguarded jobs were fixed, and two self-only push triggers were removed to avoid unnecessary compute. The six-mass C1 B7+B13 Actions scan was replaced with a read-only 10 MeV reduced-grid independent verification. The C1 high-order run computed and validated output but failed at branch writeback; the workflow now uploads the artifact first and retries rebase/push. Two read-only workflows retain unpinned dependencies. See the [workflow review report](../../docs/repository-management/workflow-reviews/CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md).
 
 ## Individual audit register
 
