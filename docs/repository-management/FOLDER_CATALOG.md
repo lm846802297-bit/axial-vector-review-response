@@ -1,6 +1,6 @@
 # Folder catalog
 
-Inventory snapshot measured on PR #142 review branch `maintenance/92nd-document-review-20261124`, based on main after PR #123 merge and updated through the ninety-fourth individual document review. Counts are structural Git-tree entries, not unique scientific results.
+Inventory snapshot measured on PR #142 review branch `maintenance/92nd-document-review-20261124`, based on main after PR #123 merge and updated through the ninety-fifth individual document review. Counts are structural Git-tree entries, not unique scientific results.
 
 ## Repository footprint
 
