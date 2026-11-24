@@ -6,9 +6,10 @@
 - **Croon/Lai scope:** PR #123 is a separate pure-vector benchmark package. Its C1 10 MeV result uses $g_V/g_X=1$, $g_A/g_X=0$, B.7 two-flavour neutrino coalescence and B.13 moving-muon semi-Compton. It is not an axial-vector constraint.
 - **C1 archive:** run #45229265669 has a structured run manifest, result summary, validation report, 153 radial nodes, energy order 48 and 121 coupling points. Numerical convergence passed; the physical scope is partial because outer 25–100 km semi-Compton opacity is omitted. No final SN1987A exclusion curve is computed.
 - **Croon outer-opacity issue:** the public reconstructed profile does not determine the raw Garching outer muon profile. The conditional outer-opacity envelopes leave the published low-mass solid/dashed suppression unexplained. This remains an explicit unresolved source/opacity issue; no fitted opacity or rescaled constraint is introduced.
-- **Workflow inventory on PR #123 branch:** 140 YAML files, all 140 registered: 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 15 `PENDING`. The 15 new Croon/A0 workflows are inventory-registered only; their full static/permission/latest-run audit is still pending.
+- **Workflow inventory on PR #123 branch:** 140 YAML files, all 140 registered: 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 0 `PENDING`. The 15 Croon/Lai A0/C1 workflows received individual static review; four missing branch guards were fixed. Two C1 runs (#45296692143 and #45296685605) were still in progress at the time of this status update. Two read-only regression workflows retain unpinned dependencies; ten write-enabled workflows retain job-wide `contents:write` as follow-up least-privilege work.
 - **Document inventory on PR #123 branch:** 903 Markdown/text files. The 462 baseline records and 441 supplemental records cover all 903 paths exactly once. The 26 newly added Croon/C1 archive documents are registered as `PENDING`, not marked reviewed. The supplemental pending count is now 268 (242 existing pending + 26 new pending).
 - **PR #132:** remains dependent on central Research Skill PR #27 publication and acceptance; central PR #27 remains Draft.
+- **Workflow review:** [Croon/Lai A0/C1 workflow review](docs/repository-management/workflow-reviews/CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md) records the 15 individual static reviews, run evidence and physical boundaries.
 
 ## Current physical boundary
 
@@ -32,8 +33,8 @@ The C1 benchmark is a pure-vector calculation and cannot update the axial-vector
 ## Next actions
 
 1. Validate the C1 `run_manifest.json`, `result_summary.json`, and `validation_report.json` against the current main RCRPS v1.0.1-compatible validator and all local SHA-256/CSV references.
-2. Complete the full diff review for PR #123, retaining the outer-opacity limitation and keeping the C1 vector result separate from axial-vector constraints.
-3. Continue the 242 pending document reviews in small, individually dispositioned batches; do not bulk-mark them as passed.
+2. Complete the final exact-HEAD checks and full diff review for PR #123, retaining the outer-opacity limitation and keeping the C1 vector result separate from axial-vector constraints.
+3. Continue the 268 pending document reviews in small, individually dispositioned batches: 242 previously imported documents and 26 new Croon/C1 documents. Do not bulk-mark them as passed.
 4. Revisit PR #132 only after central PR #27 is merged and the Skill publication checks are complete.
 
 ---
