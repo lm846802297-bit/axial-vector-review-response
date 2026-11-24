@@ -8,6 +8,7 @@ permissions:
 
 jobs:
   c1-vector-transport:
+    if: github.ref == 'refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
