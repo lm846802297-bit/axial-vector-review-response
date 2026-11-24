@@ -1,4 +1,43 @@
-# 2026-11-23 live status: B.13/B.16 first-batch integration and inventory reconciliation
+# 2026-11-24 live status: PR #123 Croon/Lai archive and repository inventory review
+
+## Latest update (2026-11-24): PR #123 inventory reconciliation
+
+- **Main baseline:** B.13/B.16 integration PR #140 is merged at `871c9c57feb36ea0df549550bb4c307dacadb8cd`. B.13 targeted high-order and B.16 strict phase-space evidence remain archived; full 1,687-node B.13 global high-order acceptance remains false.
+- **Croon/Lai scope:** PR #123 is a separate pure-vector benchmark package. Its C1 10 MeV result uses $g_V/g_X=1$, $g_A/g_X=0$, B.7 two-flavour neutrino coalescence and B.13 moving-muon semi-Compton. It is not an axial-vector constraint.
+- **C1 archive:** run #45229265669 has a structured run manifest, result summary, validation report, 153 radial nodes, energy order 48 and 121 coupling points. Numerical convergence passed; the physical scope is partial because outer 25–100 km semi-Compton opacity is omitted. No final SN1987A exclusion curve is computed.
+- **Croon outer-opacity issue:** the public reconstructed profile does not determine the raw Garching outer muon profile. The conditional outer-opacity envelopes leave the published low-mass solid/dashed suppression unexplained. This remains an explicit unresolved source/opacity issue; no fitted opacity or rescaled constraint is introduced.
+- **Workflow inventory on PR #123 branch:** 140 YAML files, all 140 registered: 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 0 `PENDING`. The 15 Croon/Lai A0/C1 workflows received individual static review; four missing branch guards were fixed. The C1 single-baseline run #45296692143, adaptive radial run #45229265669, and high-order run #45301539094 all passed. The high-order run archived native JSON/CSV plus `SHA256SUMS` in output commit `d59d4fb` and Actions artifact #14879108056. It used 103 radial nodes (101 requested), 48 energy nodes, and 121 couplings; maximum B.13 detailed-balance residual was `4.9743e-14` and final-muon shell residual `5.4649e-13`. CI runtime was Linux x64 with Python 3.13.18, NumPy 2.5.5 and SciPy 1.18.1; exact CPU model was not recorded.
+- **Document inventory on PR #123 branch:** 907 Markdown/text files (658 `.md`, 249 `.txt`). The 462 baseline records and 445 supplemental records cover all 907 paths exactly once. The supplemental register contains 183 `PASS_WITH_NOTES`, 6 `HISTORICAL`, and 256 `PENDING`. Five older pending documents were individually reviewed in the 91st review; 7 of the 26 new Croon/C1 documents were reviewed, 19 remain `PENDING`, and the separate high-order SHA256SUMS text manifest is `PASS_WITH_NOTES`. The 237 pre-existing pending documents and 19 new Croon/C1 documents remain for individual review.
+- **PR #132:** remains dependent on central Research Skill PR #27 publication and acceptance; central PR #27 remains Draft.
+- **Workflow review:** [Croon/Lai A0/C1 workflow review](docs/repository-management/workflow-reviews/CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md) records the 15 individual static reviews, run evidence and physical boundaries.
+
+## Current physical boundary
+
+The C1 benchmark is a pure-vector calculation and cannot update the axial-vector constraint. Its 25–100 km outer semi-Compton opacity is omitted, and its final SN1987A exclusion curve is `not_run`. The Croon Fig. 2 low-mass strong-coupling opacity discrepancy is not resolved. No axial-vector contour or manuscript constraint is changed.
+
+---
+
+
+## Previous checkpoint (2026-11-24): before final C1 high-order rerun and document inventory reconciliation
+
+- **Main baseline:** PR #140 merged as `871c9c57feb36ea0df549550bb4c307dacadb8cd`. The B.13/B.16 first-batch integration is now part of main; PRs #121, #133 and #134 were superseded by that integration.
+- **B.16:** strict 10 MeV phase-space run [#45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856) passed. The immutable 842-node reference SHA-256 remains unchanged; the current production grid differs by one ULP at one node, with maximum relative difference $1.16755\\times10^{-16}$, below the declared $5\\times10^{-15}$ node-level tolerance. The independent 24-test output-validator run [#45173157775](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775) passed.
+- **B.13:** current-head targeted high-order run [#45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) passed Calculate/Validate/Archive for 431/431 targeted $(r,x)$ points and 2,155 ordered evaluations. The full 1,687-node global high-order acceptance remains false.
+- **Workflow inventory:** 125 YAML files, all 125 registered: 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **Document inventory at this checkpoint:** 877 Markdown/text files (646 `.md`, 231 `.txt`), with 462 baseline and 415 supplemental records. All paths are registered exactly once. The supplemental register contains 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, and 242 `PENDING`; the 242 pending records are inventoried but not yet content-reviewed.
+- **Croon C1 10 MeV vector benchmark:** independent adaptive transport run [#45229265669](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45229265669) completed successfully on the reconstructed SFHo-18.8 profile. It uses 153 radial nodes, energy order 48, 121 coupling points, B.7 two-flavour neutrino coalescence, exact moving-muon B.13 semi-Compton, both muon charges, and $L,+,-$ modes. The 103/153 radial-grid change is $1.16930\\times10^{-3}$ against a $1.2\\times10^{-3}$ threshold; the 32/48 energy-order metric is $1.30311\\times10^{-7}$ against $10^{-4}$. The structured archive is in `results/C1-10MeV-45229265669-a1/` on this PR branch.
+- **C1 physical boundary:** the run manifest and validation report mark the result `partial`: the outer 25--100 km B.13 semi-Compton opacity is omitted, and no final SN1987A exclusion curve is computed. This is a pure-vector benchmark ($g_A/g_X=0$), not an axial-vector constraint. No axial-vector contour has been updated.
+- **PR #123 integration:** the branch now contains a merge commit with current main as first parent and the Croon/Lai research branch as second parent. Main's current compute/governance instructions and RCRPS schemas are retained where the branches differed. The C1 structured records are being validated against the current main schema/validator before the PR is marked ready.
+- **PR #132:** remains blocked on central Research Skill PR #27 publication and acceptance; PR #27 is still Draft.
+
+## Next actions
+
+1. Complete the final exact-HEAD review of PR #123 and merge it while preserving the pure-vector C1 scope and outer-opacity limitation.
+2. Continue the 256 pending document reviews in small, individually dispositioned batches: 233 legacy RC-001 archive documents, four low-mass axial-vector package documents, and 19 new Croon/C1 documents. Do not bulk-mark them as passed.
+3. After PR #123 merges, refresh main's live status and verify that all 907 Markdown/text paths and 140 workflow YAMLs remain registered exactly once.
+4. Keep PR #132 waiting until central Research Skill PR #27 is merged and its publication checks are complete.
+
+---
 
 ## Latest update (2026-11-23)
 

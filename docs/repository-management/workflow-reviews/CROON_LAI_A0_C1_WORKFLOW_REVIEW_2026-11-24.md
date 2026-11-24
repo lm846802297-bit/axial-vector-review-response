@@ -2,22 +2,24 @@
 
 ## Review scope
 
-Static review of the 15 workflow files introduced by PR #123, at branch commit `caf9d8be4bbc04fb2146e98e51e7adf1dcae4b95`. This review covers triggers, branch/path filters, job guards, permissions, dependency/runtime declarations, output write-back, and known Actions run evidence. Static review is not a scientific acceptance statement.
+Static review of the 15 workflow files introduced by PR #123 was first performed at branch commit `caf9d8be4bbc04fb2146e98e51e7adf1dcae4b95`; the high-order workflow was re-reviewed at commit `264f964df13b6b148ce4f1fbcbb2d5c30029463d` after its trigger and archive logic changed. This review covers triggers, branch/path filters, job guards, permissions, dependency/runtime declarations, output write-back, and known Actions run evidence. Static review is not a scientific acceptance statement.
 
 ## Findings
 
 - All 15 workflows were inspected individually.
-- 10 workflows request `contents: write`. All 10 now have an exact job-level guard for `refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119`; a manual dispatch from another branch skips the job.
-- The 5 read-only workflows use `contents: read`.
+- 9 workflows request `contents: write`. All 9 now have an exact job-level guard for `refs/heads/research/croon-vector-benchmark-and-rate-corrections-20261119`; a manual dispatch from another branch skips the job.
+- The 6 read-only workflows use `contents: read`.
 - No workflow has a `pull_request` trigger. Push-triggered workflows are restricted to the dedicated research branch and/or explicit path filters.
 - Four write-enabled workflows were missing an exact job-level branch guard. These were fixed:
   - `croon-c1-10mev-high-order.yml`
   - `croon-c1-10mev-single-baseline.yml`
   - `croon-c1-adaptive-radial-output-audit.yml`
   - `croon-c1-b13-vector-transport.yml`
-- The high-order and single-baseline workflows previously had push filters that only matched their own workflow files. Those ineffective/expensive push triggers were removed; both are now manual-only and branch-guarded.
+- The high-order workflow was subsequently given path-filtered push triggers for its workflow file, transport source, regression test, and SFHo profile on the exact research branch; the single-baseline workflow remains manual-only. This avoids the former self-only push-filter problem while rerunning high-order validation when scientific inputs change.
 - The adaptive radial output audit no longer triggers merely because its own workflow YAML is edited; it retains source/output path triggers and a branch guard.
-- Write-enabled jobs still hold `contents: write` for the full job rather than using a separate read-only compute job plus a minimal archive job. This is recorded as a least-privilege improvement, not silently described as fully separated.
+- The first high-order attempt (#45296685605) completed computation and native-output validation but failed during non-fast-forward branch writeback before artifact upload. The corrected workflow uploads the artifact before writeback and retries fetch/rebase/push; the rerun below succeeded.
+- Nine write-enabled jobs still hold `contents: write` for the full job rather than using a separate read-only compute job plus a minimal archive job. This is recorded as a least-privilege improvement, not silently described as fully separated.
+- The original C1 B7+B13 six-mass Actions scan was converted to a read-only, one-mass reduced-grid independent verification (10 MeV; 33 radial nodes, 24 energy order, 31 coupling points). The full six-mass scan remains a local-compute task under the central compute policy.
 - Most numerical workflows pin Python 3.13, NumPy 2.5.5 and SciPy 1.18.1. Two read-only regression workflows install unpinned dependencies (`croon-semcompton-rate-regression.yml`: NumPy/SciPy/PyMuPDF; `original-uv-goldstone-ward-regression.yml`: NumPy). Their run environment is therefore not fully locked.
 - Actions are referenced by major tags (`checkout@v4`, `setup-python@v5`, `upload-artifact@v4`), not immutable action SHAs.
 
@@ -32,11 +34,11 @@ Static review of the 15 workflow files introduced by PR #123, at branch commit `
 | `croon-c1-10mev-adaptive-energy-convergence.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only; exact branch guard; computes 32/48 energy-order comparison. | Run #45229265669 PASS: maximum 32/48 energy-order metric 1.3031065e-7; 153 radial nodes. |
 | `croon-c1-10mev-adaptive-radial-baseline.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only; exact branch guard; 103/153 radial comparison. | Run #44650913407 PASS: 103/153 radial comparison; PR reports maximum relevant difference 0.11693%. |
 | `croon-c1-10mev-grid-convergence.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only; exact branch guard; grid convergence benchmark. | Run #44588729217 PASS (earlier revision). |
-| `croon-c1-10mev-high-order.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only after review fix; exact branch guard; compute/writeback lane. | Run #45296685605 was in progress at review time; do not claim completion. |
+| `croon-c1-10mev-high-order.yml` | path-filtered push + workflow_dispatch; contents: write; exact branch guard | Push paths cover this workflow, the C1 transport source, its regression test, and the SFHo profile; artifact upload precedes branch writeback and retries fetch/rebase/push. | Run #45301539094 PASS. Source commit `264f964`; source blob `009d2fd8`; test blob `79c8be8e`; profile SHA-256 `9fb14e79`. Python 3.13.18, NumPy 2.5.5, SciPy 1.18.1; 103 radial nodes (101 requested), 48 energy nodes, inner orders [16,10,10,10], angular order 128, susceptibility order 192, 121 couplings. Max B.13 detailed-balance residual `4.9743e-14`; final-muon shell residual `5.4649e-13`. Native JSON/CSV and SHA256SUMS committed at `d59d4fb`; artifact #14879108056. |
 | `croon-c1-10mev-result-archive.yml` | workflow_dispatch; contents: read | Manual-only; read-only archive/schema/integrity validation. | No workflow run located in the inspected branch history; static validation workflow only. |
-| `croon-c1-10mev-single-baseline.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only after review fix; exact branch guard; isolated single-mass run. | Run #45296692143 was in progress at review time; do not claim completion. |
+| `croon-c1-10mev-single-baseline.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only; exact branch guard; isolated single-mass run. | Run #45296692143 PASS. |
 | `croon-c1-adaptive-radial-output-audit.yml` | push + workflow_dispatch; contents: write; exact branch guard | Path-filtered push plus manual; exact branch guard; post-processes archived radial outputs. | Run #45296697349 PASS on the guarded revision. |
-| `croon-c1-b13-vector-transport.yml` | workflow_dispatch; contents: write; exact branch guard | Manual-only; exact branch guard; compute/writeback lane. | No workflow run located in the inspected branch history; manual compute lane. |
+| `croon-c1-b13-vector-transport.yml` | workflow_dispatch; contents: read; exact branch guard | Manual-only; exact branch guard; one-mass 10 MeV reduced-grid independent verification (33 radial, 24 energy, 31 coupling points); artifact-only, no repository writeback. | No workflow run located in the inspected branch history; the former six-mass Actions scan was removed in favor of the reduced independent check. |
 | `croon-semcompton-rate-regression.yml` | push + workflow_dispatch; contents: read | Path-filtered push plus manual; read-only; NumPy/SciPy/PyMuPDF versions unpinned. | No workflow run located in the inspected branch history; dependency versions remain unpinned. |
 | `export-a0-energy-source-bundle.yml` | push; contents: read | Path-filtered push; read-only; exports a 14-day source-bundle artifact for local computation. | Runs #45292814610, #45292809288 and #45292803011 PASS; source-bundle export only. |
 | `original-uv-goldstone-ward-regression.yml` | push + workflow_dispatch; contents: read | Path-filtered push plus manual; read-only; NumPy version unpinned. | Run #45232538324 PASS: 7 tests; vector/axial Ward residuals 2.252e-9 / 2.159e-9. |
@@ -51,10 +53,10 @@ Static review of the 15 workflow files introduced by PR #123, at branch commit `
 
 ## Remaining workflow improvements
 
-1. Split the 10 write-enabled workflows into read-only compute jobs and minimal, separately permissioned archive jobs where practical.
+1. Split the 9 remaining write-enabled workflows into read-only compute jobs and minimal, separately permissioned archive jobs where practical.
 2. Pin NumPy/SciPy/PyMuPDF in the two read-only regression workflows before treating their environment as reproducible.
 3. Pin third-party Actions to immutable commit SHAs in a separate maintenance change.
-4. Reassess the two in-progress runs before assigning a final execution status.
+4. Record exact runner CPU and memory metadata in future CI provenance; the high-order run records Linux x64, Python and pinned numerical dependencies but not the CPU model.
 
 ## Disposition
 

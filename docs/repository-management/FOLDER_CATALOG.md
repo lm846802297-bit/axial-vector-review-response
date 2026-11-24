@@ -1,34 +1,34 @@
 # Folder catalog
 
-Inventory snapshot measured on the first-batch integration branch `integration/b13-b16-first-batch-20261123`, based on main commit `276cb335d466d1c1864448bcd222fe60d7fdcdc8`. It includes the B.13/B.16 first-batch files and the central standards-adoption workflow; it is not yet a main-branch merge. Counts are structural Git-tree entries, not unique scientific results.
+Inventory snapshot measured on PR #123 branch `research/croon-vector-benchmark-and-rate-corrections-20261119`, based on main after PR #140 merge and before PR #123 merge. Counts are structural Git-tree entries, not unique scientific results.
 
 ## Repository footprint
 
-- **2,380 Git-tree entries:** 2,218 files and 162 directories.
-- **877 Markdown/text files:** 646 `.md` and 231 `.txt`.
+- **2,540 Git-tree entries:** 2,375 files and 165 directories.
+- **907 Markdown/text files:** 658 `.md` and 249 `.txt`.
 - **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 415 entries — 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 242 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Document coverage:** all 877 Markdown/text paths are registered exactly once. The 242 pending records are pre-existing imported documents now inventoried but not yet content-reviewed.
-- **Workflow inventory:** 125 YAML workflows — 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **Supplemental register:** 445 entries — 183 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 256 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Document coverage:** all 907 Markdown/text paths are registered exactly once. Five older pending documents were individually reviewed in the 91st review; 237 pre-existing documents remain pending (233 RC-001 archive files and four low-mass axial-vector package documents). Of the 26 new Croon/C1 documents, 7 are `PASS_WITH_NOTES` and 19 remain `PENDING`. The separately generated C1 high-order `SHA256SUMS` text manifest is also registered as `PASS_WITH_NOTES`.
+- **Workflow inventory:** 140 YAML workflows — 125 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 130 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 145 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 148 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 151 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,727 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,845 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
 | `弃用/` | 7 | Explicitly deprecated material; retain pending provenance/link checks. |
 | `计算脚本/` | 112 | Legacy calculation scripts, outputs and audit records. |
 | `附件/` | 4 | Supporting historical attachments. |
-| `[root]` | 13 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
+| `[root]` | 13 files + 14 top-level directories | Governance/navigation, current status, formal reply TeX/PDF and bibliography/style dependencies. |
 
-The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file post-PR #116 layout. The first-batch integration adds no root files; the active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
+The root has 13 files and 14 top-level directories. The Croon/Lai PR adds no root files. Counts include each top-level directory node.
 
 ## Directory ownership and migration boundaries
 

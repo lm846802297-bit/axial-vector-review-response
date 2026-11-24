@@ -6,6 +6,8 @@
 
 > **2026-11-07 验证更新：** 作者选择仅复现 Blinov et al. 作为矢量基准，不要求复现多篇文献或获得原始剖面。边界诊断复现、偏振归一化差异、光度曲线的未决问题及 223 MeV 端点误读的纠正见 [矢量基准核查](VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。B.7–B.19 的逐偏振产生率、吸收率、详细平衡和 Python 对照见 [逐偏振理论核查](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。既有曲线尚不能依据此次诊断认定完整物理验证通过。
 
+> **2026-11-24 Croon/Lai independent-vector benchmark update:** the C1 10 MeV pure-vector transport has an adaptive 153-node radial / 48-point energy result, 121 coupling points and mode-resolved $L,+,-$ output. Run [#45229265669](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45229265669) passed the stated radial and energy convergence checks; its structured records and native outputs are archived in [C1-10MeV-45229265669-a1](../../../results/C1-10MeV-45229265669-a1/README.md). The physical status remains **partial** because the outer 25--100 km B.13 semi-Compton opacity is omitted; no final SN1987A exclusion or axial-vector constraint is inferred from this vector benchmark. Croon and Lai remain independent comparison lanes, not replacements for the Blinov baseline.
+
 2026-11-06。这里给出可复算的 **固定剖面、弹道能量逃逸（ballistic cooling）条件性限制**，以及正式回复信所用的图、数值和验证依据。该结果包含产生端和吸收/衰变截获端；它不是完整流体演化、扩散输运或所有超新星观测的联合排除。
 
 ## 1. 本次完成什么，结论是什么

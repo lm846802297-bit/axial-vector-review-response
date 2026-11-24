@@ -3,6 +3,7 @@
 **Scope:** read-only baseline and adoption of the central three-tier scientific data storage policy.  
 **Repository:** `lm846802297-bit/axial-vector-review-response`  
 **Audited branch:** `main`  
+**Audited commit:** `871c9c57feb36ea0df549550bb4c307dacadb8cd` (main immediately before PR #141).  
 **Decision:** preserve all existing historical data; no bulk migration and no Git LFS conversion in this change.
 
 ## 1. Repository baseline
@@ -17,6 +18,8 @@
 - No root `.gitattributes` or `.lfsconfig` was found; the current tree contains no declared Git LFS configuration at those paths.
 
 The GitHub repository-size metadata and current-tree byte sum measure different things. The tree sum does not include historical-only Git objects or packfile compression and must not be reported as the repository's complete historical object size.
+
+The 2,218-blob inventory above is a frozen snapshot of the stated audited commit, not a live count for later commits. PR #141 added this audit record, and the subsequent Croon/Lai review work added further files. The storage decision below is based on the audited snapshot; later additions should be assessed against the same size thresholds before any storage migration is considered.
 
 ## 2. Largest current files
 

@@ -1,9 +1,10 @@
 # RC-001 upstream archive migration
 
-**Status:** archive transfer and byte-integrity verification complete; dependency audit complete; PR #135 awaits final review and merge.  
+**Status:** archive transfer, byte-integrity verification and dependency audit complete; PR [#135](https://github.com/lm846802297-bit/axial-vector-review-response/pull/135) merged into `main` on 2026-11-23.  
+**Merge commit:** `a1940523eb5e345a5a9c03a06b9e0f4f63f4d378`  
 **Source repository:** https://github.com/lm846802297-bit/high-energy-theory-research  
 **Frozen source main:** `b2dd8f7e4427d0292bc299d273c780c05021fdab`  
-**Target branch:** `migration/rc001-rehome-20261123`
+**Merged source branch:** `migration/rc001-rehome-20261123`
 
 ## Canonical archive
 
@@ -90,10 +91,10 @@ At the audited PR HEAD, GitHub reported zero workflow runs and zero check runs. 
 
 Source PR #9 and PR #14 are not part of the frozen source `main` snapshot. Their proposed changes remain separate and must not be represented as merged research results.
 
-## Remaining acceptance gates
+## Post-merge status
 
-1. Review the dependency-audit documentation on the updated PR HEAD.
-2. Complete PR review and merge.
-3. Only after merge and remote read-back verification, open a separate cleanup PR in the source infrastructure repository.
+1. PR #135 is merged into the target repository's `main` at `a1940523eb5e345a5a9c03a06b9e0f4f63f4d378`.
+2. A fresh Git-tree comparison against the frozen source commit confirms 480/480 mapped paths exist, all 480 Git blob SHAs match, all byte sizes match, and the total archived size is 14,283,294 bytes.
+3. The separate cleanup PR in the source infrastructure repository has not been opened; the frozen source repository still retains its original files. This is a separate infrastructure follow-up and does not affect the target archive's integrity acceptance.
 
-No physical calculation is rerun or modified by this archive migration. Software and archive checks are not physical validation.
+No physical calculation was rerun or modified by this archive migration. Software and archive checks are not physical validation.

@@ -1,0 +1,111 @@
+{
+  "title": "Croon C0 charge-conjugate muon opacity sensitivity — high-order summary",
+  "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
+  "reference_convention": "Literal C0 baseline follows the single mu-minus f_mu(E,+mu_mu) Fdeg convention quoted from Bollig et al.",
+  "sensitivity_convention": "Add f_mu(E,-mu_mu) for mu-plus to the susceptibility used in both local production and inverse semi-Compton opacity. This is a separate physical sensitivity, not the literal Croon baseline.",
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687,
+    "R_nu_km": 25.151168281622343,
+    "edge": {
+      "r_km": 22.1918936570485,
+      "T_MeV": 3.51524345680526,
+      "mu_mu_MeV": 0.999999834223691,
+      "chi_mu_minus_MeV3": 1.1351833714357841e-10,
+      "chi_mu_pm_MeV3": 1.7778325253819227e-10,
+      "chi_total_over_mu_minus": 1.5661192456803816
+    },
+    "R_nu": {
+      "chi_mu_minus_MeV3": 3.823645612797899e-13,
+      "chi_mu_pm_MeV3": 7.647291225595798e-13,
+      "chi_total_over_mu_minus": 2
+    }
+  },
+  "quadrature": {
+    "susceptibility_order": 256,
+    "local_energy_order": 96,
+    "optical_depth_energy_grid_points": 601,
+    "neutrino_flavours": [
+      "nu_mu",
+      "nu_tau"
+    ]
+  },
+  "target_published_solid_over_dashed_median": 3.3819,
+  "comparison": [
+    {
+      "g_X": 0.000003,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0000000002253537,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.0000000003250304,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.0000000002184615,
+      "mu_pm_Rnu_over_T3_ratio": 1.0000000003142364,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9999773408719421,
+      "mu_minus_only_gap_remaining": 3.381899999237876,
+      "mu_pm_gap_remaining": 3.3818999989007796
+    },
+    {
+      "g_X": 0.00001,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0000000026438358,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.0000000037543928,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.0000000025651423,
+      "mu_pm_Rnu_over_T3_ratio": 1.000000003631149,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9999826733041596,
+      "mu_minus_only_gap_remaining": 3.3818999910588117,
+      "mu_pm_gap_remaining": 3.381899987303019
+    },
+    {
+      "g_X": 0.0001,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0000002889455248,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.000000400823217,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.0000002805349728,
+      "mu_pm_Rnu_over_T3_ratio": 1.0000003876512482,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9999644022037697,
+      "mu_minus_only_gap_remaining": 3.381899022815412,
+      "mu_pm_gap_remaining": 3.3818986444565056
+    },
+    {
+      "g_X": 0.001,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0000314918106425,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.000042805374302,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.0000305732993,
+      "mu_pm_Rnu_over_T3_ratio": 1.0000413668463282,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9999131990099445,
+      "mu_minus_only_gap_remaining": 3.381793501199428,
+      "mu_pm_gap_remaining": 3.3817552427010384
+    },
+    {
+      "g_X": 0.01,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0034498037085917,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.0046040273056396,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.003346975365523,
+      "mu_pm_Rnu_over_T3_ratio": 1.004442811225161,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9987308199254009,
+      "mu_minus_only_gap_remaining": 3.370273218950298,
+      "mu_pm_gap_remaining": 3.3664009978840097
+    },
+    {
+      "g_X": 0.03,
+      "mu_minus_only_Rnu_over_Tedge_ratio": 1.0328408123191615,
+      "mu_pm_Rnu_over_Tedge_ratio": 1.0436723843403004,
+      "mu_minus_only_Rnu_over_T3_ratio": 1.031837551203962,
+      "mu_pm_Rnu_over_T3_ratio": 1.042085998687046,
+      "L_Rfar100_mu_pm_over_mu_minus": 0.9894342280488434,
+      "mu_minus_only_gap_remaining": 3.274367123822512,
+      "mu_pm_gap_remaining": 3.240384675060345
+    }
+  ],
+  "interpretation": [
+    "At the digitized edge, the equilibrium mu-plus susceptibility is 56.61% of the mu-minus susceptibility; at the extrapolated neutrinosphere point with mu_mu=0 it equals the mu-minus susceptibility.",
+    "At g_X=0.03, the source-weighted Rnu-to-100 km edge-temperature luminosity ratio rises from 1.03284081 to 1.04367238 when mu-plus is included.",
+    "The remaining ratio to the published median solid/dashed suppression is 3.24038468, so the charge-conjugate correction does not close the outer-opacity discrepancy.",
+    "The literal Croon/Bollig single-mu-minus convention remains the baseline. The mu-minus-plus-mu-plus result is recorded as a separate physical sensitivity.",
+    "The calculation uses a public inner-profile reconstruction and conditional edge continuation, not the raw Garching 25-100 km profile."
+  ],
+  "validation": {
+    "workflow_run": 44519016169,
+    "workflow_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169",
+    "tests_passed": 86,
+    "artifact_id": 14527216779,
+    "artifact_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169/artifacts/14527216779"
+  }
+}

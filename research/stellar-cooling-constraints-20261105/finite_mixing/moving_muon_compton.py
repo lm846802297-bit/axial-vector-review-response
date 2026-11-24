@@ -41,6 +41,45 @@ def _polarization_trace(prop_s, prop_u, spin_out, spin_in, gamma_vertex):
     return total * rates.E2
 
 
+def _spinor_matrix(momentum):
+    """Return the 4x2 positive-energy Dirac spinor matrix, normalized to ubar*u=2m."""
+    energy = momentum[..., 0]
+    spatial = momentum[..., 1:]
+    sx, sy, sz = rates._SIGMA
+    sigma_dot_p = (
+        spatial[..., 0, None, None] * sx
+        + spatial[..., 1, None, None] * sy
+        + spatial[..., 2, None, None] * sz
+    )
+    root = np.sqrt(energy + rates.M_MU)
+    u = np.empty(momentum.shape[:-1] + (4, 2), dtype=complex)
+    u[..., :2, :] = root[..., None, None] * np.eye(2)
+    u[..., 2:, :] = sigma_dot_p / root[..., None, None]
+    return u
+
+
+def _explicit_spinor_sum(
+    prop_s, prop_u, ubar_final, u_initial, gamma_vertex, photon_eps
+):
+    """Physical photon sum and explicit initial/final muon spin sum.
+
+    Unlike the covariant -g_{mu nu} trace, this positive sum does not subtract
+    large unphysical photon components. It remains stable when m_A' << omega
+    and the physical longitudinal polarization is nearly q^mu/m_A'.
+    """
+    total = None
+    for eps in photon_eps:
+        gamma_photon = rates._slash(eps)
+        amplitude = (
+            gamma_vertex @ prop_s @ gamma_photon
+            + gamma_photon @ prop_u @ gamma_vertex
+        )
+        spin_amplitude = ubar_final @ amplitude @ u_initial
+        term = np.sum(np.abs(spin_amplitude) ** 2, axis=(-2, -1)) / 2.0
+        total = term.copy() if total is None else total + term
+    return total * rates.E2
+
+
 def moving_muon_compton_rates(
     mass, energy, temperature, mu_mu,
     g_vector=0.0, g_axial=-1.0, orders=(12, 8, 8, 8)
@@ -134,8 +173,11 @@ def moving_muon_compton_rates(
     prop_u = (
         rates._slash(p_four-photon_four)+rates.M_MU*rates._I4
     )/den_u[..., None, None]
-    spin_out = rates._slash(p_four)+rates.M_MU*rates._I4
-    spin_in = rates._slash(p_final)+rates.M_MU*rates._I4
+    # Explicit positive-energy spinors avoid catastrophic cancellation in
+    # the covariant trace for m_A' << omega and the physical longitudinal mode.
+    u_final = _spinor_matrix(p_four)
+    u_initial = _spinor_matrix(p_final)
+    ubar_final = np.swapaxes(u_final.conj(), -2, -1) @ rates._GAMMA[0]
 
     eps_l_ax = np.array([k_a/mass, 0, 0, energy/mass], dtype=complex)
     eps_l_v = np.array(
@@ -160,6 +202,16 @@ def moving_muon_compton_rates(
         *w_phi[None, None, None, :]
         *(photon_energy/c_den)
     )
+    # Orthonormal real photon polarizations transverse to n_gamma.
+    zero = np.zeros_like(c_gamma + phi_b)
+    photon_eps = (
+        np.stack(np.broadcast_arrays(
+            zero, c_gamma*np.cos(phi_b), c_gamma*np.sin(phi_b), -sin_gamma
+        ), axis=-1),
+        np.stack(np.broadcast_arrays(
+            zero, -np.sin(phi_b), np.cos(phi_b), zero
+        ), axis=-1),
+    )
     # Includes two muon spin states and the integrated initial-muon azimuth.
     prefactor = 1.0/(128.0*math.pi**4*energy)
 
@@ -179,8 +231,8 @@ def moving_muon_compton_rates(
                 g_vector*rates._slash(eps_v)
                 +ga_charge*rates._slash(eps_a)@rates._G5
             )
-            m2 = _polarization_trace(
-                prop_s, prop_u, spin_out, spin_in, gamma_vertex
+            m2 = _explicit_spinor_sum(
+                prop_s, prop_u, ubar_final, u_initial, gamma_vertex, photon_eps
             )
             scale = max(float(np.max(np.abs(m2))), 1.0)
             minimum = float(np.min(m2))
@@ -252,11 +304,11 @@ def moving_muon_compton_rates(
     }
 
 
-def moving_muon_point_kernel(
+def moving_muon_point_kernel_trace(
     mass, energy, p_magnitude, cos_theta_mu, cos_theta_gamma, phi_gamma,
     g_vector=0.0, g_axial=-1.0, charge_sign=1.0
 ):
-    """Pointwise kernel plus photon-Ward residual for regression tests."""
+    """Covariant-trace point kernel retained as a moderate-mass diagnostic."""
     mass, energy, p_magnitude = map(float, (mass, energy, p_magnitude))
     cm, cg, phi = map(float, (cos_theta_mu, cos_theta_gamma, phi_gamma))
     gv, ga, charge_sign = map(float, (g_vector, g_axial, charge_sign))
@@ -313,6 +365,86 @@ def moving_muon_point_kernel(
         "matrix_element_squared_by_mode": m2_values,
         "photon_ward_relative_residual_by_mode": ward_values,
     }
+
+
+def moving_muon_point_kernel(
+    mass, energy, p_magnitude, cos_theta_mu, cos_theta_gamma, phi_gamma,
+    g_vector=0.0, g_axial=-1.0, charge_sign=1.0
+):
+    """Stable pointwise kernel using physical photon and explicit muon spins."""
+    mass, energy, p_magnitude = map(float, (mass, energy, p_magnitude))
+    cm, cg, phi = map(float, (cos_theta_mu, cos_theta_gamma, phi_gamma))
+    gv, ga, charge_sign = map(float, (g_vector, g_axial, charge_sign))
+    if mass <= 0 or energy < mass or p_magnitude < 0 or abs(cm) > 1 or abs(cg) > 1:
+        raise ValueError("Invalid pointwise kinematics")
+    if charge_sign not in (-1.0, 1.0):
+        raise ValueError("charge_sign must be +/-1")
+    k_a = math.sqrt(energy*energy-mass*mass)
+    e = math.hypot(rates.M_MU, p_magnitude)
+    p = np.array([
+        e, p_magnitude*math.sqrt(max(0.0, 1-cm*cm)), 0.0, p_magnitude*cm
+    ])
+    n = np.array([
+        math.sqrt(max(0.0, 1-cg*cg))*math.cos(phi),
+        math.sqrt(max(0.0, 1-cg*cg))*math.sin(phi), cg
+    ])
+    q = np.array([energy, 0.0, 0.0, k_a])
+    p_dot_q = e*energy-p[3]*k_a
+    c_den = e+energy-np.dot(p[1:], n)-k_a*cg
+    photon_energy = (mass*mass+2*p_dot_q)/(2*c_den)
+    photon = np.r_[photon_energy, photon_energy*n]
+    p_final = p+q-photon
+    shell = abs(
+        p_final[0]**2-np.dot(p_final[1:], p_final[1:])-rates.M_MU**2
+    )/rates.M_MU**2
+    den_s = mass*mass+2*p_dot_q
+    den_u = -2*(e*photon_energy-np.dot(p[1:], photon_energy*n))
+    prop_s = (rates._slash(p+q)+rates.M_MU*rates._I4)/den_s
+    prop_u = (rates._slash(p-photon)+rates.M_MU*rates._I4)/den_u
+    u_final = _spinor_matrix(p)
+    u_initial = _spinor_matrix(p_final)
+    ubar_final = u_final.conj().T @ rates._GAMMA[0]
+    eps_l_ax = np.array([k_a/mass, 0, 0, energy/mass], complex)
+    eps_l_v = np.array([-mass/(energy+k_a), 0, 0, mass/(energy+k_a)], complex)
+    eps_plus = np.array([0, 1, 1j, 0], complex)/math.sqrt(2)
+    eps_minus = np.array([0, 1, -1j, 0], complex)/math.sqrt(2)
+    modes = ((eps_l_v, eps_l_ax), (eps_plus, eps_plus), (eps_minus, eps_minus))
+    reference = np.array([0.0, 1.0, 0.0])
+    if abs(float(np.dot(reference, n))) > 0.9:
+        reference = np.array([1.0, 0.0, 0.0])
+    e1 = np.cross(reference, n)
+    e1 /= np.linalg.norm(e1)
+    e2 = np.cross(n, e1)
+    e2 /= np.linalg.norm(e2)
+    photon_eps = (np.r_[0.0, e1], np.r_[0.0, e2])
+    m2_values, ward_values = [], []
+    for eps_v, eps_a in modes:
+        vertex = gv*rates._slash(eps_v) + charge_sign*ga*rates._slash(eps_a)@rates._G5
+        physical_sum = 0.0
+        for eps in photon_eps:
+            gamma_photon = rates._slash(eps)
+            amplitude = (
+                vertex@prop_s@gamma_photon + gamma_photon@prop_u@vertex
+            )
+            spin_amplitude = ubar_final@amplitude@u_initial
+            physical_sum += float(np.sum(np.abs(spin_amplitude)**2))
+        ward_amplitude = (
+            vertex@prop_s@rates._slash(photon)
+            + rates._slash(photon)@prop_u@vertex
+        )
+        ward_spin = ubar_final@ward_amplitude@u_initial
+        ward_sum = float(np.sum(np.abs(ward_spin)**2))
+        m2_values.append(rates.E2*physical_sum/2.0)
+        ward_values.append(math.sqrt(ward_sum/max(physical_sum, 1.0e-300)))
+    return {
+        "photon_energy_MeV": float(photon_energy),
+        "final_muon_energy_MeV": float(p_final[0]),
+        "final_muon_shell_relative_error": float(shell),
+        "matrix_element_squared_by_mode": m2_values,
+        "photon_ward_relative_residual_by_mode": ward_values,
+    }
+
+
 
 
 def thermal_compton_emissivity(

@@ -1,9 +1,9 @@
 # Axial-vector Domain Extension to RCRPS v1.0.1
 
 **Status:** Project-specific extension to the centrally maintained RCRPS v1.0.1 standard.  
-**Central source commit:** 142267bc803c90aa681110293b66b73947bbcaa1
+**Central source commit:** 14155487afc075d301fa7f6cf452c7bff137e869
 
-The normative JSON record roles, common fields, source-control provenance, CSV contract, status semantics, and validation requirements are defined by the [central RCRPS v1.0.1 standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/STRUCTURED_RESULT_DATA_STANDARD_v1.0.1.md). This file defines only the axial-vector project's domain-specific metadata and local validator entry points.
+The normative JSON record roles, common fields, source-control provenance, CSV contract, status semantics, and validation requirements are defined by the [central RCRPS v1.0.1 standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/14155487afc075d301fa7f6cf452c7bff137e869/docs/STRUCTURED_RESULT_DATA_STANDARD_v1.0.1.md). This file defines only the axial-vector project's domain-specific metadata and local validator entry points.
 
 The local schemas and validator are synchronized byte-for-byte with the central copies at the pinned source commit. The local copies are retained because the repository's workflow validates files within this repository. Update them only through a reviewed downstream PR that also updates `research/standards-lock.yaml`.
 
@@ -35,7 +35,20 @@ The v1.0.0 schema remains available only for historical compatibility. New subst
 
 Use the `extensions` object in the common record schema. Keep these fields project-local; do not add them to common top-level fields.
 
-### 2.1 Supernova transport
+### 2.1 Central standards provenance
+
+For a run performed under a substantive Research Task Brief, include the central `extensions.standards_provenance` object in `run_manifest.json` with:
+
+- `central_repository` and `central_commit_sha`;
+- `lock_file_path` and `lock_file_sha256`;
+- `task_id`, `task_brief_path`, and `task_brief_sha256`;
+- `applied_profiles` and `project_extensions`.
+
+Generate the commit ID and hashes from the actual referenced objects. `applied_profiles` records the profiles applied to that run, not every profile adopted by the repository. Keep this object inside the existing open `extensions` namespace; do not change the adopted v1.0.1 base schema or historical records.
+
+The local RCRPS validator checks the base record schema and referenced result files. It does not independently validate the standards-provenance extension; use the central standards-adoption validator for that check.
+
+### 2.2 Supernova transport
 
 Under `extensions.supernova_transport`, record as applicable:
 
@@ -47,7 +60,7 @@ Under `extensions.supernova_transport`, record as applicable:
 - radial/energy/angular integration nodes, local-kernel quadrature order, integrator, and tolerances;
 - per-channel/per-polarization local rates, optically thin luminosities, optical depths, escape probabilities, and total luminosity.
 
-### 2.2 UV–EFT and loop calculations
+### 2.3 UV–EFT and loop calculations
 
 Record VLL/scalar parameters, renormalization scheme and scale, gauge and (gamma_5) conventions, IR treatment, operator basis, matching scale, and diagram/counterterm coverage. Different physical models and benchmarks require distinct `run_id` values.
 

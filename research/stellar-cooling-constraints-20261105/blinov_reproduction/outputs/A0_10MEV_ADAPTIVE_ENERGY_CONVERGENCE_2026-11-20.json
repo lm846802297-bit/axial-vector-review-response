@@ -1,0 +1,156 @@
+{
+  "title": "A0 10 MeV adaptive-radial energy-order convergence",
+  "status": "PASS",
+  "reference": {
+    "path": "outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json",
+    "sha256": "e168da3ba5040d6642295450910edda5a4ad4473d35da4f5b808ee59a37a02ce",
+    "radial_points": 153,
+    "energy_order": 32
+  },
+  "refined": {
+    "json_path": "outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.json",
+    "csv_path": "outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.csv",
+    "sha256_json": "d8b6d70bf138b3028832bd07a8048d9903dfc5dfe6d37f1b833c600e6e6e6b47",
+    "sha256_csv": "46c066183999bf7151ec5327ea3b0f9ff76a8e94f59acb2a7301070737352af0",
+    "radial_points": 153,
+    "energy_order": 48
+  },
+  "fixed_parameters": {
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "theta_mu_R": 0.01,
+    "gV_mu_over_gX": 9.99966667111108e-05,
+    "gA_mu_over_gX": -0.9999000033332889,
+    "neutrino_couplings_over_gX": {
+      "nu_mu": 1.0,
+      "nu_tau": -1.0
+    },
+    "neutrino_angular_order": 128,
+    "susceptibility_order": 192,
+    "inner_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "coupling_count": 121,
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ],
+    "adaptive_radial": true
+  },
+  "comparison_definition": "The full 121-point coupling curves are compared for both outer boundaries and separately for L,+,-. The report also compares thin-source totals and modes, surface asymptotes, and the B.7 source against C1 on the identical 153-node, energy-48 grid. Pointwise relative differences are evaluated only above 1e-8 of the reference curve peak; normalized absolute differences are reported over the full curve.",
+  "target": 0.0001,
+  "coupling_grid_max_relative_difference": 2.1744879259163421e-16,
+  "maximum_over_all_reported_metrics": 8.160358994668485e-08,
+  "total_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 6.181514944545664e-08,
+      "max_pointwise_relative_difference_above_1e-8_peak": 6.181514944545664e-08,
+      "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 4.7726620571279286e-08,
+      "max_pointwise_relative_difference_above_1e-8_peak": 6.546533049116626e-08,
+      "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+    }
+  },
+  "mode_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 7.607221191038885e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 8.160358994668485e-08,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 3.1957457240826306e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 5.396554776629701e-08,
+        "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 3.2098171379615655e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 5.099556235193324e-08,
+        "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+      }
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 5.3735300736858234e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 7.959033735887889e-08,
+        "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 7.0586139045442555e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 1.3253640846885441e-08,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 5.972629720412264e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 8.425123295784776e-09,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+      }
+    }
+  },
+  "thin_source_total_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": 1.4914234166524578e-10,
+    "B13_mu_minus": 2.6971010303607745e-11,
+    "B13_mu_plus": 6.534865640734809e-16,
+    "B13_mu_pm": 2.6786611947313798e-11,
+    "B7_plus_B13": 1.0238925043573304e-11,
+    "Croon_Eq47_mu_minus_only": 2.471926132924844e-15
+  },
+  "thin_source_mode_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": {
+      "L": 5.698244665510489e-11,
+      "+": 1.7304511492524876e-11,
+      "-": 3.664771294096132e-10
+    },
+    "B13_mu_minus": {
+      "L": 2.7373752421187523e-11,
+      "+": 1.5967663033799122e-11,
+      "-": 1.596851724997133e-11
+    },
+    "B13_mu_plus": {
+      "L": 2.4392886754958583e-15,
+      "+": 7.535368638365236e-14,
+      "-": 7.511516096603855e-14
+    },
+    "B13_mu_pm": {
+      "L": 2.7186768466765306e-11,
+      "+": 1.5857112308298545e-11,
+      "-": 1.585793498237211e-11
+    },
+    "B7_plus_B13": {
+      "L": 2.4153313944832962e-11,
+      "+": 5.668241345327934e-12,
+      "-": 2.3855260365236013e-10
+    }
+  },
+  "surface_asymptote_mode_relative_changes": {
+    "L": 3.463005071721363e-08,
+    "+": 3.4630050162630375e-08,
+    "-": 3.463005002398456e-08
+  },
+  "surface_asymptote_high_g_relative_residuals": {
+    "L": 4.159374135473572e-16,
+    "+": 6.932290225789287e-16,
+    "-": 4.159374135473572e-16
+  },
+  "B7_unchanged_against_C1_153node_energy48": {
+    "total_relative_difference": 1.3770218205966729e-16,
+    "per_mode_relative_differences": {
+      "L": 0.0,
+      "+": 0.0,
+      "-": 0.0
+    }
+  },
+  "max_quadpack_relative_error_estimate": 4.890950852625319e-08,
+  "max_mode_sum_relative_residual": 1.9232393730565026e-16,
+  "detailed_balance": {
+    "max_B7_mode_residual": 3.295430550940328e-14,
+    "max_B13_charge_mode_residual": 6.876085485811427e-14,
+    "max_final_muon_shell_relative_error": 5.380211888635872e-13
+  },
+  "scope": "A0 10 MeV energy-order convergence on the reconstructed SFHo-18.8 interior profile. Outer 25--100 km semi-Compton opacity is omitted; this is not an SN1987A exclusion curve."
+}

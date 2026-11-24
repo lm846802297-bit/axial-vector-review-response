@@ -1,0 +1,139 @@
+{
+  "title": "C1 10 MeV adaptive radial energy-order convergence",
+  "status": "PASS",
+  "reference": {
+    "path": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+    "radial_points": 153,
+    "energy_order": 32,
+    "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295"
+  },
+  "refined": {
+    "json_path": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+    "csv_path": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+    "radial_points": 153,
+    "energy_order": 48,
+    "sha256_json": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0",
+    "sha256_csv": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e"
+  },
+  "fixed_parameters": {
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "neutrino_angular_order": 128,
+    "susceptibility_order": 192,
+    "inner_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "coupling_count": 121,
+    "coupling_range": [
+      1e-11,
+      1.0
+    ],
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ],
+    "adaptive_radial": true
+  },
+  "comparison_definition": "Full 121-point curves are compared pointwise. Both the maximum absolute difference divided by the reference curve peak and the maximum pointwise relative difference where the reference exceeds 1e-8 of its peak are reported. Thin-source channel/mode integrals and surface asymptotes are compared separately.",
+  "target": 0.0001,
+  "maximum_over_all_reported_metrics": 1.3031064843244444e-07,
+  "total_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 2.1050183555695878e-08,
+      "max_pointwise_relative_difference_above_1e-8_peak": 3.4630050717213577e-08,
+      "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 2.0198768795173157e-09,
+      "max_pointwise_relative_difference_above_1e-8_peak": 4.6678010508748025e-08,
+      "at_g_X_max_absolute_difference": 8.576958985908945e-09
+    }
+  },
+  "mode_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 1.8257367137931077e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 3.463005099450518e-08,
+        "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 3.822588148617885e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 6.098631279203516e-08,
+        "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 3.6151567593560855e-08,
+        "max_pointwise_relative_difference_above_1e-8_peak": 5.023654939530942e-08,
+        "at_g_X_max_absolute_difference": 3.7583740428844355e-08
+      }
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 3.60567977780685e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 3.849896505703581e-08,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 6.6508521995308855e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 8.429976630205894e-09,
+        "at_g_X_max_absolute_difference": 1.3081774742601928e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 1.2931985821606614e-09,
+        "max_pointwise_relative_difference_above_1e-8_peak": 1.3031064843244444e-07,
+        "at_g_X_max_absolute_difference": 1.6155980984398728e-08
+      }
+    }
+  },
+  "thin_source_total_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": 1.4914220396306372e-10,
+    "B13_mu_minus": 1.1886026349422963e-11,
+    "B13_mu_plus": 1.224585112613139e-13,
+    "B13_mu_pm": 1.1805106695170687e-11,
+    "B7_plus_B13": 1.2637565121688472e-10,
+    "Croon_Eq47_mu_minus_only": 2.471926132924844e-15
+  },
+  "thin_source_mode_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": {
+      "L": 5.698244665510489e-11,
+      "+": 1.7304511492524876e-11,
+      "-": 3.664771294096132e-10
+    },
+    "B13_mu_minus": {
+      "L": 1.6156003927164585e-11,
+      "+": 1.1815837435317071e-11,
+      "-": 1.1815623589488077e-11
+    },
+    "B13_mu_plus": {
+      "L": 2.7237013589855634e-12,
+      "+": 8.347423227793457e-14,
+      "-": 8.347423227793457e-14
+    },
+    "B13_mu_pm": {
+      "L": 1.6070804063020737e-11,
+      "+": 1.1734884610225804e-11,
+      "-": 1.1734884610225804e-11
+    },
+    "B7_plus_B13": {
+      "L": 5.642699362081079e-11,
+      "+": 1.1354406000410361e-11,
+      "-": 2.933430680322251e-10
+    }
+  },
+  "surface_asymptote_mode_relative_changes": {
+    "L": 3.463005071721363e-08,
+    "+": 3.4630050162630375e-08,
+    "-": 3.463005002398456e-08
+  },
+  "max_quadpack_relative_error_estimate": 5.778377017322402e-08,
+  "max_mode_sum_relative_residual": 2.0697248493930658e-16,
+  "detailed_balance": {
+    "max_B7_mode_residual": 3.295430550940328e-14,
+    "max_B13_charge_mode_residual": 6.077111168812619e-14,
+    "max_final_muon_shell_relative_error": 5.380211888635872e-13
+  },
+  "scope": "10 MeV C1 interior-profile energy convergence for the adaptive radial integral. It does not add the unavailable outer 25--100 km semi-Compton opacity and is not an SN1987A exclusion curve."
+}

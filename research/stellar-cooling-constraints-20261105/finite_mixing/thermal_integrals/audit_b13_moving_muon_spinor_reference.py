@@ -2,7 +2,7 @@
 
 This audit does not reuse the production Dirac trace to form the reference:
 it builds on-shell Dirac spinors, sums explicit initial/final muon spins and
-two physical photon polarizations, and compares with moving_muon_point_kernel.
+two physical photon polarizations, and compares with the retained covariant-trace point kernel.
 All energies and masses are in MeV.
 """
 from __future__ import annotations
@@ -21,7 +21,9 @@ ROOT = FINITE_MIXING.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from finite_mixing.moving_muon_compton import moving_muon_point_kernel
+from finite_mixing.moving_muon_compton import (
+    moving_muon_point_kernel_trace as moving_muon_point_kernel,
+)
 
 M_MU = 105.6583755
 E2 = 4.0 * math.pi / 137.035999084

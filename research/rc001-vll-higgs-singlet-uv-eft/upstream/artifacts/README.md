@@ -1,8 +1,8 @@
 # Artifacts
 
-Versioned snapshots of research sources and computational artifacts that are too large, too binary, or too numerous to review line-by-line in ordinary text diffs. Per §8 of the [workflow specification](../docs/scientific-diff-workflow.md), each bundle records provenance, content hashes, and a human-readable summary rather than relying on the diff alone.
+Versioned snapshots of research sources and computational artifacts that are too large, too binary, or too numerous to review line-by-line in ordinary text diffs. Per §8 of the [workflow specification](https://github.com/lm846802297-bit/high-energy-theory-research/blob/b2dd8f7e4427d0292bc299d273c780c05021fdab/docs/scientific-diff-workflow.md), each bundle records provenance, content hashes, and a human-readable summary rather than relying on the diff alone.
 
-Bundles are **immutable**. Adopting a later source revision means adding a new bundle directory, not editing an existing one. Store the required extracted/native files directly inside the bundle; do not create a new ZIP/TAR archive as a substitute for those files. For run-level result submission and large-file alternatives, follow the [calculation-result archival policy](../docs/CALCULATION_RESULT_ARCHIVAL_POLICY.md).
+Bundles are **immutable**. Adopting a later source revision means adding a new bundle directory, not editing an existing one. Store the required extracted/native files directly inside the bundle; do not create a new ZIP/TAR archive as a substitute for those files. For run-level result submission and large-file alternatives, follow the [calculation-result archival policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/b2dd8f7e4427d0292bc299d273c780c05021fdab/docs/CALCULATION_RESULT_ARCHIVAL_POLICY.md).
 
 ## Bundles
 

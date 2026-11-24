@@ -4,6 +4,7 @@
 
 | 审查记录 | 内容 |
 |---|---|
+| [CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md](CROON_LAI_A0_C1_WORKFLOW_REVIEW_2026-11-24.md) | PR #123 新增的 15 个 Croon/Lai A0/C1 工作流：触发器、权限、分支保护、依赖、运行证据及物理适用边界 |
 | [FIRST_BATCH_B13_B16_AND_GOVERNANCE_WORKFLOW_REVIEW_2026-11-23.md](FIRST_BATCH_B13_B16_AND_GOVERNANCE_WORKFLOW_REVIEW_2026-11-23.md) | B.13/B.16 首批五个工作流及两个此前遗漏的治理工作流：权限、触发条件、运行环境、执行证据和物理验收边界 |
 | [C4C4_WORKFLOW_REVIEW_2026-11-17.md](C4C4_WORKFLOW_REVIEW_2026-11-17.md) | C4-C4 锚点扫描、积分收敛与全径向工作流 |
 | [B2_PATH_WORKFLOW_REVIEW_2026-11-17.md](B2_PATH_WORKFLOW_REVIEW_2026-11-17.md) | B.2 光学深度、径向源积分与 B.16 lapse 边界敏感性工作流 |

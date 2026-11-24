@@ -1,8 +1,22 @@
 # Independent Blinov vector reproduction
 
+> **Separate Croon and Lai vector benchmarks (2026-11-24):** these are independent literature-comparison lanes and do not modify the validated Blinov implementation. The Croon low-mass strong-coupling transport remains incomplete without the outer muon-opacity profile. The C1 10 MeV pure-vector 153x48 adaptive run is archived separately under [results/C1-10MeV-45229265669-a1](../../../results/C1-10MeV-45229265669-a1/README.md); its validation status is partial because the outer 25--100 km B.13 opacity is omitted and the final SN1987A exclusion is not computed.
+
+
 > **Checksum note (2026-11-17):** the original [2026-11-13 GR audit manifest](SHA256SUMS_10MEV_GR_PATH_AUDIT_2026-11-13.txt) matches historical commit `ba581642dd749d8a4c54ea9553a2c3d1baf839c3`. The [2026-11-14 current sidecar](SHA256SUMS_10MEV_GR_PATH_CURRENT_2026-11-14.txt) was refreshed after the B.2 report was extended on this maintenance branch; all five entries now match current Git bytes. Use that single corrected sidecar; no duplicate 2026-11-17 copy is needed. The current test module contains seven test methods, while the archived JSON summary and earlier B.2 report record six passing tests; no seven-test output log is committed, so the seventh method's pass status is not independently evidenced here. Neither checksum verification nor these unit tests closes the Fig. 7 physics gate. See [manifest audit](../../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md).
 
 This directory is a deliberately separate implementation of the **vector-boson** ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35). The word scalar below refers only to the paper's mode-summed (scalar) opacity treatment; it does not mean a scalar mediator.
+
+## Separate Croon and Lai vector benchmarks
+
+These modules are separate from the Blinov vector implementation and must not be used to overwrite its archived baseline:
+
+- [Croon Fig. 2 literal transport and unresolved outer opacity](../CROON_FIG2_LITERAL_TRANSPORT_PRELIMINARY_2026-11-19.md)
+- [Croon outer-profile and opacity-channel audit](../CROON_OUTER_PROFILE_SOURCE_AUDIT_2026-11-19.md)
+- [Croon/Lai benchmark scope and rate conventions](../CROON_VECTOR_BENCHMARK_SCOPE_AND_RATE_CORRECTIONS_2026-11-19.md)
+- [Lai 2024 plateau and equation-level comparison](../LAI2024_PLATEAU_BENCHMARK_AND_CROON_DIFFERENCES_2026-11-19.md)
+
+The literal Croon lane retains its stated $\\mu^-$ target convention. The separate $\\mu^-+\\mu^+$ sensitivity is reported independently and is not substituted into the literal benchmark. The Lai work checks printed equations and thin-shell plateau scaling; it is not a full Fig. 4 luminosity reproduction.
 
 ## Independence boundary
 
@@ -267,3 +281,15 @@ A high-order local polarization anchor shows that the exact-recoil moving-muon C
 The new [B.13 global polarization-resolved B.2 protocol and pilot results](../finite_mixing/thermal_integrals/B13_GLOBAL_POLARIZATION_TRANSPORT_PROTOCOL_2026-11-18.md) records the three distinct opacity conventions (published scalar sum, equal-occupation average, and independent-mode propagation), the 40/100/16/32 baseline closure, the support-edge test, and the low-order B.13 pilot. **The global mode-resolved result remains exploratory:** the high-order full-grid B.13 run has not passed convergence, and no SN1987A or axial-vector constraint is updated.
 
 The 10 MeV pilot uses the exact-recoil moving-muon B.13 kernel and keeps \\(\\mu^-\\) and \\(\\mu^+\\) separate. The mode-resolved extension must not be substituted for the published scalar B.2 curve until the polarization/state-counting derivation and full global convergence are complete.
+
+
+## C1 10 MeV adaptive 153x48 structured archive
+
+The latest independent C1 pure-vector transport run is [GitHub Actions #45229265669](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45229265669). Its self-contained archive is [results/C1-10MeV-45229265669-a1](../../../results/C1-10MeV-45229265669-a1/README.md), including the run manifest, result summary, validation report, 103/153-node radial data, 153x48 final transport, convergence reports, native checksums, and the profile snapshot.
+
+- 153 actual radial nodes, energy order 48, 121 coupling points, and $L,+,-$ polarization modes.
+- Radial 103/153 comparison: $1.16930\\times10^{-3}$ (acceptance threshold $1.2\\times10^{-3}$).
+- Energy 32/48 comparison: $1.30311\\times10^{-7}$ (acceptance threshold $10^{-4}$).
+- Maximum B.7 detailed-balance residual: $3.30\\times10^{-14}$; B.13 charge/mode residual: $6.08\\times10^{-14}$; final-muon shell residual: $5.38\\times10^{-13}$; three-mode closure residual: $2.21\\times10^{-16}$.
+- Physical status: **partial**. The outer 25--100 km B.13 semi-Compton opacity is omitted; no final SN1987A exclusion curve is computed. This is the pure-vector C1 endpoint, not an axial-vector result.
+
