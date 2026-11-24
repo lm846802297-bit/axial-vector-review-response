@@ -1,11 +1,6 @@
 name: Croon C1 10 MeV mode-resolved single-mass baseline
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - '.github/workflows/croon-c1-10mev-single-baseline.yml'
   workflow_dispatch:
 
 permissions:
