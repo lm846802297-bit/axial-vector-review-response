@@ -33,3 +33,11 @@ The source-relative layout is retained under `upstream/`. This keeps the origina
 - PR #9 and PR #14 from the source repository were open at migration time and are not included in the frozen `main` snapshot.
 - Use the model-application interface before transferring any archived result into the active Major 1 scalar two-point calculation or manuscript.
 - No calculation was rerun and no scientific validation status was changed by this migration.
+
+
+## Local verification artifacts
+
+The `verification/` directory contains scoped, independently reproducible review checks and their native text outputs. These files are separate from the frozen `upstream/` import and do not modify production calculation sources or archived upstream results.
+
+- `verification/RC-001-QLD-degree5-target-regression.py` and `.txt`: independent regression of the corrected scalar-degree selection, shifted light/heavy propagator expansions and d-dimensional angular-pairing structure counts. It does not repeat the production radial master integrations or hard-soft matching.
+- Each verification artifact is tied to the exact upstream producer Git blob and its runtime/output fingerprints in the dated repository review report.
