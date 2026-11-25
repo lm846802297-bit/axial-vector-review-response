@@ -4,7 +4,7 @@ Date opened: 2026-11-25
 Repository: lm846802297-bit/axial-vector-review-response
 Branch: research/axial-sn-paper-20261125
 Base: main at branch creation
-Status: ACTIVE — literature review and existing-work audit complete; new physical calculations not yet accepted.
+Status: ACTIVE — local model/Ward, moving-muon thermal, neutrino, and low-mass limit checks are accepted; radial mode-resolved transport remains the current gate.
 
 ## Research question
 
@@ -74,7 +74,7 @@ Acceptance:
 - Pin exact main/base commit, all reused source blob SHAs, profile SHA-256, paper versions/DOIs.
 - Full-text audit of the axial SN literature, especially Gori et al. and Das et al.; write a novelty matrix.
 - Explicitly distinguish paper-reported values from our independent calculations.
-Status: IN PROGRESS.
+Status: PARTIAL (the relevant literature set and reusable methods are identified; the full-text novelty matrix for Gori et al. and Das et al. remains open before manuscript drafting).
 
 ### WP1 — Exact local collision kernels
 Acceptance:
@@ -83,7 +83,7 @@ Acceptance:
 - Gauge Ward identities, positivity, threshold support, and mode-by-mode detailed balance pass.
 - Goldstone/ALP limit reproduced in its domain, with no double counting of the longitudinal mode.
 - Independent implementation/check of selected phase-space points.
-Status: PARTIAL (the B.13 kernel exists; full research acceptance not established).
+Status: PASS_WITH_NOTES (exact moving-muon local thermal rates, explicit-v-spinor charge map, mode-by-mode detailed balance, Goldstone-equivalent longitudinal limit, and conserved-vector limit have independent archived checks; a standalone pseudoscalar thermal integral is not claimed).
 
 ### WP2 — Complete radial inputs and transport
 Acceptance:
@@ -91,7 +91,7 @@ Acceptance:
 - Do not splice incompatible profiles without a quantified matching/provenance audit.
 - Include angular escape, decay, absorption, redshift/lapse consistently, or state and validate a controlled approximation.
 - Demonstrate path, radial, energy, angular and coupling-grid convergence.
-Status: PARTIAL (reconstructed interior profile and prior transport exist; outer opacity and profile provenance remain limitations).
+Status: PARTIAL (B.1/B.2 energy convention and polarization state counting are resolved; the exact moving-muon mode-resolved rates are not yet connected to the radial transport kernel, and the profile remains reconstructed rather than raw Garching data).
 
 ### WP3 — Axial SN luminosity and boundaries
 Acceptance:
@@ -99,7 +99,7 @@ Acceptance:
 - Extract free-streaming and trapping boundaries with uncertainty bands from profile and transport variations.
 - Reproduce vector control limits under the same numerical conventions before interpreting axial/vector differences.
 - Preserve the unresolved Blinov 10 MeV discrepancy as a systematic until resolved.
-Status: NOT STARTED for accepted final results.
+Status: NOT STARTED (no new axial parameter scan has been launched).
 
 ### WP4 — Independent physical validation
 Acceptance:
@@ -107,7 +107,7 @@ Acceptance:
 - Compare neutrino-only sector to the flavour-matched vector L_mu-L_tau control.
 - Check energy conservation/detailed balance and independent luminosity integration.
 - Quantify uncertainty and show that conclusions are stable under accepted profile variants.
-Status: NOT STARTED.
+Status: PARTIAL (local kernels and limiting cases pass; full radial transport and luminosity-level independent validation remain open).
 
 ### WP5 — Manuscript and archive
 Acceptance:
@@ -127,7 +127,9 @@ Status: NOT STARTED.
 
 ## Immediate next actions
 
-1. Finish WP0 full-text literature comparison and freeze the exact baseline revision.
-2. Inspect and run the existing A0 local benchmark from exact pinned sources; archive native output and environment.
-3. Identify the precise missing outer-shell muon response/opacity input and decide whether a defensible public-profile reconstruction exists.
-4. Only then extend the A0 scan beyond the existing 10 MeV pilot and compute accepted axial luminosities.
+1. Build exact moving-muon mode-resolved radial-energy tables for the three physical modes using the pinned reconstructed SFHo-18.8 profile.
+2. Combine those rates with the already validated \\(\nu_\\mu,\\nu_\\tau\\) inverse-decay production and absorption kernels.
+3. Feed each mode separately into the existing transport kernel, retaining the accepted B.1 local-source-energy and literal B.2 fixed-\\(\\omega\\) Euclidean-chord conventions.
+4. Complete source-weighted radial/energy interpolation, quadrature and angular-escape convergence; retain the scalar B.2 reproduction lane separately from physical mode-resolved transport.
+5. Only after WP2/WP4 pass, launch the 0.01--200 MeV axial parameter scan. Do not reuse the old stationary-muon fixed-profile contour as a final exclusion.
+6. In parallel before manuscript drafting, complete the full-text novelty matrix for Gori et al. (arXiv:2506.11191) and Das et al. (arXiv:2606.23769).
