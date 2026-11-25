@@ -174,3 +174,100 @@ The old fixed-profile axial scan uses an (N^2) luminosity weight and lower energ
 For the first clean transport control, retain the C1/A0 flat-space local-energy convention (no lapse/redshift) as a separately labeled approximation, then derive the conserved-(E_\infty) GR treatment as a distinct calculation. Do not mix the two conventions in a single rate or opacity integral.
 
 The 10 MeV Blinov high-absorption reproduction discrepancy remains deferred until original reference inputs are obtained. It is not a blocker for the local physics checks above.
+
+
+## 7. Decay widths and ballistic attenuation: independent analytic check
+
+For (m_{A'}<2m_\mu), only the two active-neutrino channels are open in the tree-level original model:
+[
+\Gamma_{\nu\bar\nu}^{\rm vac}=\frac{g_X^2m_{A'}}{12\pi}.
+]
+At the (m_{A'}=100) MeV, (g_X=4.99\times10^{-5}) benchmark:
+[
+\Gamma_{\nu\bar\nu}=6.60496\times10^{-12}\ {\rm GeV},\quad
+\tau_{A'}=9.96542\times10^{-14}\ {\rm s}.
+]
+For (E_{A'}=200) MeV, (eta\gamma=\sqrt3), hence
+[
+\ell_{\rm vac}=5.17460\times10^{-5}\ {\rm m}.
+]
+With (mu_{\nu_\tau}=0), each daughter occupation obeys (f\le1/2), so the (
+u_\tau\bar\nu_\tau) channel alone retains at least one quarter of its vacuum partial width. Since it carries half the total vacuum width,
+[
+\Gamma_{\rm med}\ge\Gamma_{\rm vac}/8,\qquad
+\ell_{\rm dec}\le8\ell_{\rm vac}=4.13968\times10^{-4}\ {\rm m}.
+]
+This is a conservative local decay-length bound, not a scattering mean free path and not a neutrino-transport result.
+
+Above dimuon threshold, the tree-level partial widths are
+[
+\Gamma_V=\frac{g_V^2m_{A'}}{12\pi}\beta_\mu(1+2r_\mu),\qquad
+\Gamma_A=\frac{g_A^2m_{A'}}{12\pi}\beta_\mu^3,
+]
+where (r_\mu=m_\mu^2/m_{A'}^2) and (eta_\mu=\sqrt{1-4r_\mu}). The integrated V--A interference vanishes in the vacuum total width; the mixed thermal angular distributions can nevertheless retain mode-dependent interference when the medium is charge asymmetric. At (	heta_{\mu R}=10^{-2}), the axial dimuon-to-neutrino width ratios are 0.02152 at 220 MeV, 0.35756 at 300 MeV, and 0.81967 at 600 MeV. Thus the dimuon channel is closed throughout the initial 0.01--200 MeV scan and becomes important above threshold.
+
+For a bosonic mode in local thermal equilibrium, the collision term has the form
+[
+C[f_{A'}]=\Gamma_{\rm prod}(1+f_{A'})-\Gamma_{\rm abs}f_{A'}.
+]
+Detailed balance gives (\Gamma_{\rm prod}=e^{-\omega_{\rm loc}/T}\Gamma_{\rm abs}), so the net attenuation coefficient is
+[
+\Gamma_{\rm red}=\Gamma_{\rm abs}-\Gamma_{\rm prod}
+=(1-e^{-\omega_{\rm loc}/T})\Gamma_{\rm abs}.
+]
+In a flat, static medium the ballistic survival probability is therefore
+[
+P_h=\exp\left[-\int_{\rm path}\frac{ds}{v_h}\,
+\Gamma_{{\rm red},h}(\omega_{\rm loc},r)\right].
+]
+This is the correct local kinetic-theory structure, provided each mode's source and opacity use the same local energy and the same polarization convention.
+
+## 8. Transport energy-frame issue: required correction before any new scan
+
+The old lapse-weighted axial transport routine combines a lower energy limit (m_{A'}/N(r)) and an (N^2) luminosity weight with a phase-space factor and local thermal rates evaluated on the same numerical energy grid; its path opacity also uses a fixed (v=\sqrt{1-m_{A'}^2/\omega^2}). This does not yet constitute a self-consistent conserved-energy GR transport prescription:
+
+- If the integration variable is (E_\infty), local rates must be evaluated at (\omega_{\rm loc}=E_\infty/N(r)), and local momentum and velocity must be (k_{\rm loc}=\sqrt{\omega_{\rm loc}^2-m_{A'}^2}) and (v_{\rm loc}=k_{\rm loc}/\omega_{\rm loc}).
+- If the integration variable is local energy, the local threshold is (\omega_{\rm loc}\ge m_{A'}); the (m_{A'}/N) lower limit is not appropriate.
+
+A consistent static-metric formulation is
+[
+L_\infty=\sum_h\int dV_{\rm proper}\,N^2
+\int\frac{d^3k_{\rm loc}}{(2\pi)^3}\,
+\omega_{\rm loc}\Gamma_{{\rm prod},h}(\omega_{\rm loc},r)
+\left\langle e^{-\tau_h(E_\infty,r,\Omega)}\right\rangle,
+\quad E_\infty=N(r)\omega_{\rm loc},
+]
+with, for a radial ray in (ds^2=-N^2dt^2+N^{-2}dr^2+r^2d\Omega^2),
+[
+\tau_h(E_\infty,r)=\int_r^{R}
+\frac{dr'}{N(r')v_{\rm loc}(r')}
+\Gamma_{{\rm red},h}\!\left(\frac{E_\infty}{N(r')},r'\right).
+]
+Nonradial paths require the corresponding geodesic and proper path element. The current old lapse-weighted curve is retained as a historical conditional calculation, not used as a validated GR result.
+
+The C1/A0 comparison lane with (N=1), local energy used consistently in rates, phase space and velocity, is a clean flat-space fixed-profile control. It is suitable for local-kernel and controlled transport comparisons, but it still lacks the validated 25--100 km moving-muon opacity and full angular transport required for a final SN1987A luminosity bound.
+
+## 9. Low-mass pseudoscalar and conserved-vector limits
+
+The high-energy longitudinal limit follows directly from
+[
+\epsilon_L^\mu=\frac{q^\mu}{m_{A'}}+O(m_{A'}/E_{A'}),
+\qquad
+q_\mu J_5^\mu=2im_\mu\bar\mu\gamma^5\mu.
+]
+The spin/polarization-summed independent amplitude check gave relative differences (2.03\times10^{-4}), (4.93\times10^{-5}), and (2.06\times10^{-5}) at (E_{A'}/m_{A'}=84.1,345.7,913.5), respectively.
+
+At the ultralight moving-muon point (m_{A'}=10^{-7}) MeV and (omega=5.33296\times10^{-4}) MeV, the pointwise matrix-element ratio ( |\mathcal M_L|^2/\langle|\mathcal M_T|^2\rangle ) is (1.10\times10^{-7}) for a conserved vector current, but (4.86\times10^3) for a pure axial current. This is the expected contrast between the conserved-vector Ward cancellation and the nonconserved axial-current longitudinal enhancement. These are local amplitude diagnostics, not integrated emissivities or exclusion limits.
+
+The thermal comparison with the corrected Bollig/Caputo muonic-pseudoscalar calculation remains a separate acceptance item: it must use the same (c_\mu) normalization, the same medium inputs, and matched kinematic approximations before quoting a transferred sensitivity.
+
+## 10. Updated ordered gate status
+
+| Ordered task | Status | Remaining acceptance item |
+|---|---|---|
+| 1. Axial current, Goldstone Ward identity, three polarizations | **PASS_WITH_NOTES** | Loop-level anomaly matching is separate from the tree-level result. |
+| 2. Moving-muon semi-Compton production/absorption matrix elements | **Pointwise PASS** | Run the full thermal phase-space kernel and convergence checks locally; direct (v)-spinor charge mapping is now checked. |
+| 3. Neutrino inverse decay, Pauli blocking, detailed balance | **PASS** | Integrate into the combined transport calculation. |
+| 4. Decay widths, optical depth, escape probability | **PARTIAL** | Local formulas pass; derive one consistent energy frame for GR transport and validate outer-shell opacity. |
+| 5. Low-mass pseudoscalar and vector limits | **PARTIAL** | Pointwise amplitude limits pass; complete the thermal-rate comparison with matched medium inputs. |
+| 6. Axial parameter scan | **NOT STARTED** | Begin only after Steps 1--5 pass. |
