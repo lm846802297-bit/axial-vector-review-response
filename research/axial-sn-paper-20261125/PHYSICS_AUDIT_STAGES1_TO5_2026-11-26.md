@@ -335,12 +335,10 @@ The existing moving-Compton validation gives:
 
 The full dimuon thermal momentum integral is also archived separately. Its 64/128/192-point energy-quadrature differences are at most \(8.73\times10^{-14}\), its maximum detailed-balance residual is \(5.62\times10^{-14}\), and the threshold axial/vector width-ratio check agrees to \(1.11\times10^{-15}\). The dimuon channel remains exactly closed for \(m_{A'}\le2m_\mu\).
 
-The neutrino inverse-decay kernel is common to the original axial model and the vector \(L_\mu-L_\tau\) control because the two active-flavor coupling magnitudes are both \(g_X\). The signs \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\) do not alter the separate inclusive rates. The independent 512-point B16 angular audit covers ten radii and seven energies and reports:
-- 48-point code versus direct production/absorption integrals: maximum \(4.01\times10^{-12}\);
-- B.4 reduced-absorption identity: \(6.81\times10^{-15}\);
-- B.10 detailed balance: \(6.82\times10^{-15}\);
-- closed-form Fermi-pair integral versus direct angular integral: \(4.19\times10^{-15}\);
-- 256/512-point direct quadrature difference: \(5.55\times10^{-15}\).
+The neutrino inverse-decay kernel is common to the original axial model and the vector \(L_\mu-L_\tau\) control because the two active-flavor coupling magnitudes are both \(g_X\). The signs \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\) do not alter the separate inclusive rates. Two distinct archived B16 checks are reused and their profile versions are kept separate:
+
+1. The B.7--B.10 closed-form audit covers 40 points: four radii \((8,10,12.5,15)\) km, five energies \((60,110,210,510,1010)\) MeV, and both active flavors. It uses the current vertex-preserving profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. The Eq. (B.9) closed form versus the repository pair average has maximum relative residual \(2.89\times10^{-15}\); direct angular orders 128, 256, 512 and 1024 give maxima \(2.89,3.11,2.66,3.11\times10^{-15}\). The B.7 two-flavor normalization and B.10/B.4 detailed-balance identity agree algebraically. This specific V8 result is not described as a Python rerun: its accompanying Python reproduction script was added but not executed in that V8 session.
+2. The separate direct mode-resolved inverse-decay audit uses a historical 501-node profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9. It covers ten radii and seven energies with a 512-point direct angular integral. The 48-point code versus direct production/absorption residuals are \(4.01\times10^{-12}\); analytic \(I\) versus direct angular integration is \(4.19\times10^{-15}\); the B.4 reduced-opacity residual is \(6.81\times10^{-15}\); the B.10 detailed-balance residual is \(6.82\times10^{-15}\); and the 256/512-point difference is \(5.55\times10^{-15}\). This historical-profile output is not merged numerically with the current-profile scan.
 
 The separate local independent check in this branch gives a maximum detailed-balance residual \(7.08\times10^{-16}\) for \(\mu_{\nu_\mu}=\pm45\) MeV, \(T=30\) MeV and \(\omega=40\) MeV, and verifies the circular-mode exchange under \(\mu_{\nu_\mu}\to-\mu_{\nu_\mu}\).
 
