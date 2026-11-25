@@ -128,8 +128,8 @@ Status: NOT STARTED.
 ## Immediate next actions
 
 1. Build exact moving-muon mode-resolved radial-energy tables for the three physical modes using the pinned reconstructed SFHo-18.8 profile.
-2. Combine those rates with the already validated \\(\nu_\\mu,\\nu_\\tau\\) inverse-decay production and absorption kernels.
-3. Feed each mode separately into the existing transport kernel, retaining the accepted B.1 local-source-energy and literal B.2 fixed-\\(\\omega\\) Euclidean-chord conventions.
+2. Combine those rates with the already validated \(\nu_\mu,\nu_\tau\) inverse-decay production and absorption kernels.
+3. Feed each mode separately into the existing transport kernel, retaining the accepted B.1 local-source-energy and literal B.2 fixed-\(\omega\) Euclidean-chord conventions.
 4. Complete source-weighted radial/energy interpolation, quadrature and angular-escape convergence; retain the scalar B.2 reproduction lane separately from physical mode-resolved transport.
 5. Only after WP2/WP4 pass, launch the 0.01--200 MeV axial parameter scan. Do not reuse the old stationary-muon fixed-profile contour as a final exclusion.
 6. In parallel before manuscript drafting, complete the full-text novelty matrix for Gori et al. (arXiv:2506.11191) and Das et al. (arXiv:2606.23769).
