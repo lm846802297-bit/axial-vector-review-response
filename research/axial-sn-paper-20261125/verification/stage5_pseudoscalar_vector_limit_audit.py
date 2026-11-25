@@ -93,7 +93,6 @@ def amplitude_level_ward_residual(mass, photon_energy, order=64):
     for c in z:
         p, k, q, pp, qabs, shell = kinematics(mass, photon_energy, float(c))
         nhat = q[1:] / np.linalg.norm(q[1:])
-        eps_l = np.r_[qabs / mass, q[0] * nhat / mass]
         ref = np.array([0., 1., 0.]) if abs(nhat[1]) < 0.9 else np.array([1., 0., 0.])
         e1 = np.cross(ref, nhat)
         e1 /= np.linalg.norm(e1)
