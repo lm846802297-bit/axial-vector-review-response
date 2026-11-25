@@ -97,6 +97,31 @@ It compared the direct (v)-spinor result against the (u)-spinor charge-conjugati
 
 This closes the explicit-(v)-spinor charge-conjugation gap for the sampled local amplitudes. It is a pointwise amplitude check, not a replacement for the full thermal phase-space integral.
 
+### 3.1 Moving-muon thermal phase-space normalization
+
+The thermal kernel follows the invariant absorption integral
+[
+\Gamma_{\rm abs,h}(q)=\frac{1}{2\omega_{A'}}
+\int d\Pi_p\,d\Pi_{p'}\,d\Pi_k\,
+(2\pi)^4\delta^{(4)}(p+q-p'-k)
+\overline{|\mathcal M_h|^2}
+f_\mu(E_p)[1-f_\mu(E_{p'})][1+f_\gamma(\omega_\gamma)].
+]
+The initial muon spin is averaged in the matrix element; the prefactor restores the two initial spin states. The initial muon azimuth is integrated by rotational symmetry, while the photon azimuth is integrated explicitly. With
+[
+t=\sqrt{(E_\mu-m_\mu)/T},\qquad
+\frac{p^2dp}{E_\mu}=2Tpt\,dt,
+]
+and the final-muon on-shell delta function, the photon-energy Jacobian is (\omega_\gamma/C), where
+[
+C=E_\mu+\omega_{A'}-\mathbf p_\mu\cdot\hat{\mathbf k}
+-|\mathbf q|\cos\theta_\gamma,qquad
+\omega_\gamma=\frac{m_{A'}^2+2p_\mu\cdot q}{2C}.
+]
+This gives the repository prefactor (1/(128\pi^4\omega_{A'})) with its stated spin and azimuth conventions. The rate sums the two physical photon polarizations (no initial-photon average) and computes one (A') mode at a time.
+
+The source implementation includes exact two-body recoil, both muon charges with (\mu_{\mu^\pm}=\pm\mu_\mu), Fermi blocking, photon Bose enhancement, and amplitude-level V--A interference. The independent moving-(v)-spinor comparison in §3 checks the positive-muon charge map. The existing `test_thermal_rates.py` contains cold-dilute, stationary-muon, Eq. (5.12) normalization, photon-Ward, and mode-by-mode detailed-balance regressions. Those archived tests were inspected; the complete high-dimensional thermal quadrature has not yet been rerun as a new local primary calculation.
+
 ## 4. Neutrino inverse-decay, blocking, and detailed balance
 
 For each active flavor, the vacuum width is
