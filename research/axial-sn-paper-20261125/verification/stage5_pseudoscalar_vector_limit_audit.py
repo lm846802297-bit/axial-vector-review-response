@@ -85,6 +85,7 @@ def spin_summed_mode(mass, photon_energy, cosine, eps_a, current):
     return total, shell, qabs
 
 
+
 def amplitude_level_ward_residual(mass, photon_energy, order=64):
     z, _ = np.polynomial.legendre.leggauss(order)
     y_goldstone = 2.0 * M / mass
@@ -93,6 +94,8 @@ def amplitude_level_ward_residual(mass, photon_energy, order=64):
     for c in z:
         p, k, q, pp, qabs, shell = kinematics(mass, photon_energy, float(c))
         nhat = q[1:] / np.linalg.norm(q[1:])
+        eps_l = np.r_[qabs / mass, q[0] * nhat / mass]
+        eps_l_shift = eps_l - q / mass
         ref = np.array([0., 1., 0.]) if abs(nhat[1]) < 0.9 else np.array([1., 0., 0.])
         e1 = np.cross(ref, nhat)
         e1 /= np.linalg.norm(e1)
@@ -121,7 +124,6 @@ def amplitude_level_ward_residual(mass, photon_energy, order=64):
                     max_vector_residual = max(max_vector_residual, float(vq/max(vt,1e-300)))
     return max_residual, max_vector_residual
 
-
 def integrated_cross_sections(mass, photon_energy, order=160):
     z, w = np.polynomial.legendre.leggauss(order)
     sig_a_l = sig_p = sig_v_l = sig_v_t = 0.0
@@ -131,6 +133,8 @@ def integrated_cross_sections(mass, photon_energy, order=160):
     for c, wc in zip(z, w):
         p, k, q, pp, qabs, shell = kinematics(mass, photon_energy, float(c))
         max_shell = max(max_shell, shell)
+        # d sigma / d cos(theta) differs only by a common factor q_cm/k_cm
+        # for all A' polarizations, so this weight is sufficient for ratios.
         phase = qabs / photon_energy * wc
         nhat = q[1:] / np.linalg.norm(q[1:])
         eps_l = np.r_[qabs / mass, q[0] * nhat / mass]
