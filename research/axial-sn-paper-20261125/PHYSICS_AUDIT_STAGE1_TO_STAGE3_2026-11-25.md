@@ -222,30 +222,26 @@ P_h=\exp\left[-\int_{\rm path}\frac{ds}{v_h}\,
 ]
 This is the correct local kinetic-theory structure, provided each mode's source and opacity use the same local energy and the same polarization convention.
 
-## 8. Transport energy-frame issue: required correction before any new scan
+## 8. Transport energy variable and path prescription: reuse the existing audit
 
-The old lapse-weighted axial transport routine combines a lower energy limit (m_{A'}/N(r)) and an (N^2) luminosity weight with a phase-space factor and local thermal rates evaluated on the same numerical energy grid; its path opacity also uses a fixed (v=\sqrt{1-m_{A'}^2/\omega^2}). This does not yet constitute a self-consistent conserved-energy GR transport prescription:
+The existing B16 energy-variable audit resolves the apparent B.1 ambiguity; the present work does not reopen it. Its conclusion is:
 
-- If the integration variable is (E_\infty), local rates must be evaluated at (\omega_{\rm loc}=E_\infty/N(r)), and local momentum and velocity must be (k_{\rm loc}=\sqrt{\omega_{\rm loc}^2-m_{A'}^2}) and (v_{\rm loc}=k_{\rm loc}/\omega_{\rm loc}).
-- If the integration variable is local energy, the local threshold is (\omega_{\rm loc}\ge m_{A'}); the (m_{A'}/N) lower limit is not appropriate.
+- In B.1, (\omega) is the **local energy at the production point**. The escape threshold (m_{A'}/N(r)) and the (N(r)^2) luminosity weight are consistent with (E_\infty=N(r)\omega_{\rm loc}).
+- The B.1 local-energy integral is exactly equivalent, after the change of variable (E_\infty=N(r)\omega_{\rm loc}), to an integral over conserved energy at infinity with the corresponding local momentum and local production kernel.
+- The literal B.2 expression inserts the same local numerical (\omega) into the opacity along the Euclidean chord. This is the published fixed-\(\omega) baseline retained in the existing vector reproduction.
+- A separate path-redshift-only diagnostic changes the local energy along the path according to
+  [
+  \omega_{\rm loc}(s)=\omega_{\rm src}\frac{N(r_{\rm src})}{N(r(s))},
+  ]
+  and recomputes the local opacity and speed. It retains Euclidean straight chords, so it is not a full GR propagation calculation.
 
-A consistent static-metric formulation is
-[
-L_\infty=\sum_h\int dV_{\rm proper}\,N^2
-\int\frac{d^3k_{\rm loc}}{(2\pi)^3}\,
-\omega_{\rm loc}\Gamma_{{\rm prod},h}(\omega_{\rm loc},r)
-\left\langle e^{-\tau_h(E_\infty,r,\Omega)}\right\rangle,
-\quad E_\infty=N(r)\omega_{\rm loc},
-]
-with, for a radial ray in (ds^2=-N^2dt^2+N^{-2}dr^2+r^2d\Omega^2),
-[
-\tau_h(E_\infty,r)=\int_r^{R}
-\frac{dr'}{N(r')v_{\rm loc}(r')}
-\Gamma_{{\rm red},h}\!\left(\frac{E_\infty}{N(r')},r'\right).
-]
-Nonradial paths require the corresponding geodesic and proper path element. The current old lapse-weighted curve is retained as a historical conditional calculation, not used as a validated GR result.
+The existing audit found that the path-redshift-only prescription shifts the 10 MeV vector strong-endpoint luminosity by (-28.8679\%\) relative to the fixed-\(\omega\) baseline, while not reproducing the published Fig. 7 curve. This is an already archived sensitivity result, not a new calculation in this audit. We reuse it without reopening the deferred original-input reproduction discrepancy.
 
-The C1/A0 comparison lane with (N=1), local energy used consistently in rates, phase space and velocity, is a clean flat-space fixed-profile control. It is suitable for local-kernel and controlled transport comparisons, but it still lacks the validated 25--100 km moving-muon opacity and full angular transport required for a final SN1987A luminosity bound.
+For the axial paper, keep the literal fixed-\(\omega\) prescription as the primary comparison convention and retain path-redshift-only as a separately labeled sensitivity branch. Do not describe either as full GR. A full GR extension would require a consistent spatial metric (A(r)) (or enclosed-mass profile) and geodesic propagation, in addition to the lapse.
+
+The C1/A0 flat-space local-energy lane remains a separate control convention with (N=1). Do not mix its local rates or optical depths with the lapse-weighted B.1/B.2 prescription.
+
+Existing evidence to reuse: `B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md` (Git blob `eb0794aafe7e4096b65aacf8c9c96c0b402120d0`). No reproduction rerun is required for this decision.
 
 ## 9. Low-mass pseudoscalar and conserved-vector limits
 
