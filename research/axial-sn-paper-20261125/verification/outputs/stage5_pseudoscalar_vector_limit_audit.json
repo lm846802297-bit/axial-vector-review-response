@@ -1,0 +1,326 @@
+{
+  "title": "Independent low-mass axial-to-pseudoscalar and conserved-vector limit audit",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "numpy": "2.3.5",
+  "source_sha256": "6263b808cada52991d95a41fc40a31ddb306a705c11343a5e0f2cbac903520d7",
+  "method": "Explicit Dirac spinors; exact two-diagram muon Compton amplitude; exact two-body recoil; 160-point Gauss-Legendre angular integration; common d sigma/d cos(theta) phase-space factor q_Aprime/E_gamma.",
+  "inputs": {
+    "muon_mass_MeV": 105.6583755,
+    "photon_energy_MeV": [
+      0.05,
+      0.1,
+      0.5,
+      1.0
+    ],
+    "mass_over_photon_energy": [
+      0.1,
+      0.01,
+      0.001
+    ],
+    "angular_order": 160
+  },
+  "cases": [
+    {
+      "mass_MeV": 0.005000000000000001,
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.10000000000000002,
+      "sigma_axial_longitudinal": 2109.0191200921863,
+      "sigma_pseudoscalar_unit_y": 1.1807681691002195e-06,
+      "goldstone_yukawa_per_gA": 42263.35019999999,
+      "sigma_goldstone_pseudoscalar": 2109.0772053075602,
+      "physical_L_vs_Goldstone_relative": 2.7540582785534617e-05,
+      "exact_qWard_relative_max": 1.634038225842733e-07,
+      "vector_L_over_T": 0.005002365118452503,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5002365118452501,
+      "vector_qWard_over_T_max": 1.0733712006110792e-23,
+      "max_final_muon_shell_relative_error": 3.2587594722203946e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.0005,
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.01,
+      "sigma_axial_longitudinal": 213009.49864283964,
+      "sigma_pseudoscalar_unit_y": 1.1925350178575646e-06,
+      "goldstone_yukawa_per_gA": 422633.50200000004,
+      "sigma_goldstone_pseudoscalar": 213009.5041951421,
+      "physical_L_vs_Goldstone_relative": 2.606598459298226e-08,
+      "exact_qWard_relative_max": 7.601170121365778e-07,
+      "vector_L_over_T": 5.002365109612374e-05,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5002365109612373,
+      "vector_qWard_over_T_max": 1.2359070370909725e-21,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 5e-05,
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.001,
+      "sigma_axial_longitudinal": 21303060.090642083,
+      "sigma_pseudoscalar_unit_y": 1.1926531280706068e-06,
+      "goldstone_yukawa_per_gA": 4226335.02,
+      "sigma_goldstone_pseudoscalar": 21303060.093238145,
+      "physical_L_vs_Goldstone_relative": 1.2186329723107292e-10,
+      "exact_qWard_relative_max": 9.013701717633808e-09,
+      "vector_L_over_T": 5.002365109619643e-07,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5002365109619643,
+      "vector_qWard_over_T_max": 9.172217040252586e-20,
+      "max_final_muon_shell_relative_error": 3.2587594722203946e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.010000000000000002,
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.10000000000000002,
+      "sigma_axial_longitudinal": 2106.0183900874727,
+      "sigma_pseudoscalar_unit_y": 4.716364062152326e-06,
+      "goldstone_yukawa_per_gA": 21131.675099999997,
+      "sigma_goldstone_pseudoscalar": 2106.0814890947822,
+      "physical_L_vs_Goldstone_relative": 2.9960382652016726e-05,
+      "exact_qWard_relative_max": 5.110466726638958e-08,
+      "vector_L_over_T": 0.005004728245325414,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5004728245325412,
+      "vector_qWard_over_T_max": 3.846916505722526e-24,
+      "max_final_muon_shell_relative_error": 3.2587594722203946e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.001,
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.01,
+      "sigma_axial_longitudinal": 212707.6827567788,
+      "sigma_pseudoscalar_unit_y": 4.763381312167635e-06,
+      "goldstone_yukawa_per_gA": 211316.75100000002,
+      "sigma_goldstone_pseudoscalar": 212707.69335983178,
+      "physical_L_vs_Goldstone_relative": 4.984799939489193e-08,
+      "exact_qWard_relative_max": 3.6770580059143023e-07,
+      "vector_L_over_T": 5.004728209989284e-05,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5004728209989284,
+      "vector_qWard_over_T_max": 4.594784025237713e-22,
+      "max_final_muon_shell_relative_error": 3.2587594722203946e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.0001,
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.001,
+      "sigma_axial_longitudinal": 21272876.759159997,
+      "sigma_pseudoscalar_unit_y": 4.763853251006385e-06,
+      "goldstone_yukawa_per_gA": 2113167.51,
+      "sigma_goldstone_pseudoscalar": 21272876.76797777,
+      "physical_L_vs_Goldstone_relative": 4.1450776144813517e-10,
+      "exact_qWard_relative_max": 1.686045534810018e-09,
+      "vector_L_over_T": 5.004728209388613e-07,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5004728209388613,
+      "vector_qWard_over_T_max": 4.6545602149124524e-20,
+      "max_final_muon_shell_relative_error": 3.2587594722203946e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.05,
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.1,
+      "sigma_axial_longitudinal": 2082.2553854855996,
+      "sigma_pseudoscalar_unit_y": 0.0001165809623843746,
+      "goldstone_yukawa_per_gA": 4226.3350199999995,
+      "sigma_goldstone_pseudoscalar": 2082.3583898359075,
+      "physical_L_vs_Goldstone_relative": 4.946523653692747e-05,
+      "exact_qWard_relative_max": 9.442856819695646e-10,
+      "vector_L_over_T": 0.005023562285842087,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5023562285842086,
+      "vector_qWard_over_T_max": 8.431536570658368e-26,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.005,
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.01,
+      "sigma_axial_longitudinal": 210317.5852006041,
+      "sigma_pseudoscalar_unit_y": 0.00011774645768005603,
+      "goldstone_yukawa_per_gA": 42263.3502,
+      "sigma_goldstone_pseudoscalar": 210317.6359233644,
+      "physical_L_vs_Goldstone_relative": 2.411721683470702e-07,
+      "exact_qWard_relative_max": 1.863276984422386e-08,
+      "vector_L_over_T": 5.0235614011906616e-05,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5023561401190662,
+      "vector_qWard_over_T_max": 1.0120911298672081e-23,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.0005,
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.001,
+      "sigma_axial_longitudinal": 21033853.206673935,
+      "sigma_pseudoscalar_unit_y": 0.00011775815667961693,
+      "goldstone_yukawa_per_gA": 422633.50200000004,
+      "sigma_goldstone_pseudoscalar": 21033853.256839983,
+      "physical_L_vs_Goldstone_relative": 2.385014630235105e-09,
+      "exact_qWard_relative_max": 1.3760524505678196e-10,
+      "vector_L_over_T": 5.023561392632326e-07,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5023561392632326,
+      "vector_qWard_over_T_max": 1.0715138431344553e-21,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.1,
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.1,
+      "sigma_axial_longitudinal": 2053.146823382633,
+      "sigma_pseudoscalar_unit_y": 0.00045981632835499065,
+      "goldstone_yukawa_per_gA": 2113.1675099999998,
+      "sigma_goldstone_pseudoscalar": 2053.2992041543907,
+      "physical_L_vs_Goldstone_relative": 7.421264833162855e-05,
+      "exact_qWard_relative_max": 2.781416621532384e-10,
+      "vector_L_over_T": 0.0050469308043759875,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5046930804375986,
+      "vector_qWard_over_T_max": 1.6371127107273986e-26,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.01,
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.01,
+      "sigma_axial_longitudinal": 207389.8404879753,
+      "sigma_pseudoscalar_unit_y": 0.00046442954315217334,
+      "goldstone_yukawa_per_gA": 21131.6751,
+      "sigma_goldstone_pseudoscalar": 207389.94083827536,
+      "physical_L_vs_Goldstone_relative": 4.838725525813103e-07,
+      "exact_qWard_relative_max": 5.332262727060877e-10,
+      "vector_L_over_T": 5.0469272588321063e-05,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5046927258832106,
+      "vector_qWard_over_T_max": 1.247885182087905e-24,
+      "max_final_muon_shell_relative_error": 1.6293797361101973e-16,
+      "angular_order": 160
+    },
+    {
+      "mass_MeV": 0.001,
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.001,
+      "sigma_axial_longitudinal": 20741061.847563922,
+      "sigma_pseudoscalar_unit_y": 0.00046447585093970347,
+      "goldstone_yukawa_per_gA": 211316.75100000002,
+      "sigma_goldstone_pseudoscalar": 20741061.947394323,
+      "physical_L_vs_Goldstone_relative": 4.8131768570769395e-09,
+      "exact_qWard_relative_max": 3.256903048047185e-11,
+      "vector_L_over_T": 5.046927223533773e-07,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5046927223533773,
+      "vector_qWard_over_T_max": 2.403396635310225e-22,
+      "max_final_muon_shell_relative_error": 1.6293794722203946e-16,
+      "angular_order": 160
+    }
+  ],
+  "convergence": [
+    {
+      "angular_order": 80,
+      "physical_L_vs_Goldstone_relative": 4.0657099908969485e-10,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5004728209958178
+    },
+    {
+      "angular_order": 160,
+      "physical_L_vs_Goldstone_relative": 4.1450776144813517e-10,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.5004728209388613
+    },
+    {
+      "angular_order": 240,
+      "physical_L_vs_Goldstone_relative": 4.1777059589520604e-10,
+      "vector_L_over_T_divided_by_m2_over_Egamma2": 0.500472820947962
+    }
+  ],
+  "amplitude_level_ward_checks": [
+    {
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.1,
+      "axial_goldstone_amplitude_relative_residual": 9.294476702479386e-08,
+      "vector_ward_amplitude_over_transverse_max": 8.214751217710345e-08
+    },
+    {
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.01,
+      "axial_goldstone_amplitude_relative_residual": 2.379084961844585e-07,
+      "vector_ward_amplitude_over_transverse_max": 6.754114260481542e-07
+    },
+    {
+      "photon_energy_MeV": 0.05,
+      "mass_over_photon_energy": 0.001,
+      "axial_goldstone_amplitude_relative_residual": 1.792246479813514e-07,
+      "vector_ward_amplitude_over_transverse_max": 8.529235854743428e-06
+    },
+    {
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.1,
+      "axial_goldstone_amplitude_relative_residual": 7.485242661720932e-08,
+      "vector_ward_amplitude_over_transverse_max": 5.722684646792649e-08
+    },
+    {
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.01,
+      "axial_goldstone_amplitude_relative_residual": 3.6960371560383674e-08,
+      "vector_ward_amplitude_over_transverse_max": 7.662439102574263e-07
+    },
+    {
+      "photon_energy_MeV": 0.1,
+      "mass_over_photon_energy": 0.001,
+      "axial_goldstone_amplitude_relative_residual": 4.3456251005154407e-08,
+      "vector_ward_amplitude_over_transverse_max": 6.568773547888112e-06
+    },
+    {
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.1,
+      "axial_goldstone_amplitude_relative_residual": 1.193863420799946e-09,
+      "vector_ward_amplitude_over_transverse_max": 4.5562186601408565e-10
+    },
+    {
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.01,
+      "axial_goldstone_amplitude_relative_residual": 2.2261097317986837e-09,
+      "vector_ward_amplitude_over_transverse_max": 4.073658456928257e-09
+    },
+    {
+      "photon_energy_MeV": 0.5,
+      "mass_over_photon_energy": 0.001,
+      "axial_goldstone_amplitude_relative_residual": 5.408494505683778e-09,
+      "vector_ward_amplitude_over_transverse_max": 7.249806207715864e-08
+    },
+    {
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.1,
+      "axial_goldstone_amplitude_relative_residual": 1.4475176426193468e-10,
+      "vector_ward_amplitude_over_transverse_max": 3.2735482650361516e-10
+    },
+    {
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.01,
+      "axial_goldstone_amplitude_relative_residual": 4.0849087015342365e-10,
+      "vector_ward_amplitude_over_transverse_max": 1.5084567694445255e-09
+    },
+    {
+      "photon_energy_MeV": 1.0,
+      "mass_over_photon_energy": 0.001,
+      "axial_goldstone_amplitude_relative_residual": 7.716462186437597e-10,
+      "vector_ward_amplitude_over_transverse_max": 1.1327577752527952e-08
+    }
+  ],
+  "summary": {
+    "max_axial_ward_relative_residual": 7.601170121365778e-07,
+    "max_axial_goldstone_amplitude_relative_residual": 2.379084961844585e-07,
+    "max_vector_ward_amplitude_over_transverse": 8.529235854743428e-06,
+    "max_physical_L_vs_Goldstone_relative_difference": 7.421264833162855e-05,
+    "max_conserved_vector_qWard_over_T": 9.172217040252586e-20,
+    "max_vector_coefficient_deviation_from_half": 0.00469308043759864,
+    "max_final_muon_shell_relative_error": 3.2587594722203946e-16
+  },
+  "acceptance": {
+    "axial_ward_identity": true,
+    "goldstone_equivalence_all_points": true,
+    "conserved_vector_ward_identity": true,
+    "vector_longitudinal_m2_suppression": true,
+    "final_muon_mass_shell": true,
+    "quadrature_convergence": true
+  },
+  "all_checks_pass": true
+}
